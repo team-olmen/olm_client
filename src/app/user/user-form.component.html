@@ -11,7 +11,7 @@
 		 			maxlength="100"
 					minlength="5"
 					required />
-			<details *ngIf="formErrors.username">{{formErrors.username}}</details>
+			<div class="dtls" *ngIf="formErrors.username">{{formErrors.username}}</div>
 		</li>
 		<li>
 			<label for="email">Email</label>
@@ -25,7 +25,7 @@
 					maxlength="100"
 		 			minlength="5"
 					required />
-			<details *ngIf="formErrors.email">{{formErrors.email}}</details>
+			<div class="dtls" *ngIf="formErrors.email">{{formErrors.email}}</div>
 		</li>
 		<li>
 			<label for="password">Passwort</label>
@@ -38,7 +38,7 @@
 		 			maxlength="100"
 					minlength="5"
 					required />
-			<details *ngIf="formErrors.password">{{formErrors.password}}</details>
+			<div class="dtls" *ngIf="formErrors.password">{{formErrors.password}}</div>
 		</li>
 		<li>
 			<label for="check">Passwort wiederholen</label>
@@ -51,13 +51,13 @@
 		 			maxlength="100"
 					minlength="5"
 					required />
-			<details *ngIf="formErrors.check">{{ formErrors.check }}</details>
+			<div class="dtls" *ngIf="formErrors.check">{{ formErrors.check }}</div>
 		</li>
 		<li>
 	</ul>
 
 	<menu class="bottom">
-		<a *ngIf="!model.id" class="btn btn-back" routerLink="/texts/view">zurück</a>	
+		<a *ngIf="!model.id" class="btn btn-back" routerLink="/dashboard">zurück</a>	
 		<button *ngIf="model.id" class="btn btn-back" (click)="back()">zurück</button>
 		<button type="submit" class="btn btn-submit" [disabled]="!form.form.valid">{{submitLabel}}</button>
 		<a *ngIf="model.id" class="btn btn-delete" [routerLink]="['/user/delete/', model.id]">Account löschen</a>

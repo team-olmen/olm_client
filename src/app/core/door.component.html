@@ -13,7 +13,7 @@
 				[(ngModel)]="model.username"
 				#username="ngModel"
 				required />
-			<details *ngIf="formErrors.username">{{formErrors.username}}</details>
+			<div class="dtls" *ngIf="formErrors.username">{{formErrors.username}}</div>
 		</li>
 		<li>
 			<label for="password">Passwort</label>
@@ -24,7 +24,7 @@
 				[(ngModel)]="model.password"
 				#password="ngModel"
 				required />
-			<details *ngIf="formErrors.password">{{formErrors.password}}</details>
+			<div class="dtls" *ngIf="formErrors.password">{{formErrors.password}}</div>
 		</li>
 	</ul>
 	<menu class="bottom">

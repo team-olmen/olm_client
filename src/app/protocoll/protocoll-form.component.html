@@ -12,7 +12,7 @@
 					maxlength="100"
 		 			minlength="1"
 					required />
-			<details *ngIf="formErrors.name">{{formErrors.name}}</details>
+			<div class="dtls" *ngIf="formErrors.name">{{formErrors.name}}</div>
 		</li>
 		<li>
 			<label for="text">Protokoll</label>
@@ -24,13 +24,13 @@
 		 			#text="ngModel"
 					required>
 			</textarea>
-			<details *ngIf="formErrors.text">{{formErrors.text}}</details>
+			<div class="dtls" *ngIf="formErrors.text">{{formErrors.text}}</div>
 		</li>
 	</ul>
 
 	<menu class="bottom">
 		<a *ngIf="!model.id" class="btn btn-back" routerLink="/dashboard">zurück</a>	
-		<button *ngIf="model.id" (click)="back()">zurück</button>
+		<button *ngIf="model.id" class="btn btn-back" (click)="back()">zurück</button>
 		<button class="btn btn-submit" type="submit" [disabled]="!form.form.valid">{{submitLabel}}</button>
 		<a *ngIf="model.id" class="btn btn-delete" [routerLink]="['/protocoll/delete/', model.id]">Protokoll löschen</a>
 	</menu>

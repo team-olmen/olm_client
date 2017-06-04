@@ -1,24 +1,18 @@
-<text-view></text-view>
-
 <ng-container *ngIf="item">
 	<menu class="top">
 		<button *ngIf="item.rated != 0" class="btn btn-rate"(click)="rate(0)">-</button>
-		<output>
-			{{item.rating}}
-		</output>
+		<strong>{{item.rating}}</strong>
 		<button *ngIf="item.rated != 1" class="btn btn-rate" (click)="rate(1)">+</button>
 		<a *ngIf="!discussion" class="btn btn-primary" [routerLink]="['/mcq/view', item.id]">ansehen / diskutieren</a>
 		<a class="btn btn-edit" [routerLink]="['/mcq/edit', item.id, 'current']">bearbeiten</a>
-		<ng-container *ngIf="auth.admin">
-			<a class="btn btn-primary"[routerLink]="['/mcq/history', item.id]">History</a>
-			<a class="btn btn-delete" [routerLink]="['/mcq/delete', item.id]">löschen</a>
-		</ng-container>
+		<a *ngIf="auth.admin" class="btn btn-primary"[routerLink]="['/mcq/history', item.id]">History</a>
+		<a class="btn btn-delete" [routerLink]="['/mcq/delete', item.id]">löschen</a>
 	</menu>
 	<div>{{item.question}}</div>
 	<ol>
 		<li *ngFor="let answer of item.answers">{{answer}}</li>
 	</ol>
-	<p>Die richtige Lösung ist: {{item.solution + 1}}</p>
+	<p>Die richtige Lösung lautet: <strong>{{item.solution + 1}}</strong></p>
 	<ng-container *ngIf=discussion>
 		<h2>Diskussion</h2>
 		<form (ngSubmit)="onSubmit()" #form="ngForm">
@@ -27,7 +21,8 @@
 			</ng-container>
 			<ul>
 				<li>
-					<label for="discussion">Discussion</label>
+					<label *ngIf="auth.admin" for="discussion">Verlauf</label>
+					<label *ngIf="!auth.admin" for="discussion">Dein Beitrag</label>
 					<textarea
 							type="text"
 							id="discussion"
@@ -39,6 +34,7 @@
 				</li>
 			</ul>
 			<menu class="bottom">
+				<button *ngIf="discussion" class="btn btn-back" (click)="back()">zurück</button>
 				<button class="btn btn-submit" type="submit" [disabled]="!form.form.valid">abschicken</button>
 			</menu>
 		</form>

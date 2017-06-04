@@ -10,11 +10,12 @@
 		 			#raw="ngModel"
 					required>
 			</textarea>
-			<details *ngIf="formErrors.raw">{{formErrors.raw}}</details>
+			<div class="dtls" *ngIf="formErrors.raw">{{formErrors.raw}}</div>
 		</li>
-		<li *ngIf="model?.generation">
+		<li>
 			<label for="generation">Generation</label>
 			<select
+					*ngIf="generationCats"
 		 			id="generation"
 					name="generation"
 		 			[(ngModel)]="model.generation"
@@ -24,9 +25,9 @@
 					{{generationCat.name}}
 				</option>
 			</select>
-			<details *ngIf="formErrors.generation">{{formErrors.generation}}</details>
+			<div class="dtls" *ngIf="formErrors.generation">{{formErrors.generation}}</div>
 		</li>
-		<li *ngIf="model?.original">
+		<li>
 			<label for="original">Prüfungsfrage</label>
 			<select
 		 			id="original"
@@ -38,7 +39,7 @@
 					{{originalCat.label}}
 				</option>
 			</select>
-			<details *ngIf="formErrors.original">{{formErrors.original}}</details>
+			<div class="dtls" *ngIf="formErrors.original">{{formErrors.original}}</div>
 		</li>
 		<li *ngIf="parent.auth.admin">
 			<label for="discussion">Discussion</label>
@@ -50,7 +51,7 @@
 		 			#discussion="ngModel"
 					>
 			</textarea>
-			<details *ngIf="formErrors.discussion">{{formErrors.discussion}}</details>
+			<div class="dtls" *ngIf="formErrors.discussion">{{formErrors.discussion}}</div>
 		</li>
 	</ul>
 

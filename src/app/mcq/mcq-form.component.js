@@ -25,7 +25,6 @@ var McqFormComponent = (function (_super) {
         _this.alertService = alertService;
         _this.olmService = olmService;
         _this.location = location;
-        _this.generationsCats = [];
         _this.originalCats = [
             { 'value': 1, 'label': 'Prüfungsfrage' },
             { 'value': 0, 'label': 'selbst erstellt (und damit besser ;) )' },
@@ -34,6 +33,7 @@ var McqFormComponent = (function (_super) {
             'raw': '',
             'discussion': '',
             'original': '',
+            'generation': '',
         };
         _this.validationMessages = {
             'raw': {
@@ -44,6 +44,7 @@ var McqFormComponent = (function (_super) {
             },
             'discussion': {},
             'original': {},
+            'generation': {},
         };
         return _this;
     }
@@ -52,7 +53,8 @@ var McqFormComponent = (function (_super) {
         var _this = this;
         this.olmService.apiReadAll('generation')
             .subscribe(function (result) {
-            _this.generationsCats = result;
+            _this.generationCats = result;
+            _this.model.generation = _this.model.generation ? _this.model.generation : result[0].id;
         });
     };
     McqFormComponent.prototype.handleServerError = function (error) {

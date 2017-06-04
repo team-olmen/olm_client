@@ -10,7 +10,7 @@
 		 			#path="ngModel"
 		 			pattern="^[A-Za-z0-9 ÄÖÜäöüß_\-:]+$"
 					required />
-			<details *ngIf="formErrors.path">{{formErrors.path}}</details>
+			<div class="dtls" *ngIf="formErrors.path">{{formErrors.path}}</div>
 		</li>
 		<li>
 			<label for="text">Text</label>
@@ -22,7 +22,7 @@
 		 			#text="ngModel"
 					required>
 			</textarea>
-			<details *ngIf="formErrors.text">{{formErrors.text}}</details>
+			<div class="dtls" *ngIf="formErrors.text">{{formErrors.text}}</div>
 		</li>
 		<li>
 			<label for="help">Hilfe</label>
@@ -34,7 +34,7 @@
 		 			#help="ngModel"
 					required>
 			</textarea>
-			<details *ngIf="formErrors.help">{{formErrors.help}}</details>
+			<div class="dtls" *ngIf="formErrors.help">{{formErrors.help}}</div>
 		</li>
 	</ul>
 

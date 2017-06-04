@@ -12,7 +12,7 @@
 					maxlength="100"
 		 			minlength="1"
 					required />
-			<details *ngIf="formErrors.name">{{formErrors.name}}</details>
+			<div class="dtls" *ngIf="formErrors.name">{{formErrors.name}}</div>
 		</li>
 		<li>
 			<label for="code">Code</label>
@@ -26,7 +26,7 @@
 					maxlength="10"
 		 			minlength="3"
 					required />
-			<details *ngIf="formErrors.code">{{formErrors.code}}</details>
+			<div class="dtls" *ngIf="formErrors.code">{{formErrors.code}}</div>
 		</li>
 	</ul>
 

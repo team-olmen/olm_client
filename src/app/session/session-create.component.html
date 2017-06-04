@@ -16,7 +16,7 @@
 					maxlength="100"
 		 			minlength="1"
 					required />
-			<details *ngIf="formErrors.name">{{formErrors.name}}</details>
+			<div class="dtls" *ngIf="formErrors.name">{{formErrors.name}}</div>
 		</li>
 		<li>
 			<label for="modules">Modul(e)</label>
@@ -33,7 +33,7 @@
 					{{module.code}}: {{module.name}}
 				</option>
 			</select>
-			<details *ngIf="formErrors.modules">{{formErrors.modules}}</details>
+			<div class="dtls" *ngIf="formErrors.modules">{{formErrors.modules}}</div>
 		</li>
 		<li>
 			<label for="number">Maximale Anzahl</label>
@@ -47,7 +47,7 @@
 					{{numberCat.label}}
 				</option>
 			</select>
-			<details *ngIf="formErrors.number">{{formErrors.number}}</details>
+			<div class="dtls" *ngIf="formErrors.number">{{formErrors.number}}</div>
 		</li>
 		<li>
 			<label for="rating">Bewertungen</label>
@@ -61,11 +61,12 @@
 					{{ratingCat.label}}
 				</option>
 			</select>
-			<details *ngIf="formErrors.rating">{{formErrors.rating}}</details>
+			<div class="dtls" *ngIf="formErrors.rating">{{formErrors.rating}}</div>
 		</li>
 		<li *ngIf="model.generation">
 			<label for="generation">Generation</label>
 			<select
+					*ngIf="generationCats"
 		 			id="generation"
 					name="generation"
 		 			[(ngModel)]="model.generation"
@@ -75,7 +76,7 @@
 					{{generationCat.name}}
 				</option>
 			</select>
-			<details *ngIf="formErrors.generation">{{formErrors.generation}}</details>
+			<div class="dtls" *ngIf="formErrors.generation">{{formErrors.generation}}</div>
 		</li>
 		<li>
 			<label for="original">"Original" Prüfungsfragen</label>
@@ -89,7 +90,7 @@
 					{{originalCat.label}}
 				</option>
 			</select>
-			<details *ngIf="formErrors.original">{{formErrors.original}}</details>
+			<div class="dtls" *ngIf="formErrors.original">{{formErrors.original}}</div>
 		</li>
 	</ul>
 
