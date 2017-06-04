@@ -1,0 +1,26 @@
+<form (ngSubmit)="parent.onSubmit()" #form="ngForm">
+	<ul>
+		<li>
+			<label for="name">Name</label>
+			<input
+					type="text"
+		 			id="name"
+					name="name"
+		 			[(ngModel)]="model.name"
+		 			#name="ngModel"
+		 			pattern="^[A-Za-z0-9 ÄÖÜäöüß_\-:]+$"
+					maxlength="100"
+		 			minlength="1"
+					required />
+			<details *ngIf="formErrors.name">{{formErrors.name}}</details>
+		</li>
+		<li>
+		</li>
+	</ul>
+	<menu class="bottom">
+		<a *ngIf="!model.id" class="btn btn-back" routerLink="/dashboard">zurück</a>	
+		<button *ngIf="model.id" class="btn btn-back" (click)="back()">zurück</button>
+		<button type="submit" class="btn btn-submit" [disabled]="!form.form.valid">{{submitLabel}}</button>
+		<a *ngIf="model.id" class="btn btn-delete" [routerLink]="['/exam/delete/', model.id]">Prüfungsart löschen</a>
+	</menu>
+</form>

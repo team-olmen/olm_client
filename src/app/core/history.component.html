@@ -1,0 +1,15 @@
+<h1>History</h1>
+
+<text-view></text-view>
+
+<ul>
+	<li *ngFor="let item of items">
+		{{item.history_timestamp}} {{item.history_status}} von
+		<a class="" [routerLink]="['/user/edit', item.history_user]">{{item.history_user}}</a>:
+		<a class="" [routerLink]="['/', type, 'edit', item.id, item.history_timestamp]">ansehen</a>
+	</li>
+</ul>
+
+<menu class="bottom">
+	<button class="btn btn-back" (click)="back()">zurück</button>
+</menu>

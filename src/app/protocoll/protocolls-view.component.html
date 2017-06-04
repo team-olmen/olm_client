@@ -1,0 +1,19 @@
+<h1>Protokolle</h1>
+
+<text-view></text-view>
+
+<ul>
+	<li *ngFor="let item of items">
+		<a [routerLink]="['/protocoll/view', item.id]">{{item.name}}</a>
+		<a [routerLink]="['/protocoll/edit', item.id, 'current']">bearbeiten</a>
+		<ng-container *ngIf="auth.admin">
+			<a [routerLink]="['/protocoll/delete', item.id]">löschen</a>
+			<a [routerLink]="['/protocoll/history', item.id]">History</a>
+		</ng-container>
+	</li>
+</ul>
+
+<menu class="bottom">
+	<button class="btn btn-back" (click)="back()">zurück</button>
+	<a class="btn btn-create" [routerLink]="['/protocoll/create/', id]">Protokoll anlegen</a>
+</menu>

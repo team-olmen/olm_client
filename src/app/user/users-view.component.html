@@ -1,0 +1,16 @@
+<h1>Benutzer</h1>
+
+<text-view></text-view>
+
+<ul>
+	<li *ngFor="let item of items">
+		<a [routerLink]="['/user/edit', item.id]">{{item.username}}</a>
+		<ng-container *ngIf="auth.admin">
+			<a class="btn btn-delete" [routerLink]="['/user/delete', item.id]">löschen</a>
+		</ng-container>
+	</li>
+</ul>
+
+<menu class="bottom">
+	<a class="btn btn-back" routerLink="/dashboard">zurück</a>
+</menu>

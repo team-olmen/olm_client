@@ -1,0 +1,37 @@
+<form (ngSubmit)="parent.onSubmit()" #form="ngForm">
+	<ul>
+		<li>
+			<label for="name">Name</label>
+			<input
+					type="text"
+		 			id="name"
+					name="name"
+		 			[(ngModel)]="model.name"
+		 			#name="ngModel"
+		 			pattern="^[A-Za-z0-9 ÄÖÜäöüß_\-:]+$"
+					maxlength="100"
+		 			minlength="1"
+					required />
+			<details *ngIf="formErrors.name">{{formErrors.name}}</details>
+		</li>
+		<li>
+			<label for="text">Protokoll</label>
+			<textarea
+					type="text"
+					id="text"
+					name="text"
+		 			[(ngModel)]="model.text"
+		 			#text="ngModel"
+					required>
+			</textarea>
+			<details *ngIf="formErrors.text">{{formErrors.text}}</details>
+		</li>
+	</ul>
+
+	<menu class="bottom">
+		<a *ngIf="!model.id" class="btn btn-back" routerLink="/dashboard">zurück</a>	
+		<button *ngIf="model.id" (click)="back()">zurück</button>
+		<button class="btn btn-submit" type="submit" [disabled]="!form.form.valid">{{submitLabel}}</button>
+		<a *ngIf="model.id" class="btn btn-delete" [routerLink]="['/protocoll/delete/', model.id]">Protokoll löschen</a>
+	</menu>
+</form>

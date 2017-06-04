@@ -1,0 +1,100 @@
+<h1>Deine nächste Session</h1>
+
+<text-view></text-view>
+
+<form (ngSubmit)="onSubmit()" #form="ngForm">
+	<ul>
+		<li>
+			<label for="name">Name</label>
+			<input
+					type="text"
+		 			id="name"
+					name="name"
+		 			[(ngModel)]="model.name"
+		 			#name="ngModel"
+		 			pattern="^[A-Za-z0-9 ÄÖÜäöüß_\-:]+$"
+					maxlength="100"
+		 			minlength="1"
+					required />
+			<details *ngIf="formErrors.name">{{formErrors.name}}</details>
+		</li>
+		<li>
+			<label for="modules">Modul(e)</label>
+			<select
+		 			id="modules"
+					name="modules"
+		 			[(ngModel)]="model.modules"
+		 			#modules="ngModel"
+					max="4"
+		 			min="1"
+					multiple
+					required>
+				<option *ngFor="let module of moduleList" [ngValue]="module.id">
+					{{module.code}}: {{module.name}}
+				</option>
+			</select>
+			<details *ngIf="formErrors.modules">{{formErrors.modules}}</details>
+		</li>
+		<li>
+			<label for="number">Maximale Anzahl</label>
+			<select
+		 			id="number"
+					name="number"
+		 			[(ngModel)]="model.number"
+		 			#number="ngModel"
+					required>
+				<option *ngFor="let numberCat of numberCats" [ngValue]="numberCat.value">
+					{{numberCat.label}}
+				</option>
+			</select>
+			<details *ngIf="formErrors.number">{{formErrors.number}}</details>
+		</li>
+		<li>
+			<label for="rating">Bewertungen</label>
+			<select
+		 			id="rating"
+					name="rating"
+		 			[(ngModel)]="model.rating"
+		 			#rating="ngModel"
+					required>
+				<option *ngFor="let ratingCat of ratingCats" [ngValue]="ratingCat.value">
+					{{ratingCat.label}}
+				</option>
+			</select>
+			<details *ngIf="formErrors.rating">{{formErrors.rating}}</details>
+		</li>
+		<li *ngIf="model.generation">
+			<label for="generation">Generation</label>
+			<select
+		 			id="generation"
+					name="generation"
+		 			[(ngModel)]="model.generation"
+		 			#generation="ngModel"
+					required>
+				<option *ngFor="let generationCat of generationCats" [ngValue]="generationCat.id">
+					{{generationCat.name}}
+				</option>
+			</select>
+			<details *ngIf="formErrors.generation">{{formErrors.generation}}</details>
+		</li>
+		<li>
+			<label for="original">"Original" Prüfungsfragen</label>
+			<select
+		 			id="original"
+					name="original"
+		 			[(ngModel)]="model.original"
+		 			#original="ngModel"
+					required>
+				<option *ngFor="let originalCat of originalCats" [ngValue]="originalCat.value">
+					{{originalCat.label}}
+				</option>
+			</select>
+			<details *ngIf="formErrors.original">{{formErrors.original}}</details>
+		</li>
+	</ul>
+
+	<menu class="bottom">
+		<a class="btn btn-back" routerLink="/dashboard">zurück</a>	
+		<button class="btn btn-submit" type="submit" [disabled]="!form.form.valid">Session erschaffen</button>
+	</menu>
+</form>

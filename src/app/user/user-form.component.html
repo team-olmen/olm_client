@@ -1,0 +1,65 @@
+<form (ngSubmit)="parent.onSubmit()" #form="ngForm">
+	<ul>
+		<li>
+			<label for="username">Username</label>
+			<input
+					type="text"
+		 			id="username"
+					name="username"
+		 			[(ngModel)]="model.username"
+		 			#username="ngModel"
+		 			maxlength="100"
+					minlength="5"
+					required />
+			<details *ngIf="formErrors.username">{{formErrors.username}}</details>
+		</li>
+		<li>
+			<label for="email">Email</label>
+			<input
+					type="email"
+		 			id="email"
+					name="email"
+		 			[(ngModel)]="model.email"
+		 			#email="ngModel"
+		 			pattern="^[a-zA-Z0-9.\-_]+@charite.de$"
+					maxlength="100"
+		 			minlength="5"
+					required />
+			<details *ngIf="formErrors.email">{{formErrors.email}}</details>
+		</li>
+		<li>
+			<label for="password">Passwort</label>
+			<input
+					type="password"
+		 			id="password"
+					name="password"
+		 			[(ngModel)]="model.password"
+		 			#password="ngModel"
+		 			maxlength="100"
+					minlength="5"
+					required />
+			<details *ngIf="formErrors.password">{{formErrors.password}}</details>
+		</li>
+		<li>
+			<label for="check">Passwort wiederholen</label>
+			<input
+					type="password"
+		 			id="check"
+					name="check"
+		 			[(ngModel)]="model.check"
+		 			#check="ngModel"
+		 			maxlength="100"
+					minlength="5"
+					required />
+			<details *ngIf="formErrors.check">{{ formErrors.check }}</details>
+		</li>
+		<li>
+	</ul>
+
+	<menu class="bottom">
+		<a *ngIf="!model.id" class="btn btn-back" routerLink="/texts/view">zurück</a>	
+		<button *ngIf="model.id" class="btn btn-back" (click)="back()">zurück</button>
+		<button type="submit" class="btn btn-submit" [disabled]="!form.form.valid">{{submitLabel}}</button>
+		<a *ngIf="model.id" class="btn btn-delete" [routerLink]="['/user/delete/', model.id]">Account löschen</a>
+	</menu>
+</form>

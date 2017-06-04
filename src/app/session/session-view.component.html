@@ -1,0 +1,35 @@
+<h1>{{session?.name}}</h1>
+
+<text-view></text-view>
+
+<ng-container *ngIf="session">
+	<menu class="top">
+		<button *ngIf="session.current > 0" class="btn btn-nav" (click)="previous()">&lt;-</button>
+		<output>
+			{{session.current + 1}} / {{session.total}}
+		</output>
+		<button *ngIf="session.current < session.total - 1" class="btn btn-nav" (click)="next()">-&gt;</button>
+	</menu>
+	<ng-container *ngIf="mcq">
+		<p>{{mcq.question}}</p>
+		<ol>
+			<li *ngFor="let answer of mcq.answers; index as i">
+				<a (click)="select(i)">{{answer}}</a>
+			</li>
+		</ol>
+		<ng-container *ngIf="session.status[session.current] < 2">
+			<p>
+			Your answer:<br />
+			{{session.getAnswer()+1}}) {{mcq.answers[session.getAnswer()]}}
+			</p>			
+			<p>
+			Correct Solution:<br />
+			{{mcq.solution + 1}}) {{mcq.answers[mcq.solution]}}
+			</p>
+		</ng-container>
+	</ng-container>
+</ng-container>
+
+<menu class="bottom">
+	<a class="btn btn-back" routerLink="/dashboard">zurück</a>
+</menu>
