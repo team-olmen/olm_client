@@ -14,7 +14,7 @@ import { OlmService } from '../services/olm.service';
 
 export class McqFormComponent extends AbstractTemplateForm {
 	@Input() model: Mcq;
-	generationsCats: any[] = [];
+	generationCats: any[];
 
 	constructor(
 		protected alertService: AlertService,
@@ -27,7 +27,8 @@ export class McqFormComponent extends AbstractTemplateForm {
 	ngOnInit() {
 		this.olmService.apiReadAll('generation')
 			.subscribe(result => {
-				this.generationsCats = result;
+				this.generationCats = result;
+				this.model.generation = this.model.generation ? this.model.generation : result[0].id;
 			});
 	}
 
@@ -40,6 +41,7 @@ export class McqFormComponent extends AbstractTemplateForm {
 		'raw': '',
 		'discussion': '',
 		'original': '',
+		'generation': '',
 	};
 
 	validationMessages = {
@@ -52,6 +54,8 @@ export class McqFormComponent extends AbstractTemplateForm {
 		'discussion': {
 		},
 		'original': {
+		},
+		'generation': {
 		},
 	};
 

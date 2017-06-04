@@ -22,7 +22,7 @@ export class SessionCreateComponent extends AbstractTemplateForm implements OnIn
 		'original': 2,
 		'number': 0,
 	};
-	generationsCats: any[] = [];
+	generationCats: any[];
 
 	constructor(
 		private route: ActivatedRoute,
@@ -41,10 +41,10 @@ export class SessionCreateComponent extends AbstractTemplateForm implements OnIn
 			});
 		this.olmService.apiReadAll('generation')
 			.subscribe(result => {
-				this.generationsCats = [];
-				this.generationsCats.push({'id': 0, 'name': 'alle'});
+				this.generationCats = [];
+				this.generationCats.push({'id': 'all', 'name': 'alle'});
 				for (let i in result) {
-					this.generationsCats.push(result[i]);
+					this.generationCats.push(result[i]);
 				}
 			});
 	}

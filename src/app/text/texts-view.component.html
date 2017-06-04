@@ -2,17 +2,19 @@
 
 <text-view></text-view>
 
-<ul>
+<ul class="items">
 	<li *ngFor="let item of items">
 		<ng-container *ngIf="auth.admin">
 			{{item.path}}
+			<menu class="assoc">
 			<a class="btn btn-edit" [routerLink]="['/text/edit', item.id, 'current']">bearbeiten</a>
 			<a class="btn btn-delete" [routerLink]="['/text/delete', item.id]">löschen</a>
+			</menu>
 		</ng-container>
 	</li>
 </ul>
 
 <menu class="bottom">
-	<button class="btn btn-back" (click)="back()">zurück</button>
+	<a class="btn btn-back" routerLink="/dashboard">zurück</a>
 	<a class="btn btn-create" [routerLink]="['/text/create/', id]">Text / Hilfe anlegen</a>
 </menu>

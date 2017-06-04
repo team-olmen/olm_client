@@ -13,7 +13,7 @@
 				[(ngModel)]="model.email"
 				#email="ngModel"
 				required />
-			<details *ngIf="formErrors.email">{{formErrors.email}}</details>
+			<div class="dtls" *ngIf="formErrors.email">{{formErrors.email}}</div>
 		</li>
 	</ul>
 	<menu class="bottom">

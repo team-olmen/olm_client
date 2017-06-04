@@ -36,7 +36,6 @@ var SessionCreateComponent = (function (_super) {
             'original': 2,
             'number': 0,
         };
-        _this.generationsCats = [];
         _this.formErrors = {
             'name': '',
             'modules': '',
@@ -87,10 +86,10 @@ var SessionCreateComponent = (function (_super) {
         });
         this.olmService.apiReadAll('generation')
             .subscribe(function (result) {
-            _this.generationsCats = [];
-            _this.generationsCats.push({ 'id': 0, 'name': 'alle' });
+            _this.generationCats = [];
+            _this.generationCats.push({ 'id': 'all', 'name': 'alle' });
             for (var i in result) {
-                _this.generationsCats.push(result[i]);
+                _this.generationCats.push(result[i]);
             }
         });
     };

@@ -1,7 +1,7 @@
 @import 'css-reset-and-normalize-sass/flavored-reset-and-normalize';
 
-$padding-vert: 0.8em;
-$padding-horz: 1.6em;
+$padding-vert: 0.4em;
+$padding-horz: 0.8em;
 $border-width: 0.1em;
 $color-muted: #636c72;
 $color-primary: #0275d8;
@@ -10,9 +10,11 @@ $color-info: #5bc0de;
 $color-warning: #f0ad4e;
 $color-danger: #d9534f;
 $color-border: $color-muted;
+$color-font-bright: #AAAAAA;
 
-html {
+body {
 	font-size: 14px;
+	line-height: 1.5em;
 }
 
 @mixin display-area {
@@ -83,21 +85,30 @@ html {
 	}
 }
 
+@mixin link {
+	text-decoration: none;
+	color: $color-font-bright;
+	&:hover {
+		color: $color-font-bright - #555555;
+	}
+}
+
 body {
 	&>header {
-		padding: $padding-vert $padding-horz; 
 		background-color: #000000;
 		color: #FFFFFF;
-		font-size: 1.2em;
+		h1 {
+			padding: $padding-vert $padding-horz; 
+		}
 	}
 }
 
 nav {
 	@include display-area;
 	text-transform: uppercase;
+	color: $color-font-bright;
 	a {
-		color: #AAAAAA;
-		text-decoration: none;
+		@include link;
 		&:after {
 			content: ' |';
 		}
@@ -107,21 +118,27 @@ nav {
 	}
 }
 
+h1 {
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+h2 {
+	font-size: 1.2em;
+}
+
 main {
 	@include display-area;
 	background-color: #FFFFFF;
-	h1 {
-		margin-bottom: 1em
-	}
 }
 
 footer {
 	@include display-area;
-}
-
-h1 {
-	font-size: 1.2em;
-	font-weight: bold;
+	text-align: right;
+	color: $color-font-bright - #555555;
+	a {
+		@include link;
+	}
 }
 
 form {
@@ -152,63 +169,186 @@ textarea {
 	border: none;
 	color: #FFFFFF;
 	padding: $padding-vert $padding-horz; 
+	//padding: 0 $padding-horz;
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
-}
-
-.btn-primary {
-	background-color: $color-primary;
-}
-
-.btn-submit, .btn-create {
-	background-color: $color-success;
-}
-
-.btn-disabled {
-	background-color: $color-muted;
-}
-
-.btn-help {
-	background-color: $color-info;
-}
-
-.btn-edit {
-	background-color: $color-warning;
-}
-
-.btn-delete {
-	background-color: $color-danger;
-}
-
-.btn-nav, .btn-rate {
-	background-color: $color-border;
-}
-
-.btn-back {
-	background-color: $color-primary;
-	@include round-corners($tl: false, $bl: false);
-	position: relative;
-	&:after {
-		content: '';
-		display: block;
-		position: absolute;
-		top: 0;
-		right: 100%;
-		width: 0;
-		height: 100%;
-		border-width: ($padding-vert + 0.5em) ($padding-horz - 1em) ($padding-vert + 0.5em) 0;
-		border-style: solid;
-		border-color: transparent $color-primary transparent transparent;
+	&:disabled{
+		@extend .btn-disabled;
 	}
 
+	&.btn-primary {
+		background-color: $color-primary;
+		//color: $color-primary - #777777;
+	}
+
+	&.btn-submit, &.btn-create {
+		background-color: $color-success;
+		//color: $color-success - #777777;
+	}
+
+	&.btn-disabled {
+		background-color: $color-muted;
+		//color: $color-muted - #777777;
+	}
+
+	&.btn-help {
+		background-color: $color-info;
+		//color: $color-info - #777777;
+	}
+
+	&.btn-edit {
+		background-color: $color-warning;
+		//color: $color-warning - #777777;
+	}
+
+	&.btn-delete {
+		background-color: $color-danger;
+		//color: $color-danger - #777777;
+	}
+
+	&.btn-nav, &.btn-rate {
+		background-color: $color-border;
+		//color: $color-border - #777777;
+	}
+
+	&.btn-back {
+		background-color: $color-primary;
+		@include round-corners($tl: false, $bl: false);
+		position: relative;
+		&:after {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0;
+			right: 100%;
+			width: 0;
+			height: 100%;
+			border-width: ($padding-vert + 0.5em) ($padding-horz - 1em) ($padding-vert + 0.5em) 0;
+			border-style: solid;
+			border-color: transparent $color-primary transparent transparent;
+		}
+	}
 }
 
 menu {
+	padding: $padding-vert $padding-horz;
+
 	&.top {
+		background-color: #333;
+		margin: 1em 0;
+	}
+
+	&.assoc {
+		padding: $padding-vert 0;
+		//.btn {
+			//	background-color: inherit !important;
+			//	padding: 0;
+			//	text-decoration: underline;
+		//}
 	}
 
 	&.bottom {
-		margin-top: 2em;
+		margin-top: 1em;
+	}
+
+	&.help {
+		text-align: right;
+	}
+}
+
+.msg {
+	@include round-corners;
+	@include border;
+	padding: $padding-vert $padding-horz;
+	background-color: $color-warning + #444444;
+	border-color: $color-warning;
+	color: $color-warning - #777777;
+	&.msg-error {
+		background-color: $color-danger + #444444;
+		border-color: $color-danger;
+		color: $color-danger - #777777;
+	}
+	&.msg-success {
+		background-color: $color-success + #444444;
+		border-color: $color-success;
+		color: $color-success - #777777;
+	}
+}
+
+.dtls {
+	margin-top: 2em;
+	@include round-corners;
+	@include border;
+	padding: $padding-vert $padding-horz;
+	background-color: $color-info + #444444;
+	border-color: $color-info;
+	color: $color-info - #777777;
+}
+
+ol {
+	list-style-type: decimal;
+	li {
+		margin-left: 2em;
+		padding: $padding-vert $padding-horz;
+	}
+}
+
+menu strong {
+	@include border;
+	@include round-corners;
+	background-color: #FFF;
+	padding: $padding-vert $padding-horz;
+}
+
+.items {
+	&>li {
+		padding: $padding-vert $padding-horz;
+	}
+}
+
+dashboard {
+	h1 {
+		padding: 2.5em 0 1em 0;
+	}
+	h2 {
+		padding: ($padding-vert * 1.5) $padding-horz;
+		margin: ($padding-vert * -1 / 1.2) ($padding-horz * - 1 / 1.2) 0 ($padding-horz * - 1 / 1.2);
+		//font-weight: bold;
+		background-color: #333;
+		color: #FFF;
+		text-align: right;
+		//text-transform: uppercase;
+	}
+	.items > li {
+		background-color: #CCCCCC;
+	}
+	.items ul {
+		padding: $padding-vert 0;
+	}
+	.stats > li {
+		display: inline-block;
+		&:after {
+			content: ' |';
+		}
+		&:last-child:after {
+			content: '';
+		}
+	}
+}
+
+session-view {
+	ol li a {
+		display: block;
+	}
+	.answr-solution {
+		background-color: $color-success + #444444;
+		border-color: $color-success;
+		color: $color-success - #777777;
+	}
+	.answr-error {
+		background-color: $color-danger + #444444;
+		border-color: $color-danger;
+		color: $color-danger - #777777;
 	}
 }

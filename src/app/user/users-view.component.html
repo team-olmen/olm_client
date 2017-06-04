@@ -2,12 +2,15 @@
 
 <text-view></text-view>
 
-<ul>
+<ul class="items">
 	<li *ngFor="let item of items">
-		<a [routerLink]="['/user/edit', item.id]">{{item.username}}</a>
+		{{item.username}}
+		<menu>
 		<ng-container *ngIf="auth.admin">
+			<a [routerLink]="['/user/edit', item.id]">bearbeiten</a>
 			<a class="btn btn-delete" [routerLink]="['/user/delete', item.id]">löschen</a>
 		</ng-container>
+		</menu>
 	</li>
 </ul>
 
