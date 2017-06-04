@@ -1,0 +1,214 @@
+@import 'css-reset-and-normalize-sass/flavored-reset-and-normalize';
+
+$padding-vert: 0.8em;
+$padding-horz: 1.6em;
+$border-width: 0.1em;
+$color-muted: #636c72;
+$color-primary: #0275d8;
+$color-success: #5cb85c;
+$color-info: #5bc0de;
+$color-warning: #f0ad4e;
+$color-danger: #d9534f;
+$color-border: $color-muted;
+
+html {
+	font-size: 14px;
+}
+
+@mixin display-area {
+	width: 96%;
+	@media screen and (min-width: 500px) {
+		width: 80%;
+		max-width: 40em;
+	}
+	margin: auto;
+	margin-top: 2em;
+}
+
+@mixin round-corners($tl: true, $tr: true, $br: true, $bl:true, $radius: 0.3em) {
+	$tlr: if($tl, $radius, 0);
+	$trr: if($tr, $radius, 0);
+	$brr: if($br, $radius, 0);
+	$blr: if($bl, $radius, 0);
+	-webkit-border-radius: $tlr $trr $brr $blr;
+	-moz-border-radius: $tlr $trr $brr $blr;
+	border-radius: $tlr $trr $brr $blr;
+}
+
+@mixin border {
+	border-style: solid;
+	border-width: $border-width;
+	border-color: $color-border;
+}
+
+@mixin hover {
+	-webkit-transition-duration: 0.4s; /* Safari */
+	transition-duration: 0.4s;
+	&:hover {
+		opacity: 0.6;
+	}
+}
+
+@mixin shadow {
+	-webkit-box-shadow: 0 0 .8em .1em rgba(255,92,0,0.8);
+	-moz-box-shadow: 0 0 .8em .1em rgba(255,92,0,0.8);
+	box-shadow: 0 0 .8em .1em rgba(255,92,0,0.8);
+}
+
+@mixin form-element {
+	@include border;
+	@include round-corners;
+	border-color: $color-border;
+	padding: $padding-vert ($padding-horz / 2); 
+	display: block;
+	width: 100%;
+
+	&:focus {
+		@include shadow;
+	}
+	&.ng-invalid {
+		border-left-color: $color-danger;
+		border-left-width: 0.4em;
+	}
+	&.ng-valid {
+		border-left-color: $color-success;
+		border-left-width: 0.4em;
+	}
+	&:optional {
+	}
+	&:required {
+	}
+	&:disabled {
+		background-color: $color-muted;
+	}
+}
+
+body {
+	&>header {
+		padding: $padding-vert $padding-horz; 
+		background-color: #000000;
+		color: #FFFFFF;
+		font-size: 1.2em;
+	}
+}
+
+nav {
+	@include display-area;
+	text-transform: uppercase;
+	a {
+		color: #AAAAAA;
+		text-decoration: none;
+		&:after {
+			content: ' |';
+		}
+		&:last-child:after {
+			content: '';
+		}
+	}
+}
+
+main {
+	@include display-area;
+	background-color: #FFFFFF;
+	h1 {
+		margin-bottom: 1em
+	}
+}
+
+footer {
+	@include display-area;
+}
+
+h1 {
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+form {
+	ul, li {
+		margin: 0;
+		padding: 0;
+	}
+}
+
+label {
+	@include form-element;
+	border-style: none;
+}
+
+input {
+	@include form-element;
+}
+
+textarea {
+	@include form-element;
+	resize: none;
+	height: 15em;
+}
+
+.btn {
+	@include round-corners;
+	@include hover;
+	border: none;
+	color: #FFFFFF;
+	padding: $padding-vert $padding-horz; 
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+}
+
+.btn-primary {
+	background-color: $color-primary;
+}
+
+.btn-submit, .btn-create {
+	background-color: $color-success;
+}
+
+.btn-disabled {
+	background-color: $color-muted;
+}
+
+.btn-help {
+	background-color: $color-info;
+}
+
+.btn-edit {
+	background-color: $color-warning;
+}
+
+.btn-delete {
+	background-color: $color-danger;
+}
+
+.btn-nav, .btn-rate {
+	background-color: $color-border;
+}
+
+.btn-back {
+	background-color: $color-primary;
+	@include round-corners($tl: false, $bl: false);
+	position: relative;
+	&:after {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		right: 100%;
+		width: 0;
+		height: 100%;
+		border-width: ($padding-vert + 0.5em) ($padding-horz - 1em) ($padding-vert + 0.5em) 0;
+		border-style: solid;
+		border-color: transparent $color-primary transparent transparent;
+	}
+
+}
+
+menu {
+	&.top {
+	}
+
+	&.bottom {
+		margin-top: 2em;
+	}
+}

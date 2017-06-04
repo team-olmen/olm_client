@@ -1,0 +1,39 @@
+<form (ngSubmit)="parent.onSubmit()" #form="ngForm">
+	<ul>
+		<li>
+			<label for="name">Name</label>
+			<input
+					type="text"
+		 			id="name"
+					name="name"
+		 			[(ngModel)]="model.name"
+		 			#name="ngModel"
+		 			pattern="^[A-Za-z0-9 ÄÖÜäöüß_\-:]+$"
+					maxlength="100"
+		 			minlength="1"
+					required />
+			<details *ngIf="formErrors.name">{{formErrors.name}}</details>
+		</li>
+		<li>
+			<label for="code">Code</label>
+			<input
+					type="text"
+		 			id="code"
+					name="code"
+		 			[(ngModel)]="model.code"
+		 			#code="ngModel"
+		 			pattern="^M[0-9]{2,9}$"
+					maxlength="10"
+		 			minlength="3"
+					required />
+			<details *ngIf="formErrors.code">{{formErrors.code}}</details>
+		</li>
+	</ul>
+
+	<menu class="bottom">
+		<a *ngIf="!model.id" class="btn btn-back" routerLink="/dashboard">zurück</a>	
+		<button *ngIf="model.id" (click)="back()">zurück</button>
+		<button class="btn btn-submit" type="submit" [disabled]="!form.form.valid">{{submitLabel}}</button>
+		<a *ngIf="model.id" class="btn btn-delete" [routerLink]="['/module/delete/', model.id]">Modul löschen</a>
+	</menu>
+</form>

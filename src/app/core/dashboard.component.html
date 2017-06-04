@@ -1,0 +1,66 @@
+<text-view></text-view>
+<section>
+	<header>
+		<h1>Deine Lernsitzungen</h1>
+	</header>
+	<ul>
+		<li *ngFor="let session of sessions">
+			<a class="btn btn-primary" [routerLink]="['/session/view', session.id]">{{session.name}}</a>
+			richtig: {{session.correct}}
+			beantwortet: {{session.answered}}
+			insgesamt: {{session.total}}
+			({{session.correct / session.total * 100}} %)
+			<menu><a class="btn btn-delete" [routerLink]="['/session/delete', session.id]">löschen</a></menu>
+		</li>
+	</ul>
+	<menu>
+		<a class="btn btn-create" routerLink="/session/create">Neue Session</a>
+	</menu>
+</section>
+<section>
+	<header>
+		<h1>MC-Fragen</h1>
+	</header>
+	<ul>
+		<li *ngFor="let module of modules">
+			{{module.code}}: {{module.name}}
+			<menu>
+			<a class="btn btn-primary" [routerLink]="['/mcqs', 'view', module.id, '3', 'all', '2', '0']">alle Fragen</a>
+			<a class="btn btn-primary" [routerLink]="['/mcqs', 'view', module.id, '1', 'all', '2', '0']">gute Fragen</a>
+			<a class="btn btn-primary" [routerLink]="['/mcqs', 'view', module.id, '0', 'all', '2', '0']">schlechte Fragen</a>
+			<a class="btn btn-primary" [routerLink]="['/mcqs', 'view', module.id, '2', 'all', '2', '0']">unbewertete Fragen</a>
+			<a class="btn btn-create" [routerLink]="['/mcq/create', module.id]">neue Frage</a>
+			<ng-container *ngIf="auth.admin">
+				<a class="btn btn-edit" [routerLink]="['/module/edit', module.id, 'current']">bearbeiten</a>
+				<a class="btn btn-delete" [routerLink]="['/module/delete', module.id]">löschen</a>
+				<a class="btn btn-primary" [routerLink]="['/module/history', module.id]">History ansehen</a>
+			</ng-container>
+			</menu>
+		</li>
+	</ul>
+	<menu>
+		<a *ngIf="auth.admin" class="btn btn-create" routerLink="/module/create">Neues Modul anlegen</a>
+		<a *ngIf="auth.admin" class="btn btn-primary" routerLink="/module/deleted">Gelöschte Module ansehen</a>
+	</menu>
+</section>
+<section>
+	<header>
+		<h1>Andere Prüfungen</h1>
+	</header>
+	<ul>
+		<li *ngFor="let exam of exams">
+			<a [routerLink]="['/protocolls/view', exam.id]">{{exam.name}}</a>
+			<ng-container *ngIf="auth.admin">
+				<menu>
+				<a class="btn btn-edit" [routerLink]="['/exam/edit', exam.id, 'current']">bearbeiten</a>
+				<a class="btn btn-delete" [routerLink]="['/exam/delete', exam.id]">löschen</a>
+				<a class="btn btn-primary" [routerLink]="['/exam/history', exam.id]">History ansehen</a>
+				</menu>
+			</ng-container>
+		</li>
+	</ul>
+	<menu>
+		<a *ngIf="auth.admin" class="btn btn-create" routerLink="/exam/create">Neues Prüfungsformat anlegen</a>
+		<a *ngIf="auth.admin" class="btn btn-primary" routerLink="/exam/deleted">Gelöschte Prüfungsformate ansehen</a>
+	</menu>
+</section>

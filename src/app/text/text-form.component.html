@@ -1,0 +1,47 @@
+<form (ngSubmit)="parent.onSubmit()" #form="ngForm">
+	<ul>
+		<li>
+			<label for="path">Pfad</label>
+			<input
+					type="text"
+		 			id="path"
+					name="path"
+		 			[(ngModel)]="model.path"
+		 			#path="ngModel"
+		 			pattern="^[A-Za-z0-9 ÄÖÜäöüß_\-:]+$"
+					required />
+			<details *ngIf="formErrors.path">{{formErrors.path}}</details>
+		</li>
+		<li>
+			<label for="text">Text</label>
+			<textarea
+					type="text"
+					id="text"
+					name="text"
+		 			[(ngModel)]="model.text"
+		 			#text="ngModel"
+					required>
+			</textarea>
+			<details *ngIf="formErrors.text">{{formErrors.text}}</details>
+		</li>
+		<li>
+			<label for="help">Hilfe</label>
+			<textarea
+					type="text"
+					id="help"
+					name="help"
+		 			[(ngModel)]="model.help"
+		 			#help="ngModel"
+					required>
+			</textarea>
+			<details *ngIf="formErrors.help">{{formErrors.help}}</details>
+		</li>
+	</ul>
+
+	<menu class="bottom">
+		<a *ngIf="!model.id" class="btn btn-back" routerLink="/texts/view">zurück</a>	
+		<button *ngIf="model.id" class="btn btn-back" (click)="back()">zurück</button>
+		<button type="submit" class="btn btn-submit" [disabled]="!form.form.valid">{{submitLabel}}</button>
+		<a *ngIf="model.id" class="btn btn-delete" [routerLink]="['/text/delete/', model.id]">Text / Hilfe löschen</a>
+	</menu>
+</form>

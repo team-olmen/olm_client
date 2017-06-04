@@ -1,0 +1,72 @@
+import { Component, Input, Output, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
+
+import { Mcq } from './mcq';
+
+import { AbstractTemplateForm } from '../core/abstract-template-form';
+import { AlertService } from '../services/alert.service';
+import { OlmService } from '../services/olm.service';
+
+@Component({
+	selector: 'mcq-form',
+	templateUrl: './mcq-form.component.html',
+})
+
+export class McqFormComponent extends AbstractTemplateForm {
+	@Input() model: Mcq;
+	generationsCats: any[] = [];
+
+	constructor(
+		protected alertService: AlertService,
+		private olmService: OlmService,
+		private location: Location,
+	) {
+		super(alertService);
+	};
+
+	ngOnInit() {
+		this.olmService.apiReadAll('generation')
+			.subscribe(result => {
+				this.generationsCats = result;
+			});
+	}
+
+	originalCats = [
+		{'value': 1, 'label': 'Prüfungsfrage'},
+		{'value': 0, 'label': 'selbst erstellt (und damit besser ;) )'},
+	];
+
+	formErrors = {
+		'raw': '',
+		'discussion': '',
+		'original': '',
+	};
+
+	validationMessages = {
+		'raw': {
+			'required': 'Bitte gib eine Frage ein.',
+			'question-missing': 'Ich kann keine Frage entdecken. Stimmt die Formatierung?',
+			'answers-missing': 'Ich kann keine Antworten entdecken. Stimmt die Formatierung?',
+			'solution-missing': 'Ich kann keine Lösung entdecken. Stimmt die Formatierung?',
+		},
+		'discussion': {
+		},
+		'original': {
+		},
+	};
+
+	handleServerError(error: string) {
+		(error === 'Item not changed') && 
+			(this.setError('global', 'Die Daten waren nicht anders als zuvor. Hast Du etwas geändert? Dann ist ein Fehler aufgetreten.'));
+		(error === 'Question missing') && 
+			(this.setError('raw', 'question-missing'));
+		(error === 'Answers missing') && 
+			(this.setError('raw', 'answers-missing'));
+		(error === 'Solution missing') && 
+			(this.setError('raw', 'solution-missing'));
+	};
+
+	back() {
+		this.location.back();
+	};
+}

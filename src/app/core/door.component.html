@@ -1,0 +1,34 @@
+<h1>Login</h1>
+
+<text-view></text-view>
+
+<form (ngSubmit)="login()" #form="ngForm">
+	<ul>
+		<li>
+			<label for="username">Username</label>
+			<input
+				type="text"
+				id="username"
+				name="username"
+				[(ngModel)]="model.username"
+				#username="ngModel"
+				required />
+			<details *ngIf="formErrors.username">{{formErrors.username}}</details>
+		</li>
+		<li>
+			<label for="password">Passwort</label>
+			<input
+				type="password"
+				id="password"
+				name="password"
+				[(ngModel)]="model.password"
+				#password="ngModel"
+				required />
+			<details *ngIf="formErrors.password">{{formErrors.password}}</details>
+		</li>
+	</ul>
+	<menu class="bottom">
+		<a class="btn btn-edit" routerLink="/door/reset">Passwort vergessen?</a>
+		<button class="btn btn-submit" type="submit" [disabled]="!form.form.valid">Login</button>
+	</menu>
+</form>

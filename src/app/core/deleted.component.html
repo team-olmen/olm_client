@@ -1,0 +1,14 @@
+<text-view></text-view>
+
+<ul *ngIf="items">
+	<li *ngFor="let item of items">
+		{{item.history_timestamp}} {{item.history_status}} von
+		<a [routerLink]="['/user/edit', item.history_user]">{{item.history_user}}</a>:
+		<a [routerLink]="['/', type, 'edit', item.id, item.history_timestamp]">ansehen</a>
+		<a [routerLink]="['/', type, 'delete', item.id]">Endgültig löschen</a>
+	</li>
+</ul>
+
+<menu>
+	<button class="btn btn-back" (click)="back()">zurück</button>
+</menu>

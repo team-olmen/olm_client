@@ -1,0 +1,22 @@
+<h1>Passwort zurücksetzen</h1>
+
+<text-view></text-view>
+
+<form (ngSubmit)="reset()" #form="ngForm">
+	<ul>
+		<li>
+			<label for="email">Email-Adresse</label>
+			<input
+				type="text"
+				id="email"
+				name="email"
+				[(ngModel)]="model.email"
+				#email="ngModel"
+				required />
+			<details *ngIf="formErrors.email">{{formErrors.email}}</details>
+		</li>
+	</ul>
+	<menu class="bottom">
+		<button class="btn btn-submit" type="submit" [disabled]="!form.form.valid">Abschicken</button>
+	</menu>
+</form>

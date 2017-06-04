@@ -1,0 +1,63 @@
+<form (ngSubmit)="parent.onSubmit()" #form="ngForm">
+	<ul>
+		<li>
+			<label for="raw">Name</label>
+			<textarea
+					type="text"
+		 			id="raw"
+					name="raw"
+		 			[(ngModel)]="model.raw"
+		 			#raw="ngModel"
+					required>
+			</textarea>
+			<details *ngIf="formErrors.raw">{{formErrors.raw}}</details>
+		</li>
+		<li *ngIf="model?.generation">
+			<label for="generation">Generation</label>
+			<select
+		 			id="generation"
+					name="generation"
+		 			[(ngModel)]="model.generation"
+		 			#generation="ngModel"
+					required>
+				<option *ngFor="let generationCat of generationCats" [ngValue]="generationCat.id">
+					{{generationCat.name}}
+				</option>
+			</select>
+			<details *ngIf="formErrors.generation">{{formErrors.generation}}</details>
+		</li>
+		<li *ngIf="model?.original">
+			<label for="original">Prüfungsfrage</label>
+			<select
+		 			id="original"
+					name="original"
+		 			[(ngModel)]="model.original"
+		 			#original="ngModel"
+					required>
+				<option *ngFor="let originalCat of originalCats" [ngValue]="originalCat.value">
+					{{originalCat.label}}
+				</option>
+			</select>
+			<details *ngIf="formErrors.original">{{formErrors.original}}</details>
+		</li>
+		<li *ngIf="parent.auth.admin">
+			<label for="discussion">Discussion</label>
+			<textarea
+					type="text"
+					id="discussion"
+					name="discussion"
+		 			[(ngModel)]="model.discussion"
+		 			#discussion="ngModel"
+					>
+			</textarea>
+			<details *ngIf="formErrors.discussion">{{formErrors.discussion}}</details>
+		</li>
+	</ul>
+
+	<menu class="bottom">
+		<a *ngIf="!model.id" class="btn btn-back" routerLink="/dashboard">zurück</a>	
+		<button *ngIf="model.id" (click)="back()">zurück</button>
+		<button class="btn btn-submit" type="submit" [disabled]="!form.form.valid">{{submitLabel}}</button>
+		<a *ngIf="model.id" class="btn btn-delete" [routerLink]="['/mcq/delete/', model.id]">Frage löschen</a>
+	</menu>
+</form>

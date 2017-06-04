@@ -1,0 +1,14 @@
+<h1>MC-Fragen</h1>
+
+<text-view></text-view>
+
+<ul>
+	<li *ngFor="let item of items">
+		<mcq-display *ngIf="item" [item]="item" [discussion]="discussion"></mcq-display>
+	</li>
+</ul>
+
+<menu class="bottom">
+	<a class="btn btn-back" routerLink="/dashboard">zurück</a>
+	<a class="btn btn-create" [routerLink]="['/mcq/create/', module]">MC-Frage erschaffen</a>
+</menu>
