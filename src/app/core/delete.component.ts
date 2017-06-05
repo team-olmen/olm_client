@@ -16,7 +16,7 @@ import 'rxjs/add/operator/switchMap';
 export class DeleteComponent implements OnInit {
 	id: number = -1;
 	type: string = '';
-	item: any = {};
+	item: string;
 
 	constructor(
 		private route: ActivatedRoute,
@@ -34,8 +34,12 @@ export class DeleteComponent implements OnInit {
 				return this.olmService.apiRead(params['type'], params['id'], 'current');
 			})
 			.subscribe(result => {
-				if (result.name || result.question) {
-					this.item = result;
+				//console.log(result);
+				//this.item = 'BLA';
+				if (result.name) {
+					this.item = result.name;
+				} else if (result.question) {
+					this.item = result.question;
 				} else {
 					this.item = {name: "GELÖSCHT", question: "GELÖSCHT"};
 				}
@@ -43,7 +47,7 @@ export class DeleteComponent implements OnInit {
 	};
 
 	delete() {
-		console.log(this.type + ' ' + this.id );
+		//console.log(this.type + ' ' + this.id);
 		this.olmService.apiDelete(this.type, this.id)
 			.subscribe(result => {
 				this.location.back();

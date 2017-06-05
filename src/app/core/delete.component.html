@@ -2,15 +2,16 @@
 
 <text-view></text-view>
 
-<ng-container *ngIf="item?.name">
-<p *ngIf="type == 'module'">..., dass du das Modul "{{item.name}}" wirklich löschen möchtest?</p>
-<p *ngIf="type == 'exam'">..., dass du dieses Prüfungsart "{{item.name}}" wirklich löschen möchtest?</p>
-<p *ngIf="type == 'protocoll'">..., dass du das Prüfungsprotokoll "{{item.name}}" wirklich löschen möchtest?</p>
-<p *ngIf="type == 'session'">..., dass du deine Session "{{item.name}}" wirklich löschen möchtest?</p>
-<p *ngIf="type == 'mcq'">..., dass du die MC-Frage "{{item.question | cut:26}} ..." wirklich löschen möchtest?</p>
+<ng-container *ngIf="item">
+
+<p *ngIf="type == 'module'">..., dass du das Modul "{{item}}" wirklich löschen möchtest?</p>
+<p *ngIf="type == 'exam'">..., dass du dieses Prüfungsart "{{item}}" wirklich löschen möchtest?</p>
+<p *ngIf="type == 'protocoll'">..., dass du das Prüfungsprotokoll "{{item}}" wirklich löschen möchtest?</p>
+<p *ngIf="type == 'session'">..., dass du deine Session "{{item}}" wirklich löschen möchtest?</p>
+<p *ngIf="type == 'mcq'">..., dass du die MC-Frage "{{item | cut:26}} ..." wirklich löschen möchtest?</p>
 
 <menu class="bottom">
 	<button class="btn btn-delete" (click)="delete()">JA! Nun mach schon!</button>
-	<button class="btn btn-back" click)="back()">Hm... Eher nicht...</button>
+	<button class="btn btn-back" (click)="back()">Hm... Eher nicht...</button>
 </menu>
 </ng-container>
