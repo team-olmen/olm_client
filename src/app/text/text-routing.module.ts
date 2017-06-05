@@ -9,7 +9,7 @@ import { TextsViewComponent } from './texts-view.component';
 
 @NgModule({
 	imports: [RouterModule.forChild([
-		{ path: 'text/create/:id', component: TextCreateComponent, canActivate: [OlmService] },
+		{ path: 'text/create', component: TextCreateComponent, canActivate: [OlmService] },
 		{ path: 'text/edit/:id/:version', component: TextEditComponent, canActivate: [OlmService] },
 		{ path: 'texts/view', component: TextsViewComponent, canActivate: [OlmService] },
 	])],

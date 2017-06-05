@@ -16,7 +16,7 @@ import 'rxjs/add/operator/switchMap';
 })
 
 export class TextCreateComponent implements OnInit {
-	id: number = -1;
+	path: string = '';
 	model: Text = new Text();
 	submitLabel: string = 'Text / Hilfe anlegen';
 	@ViewChild(TextFormComponent) form: TextFormComponent;
@@ -31,7 +31,10 @@ export class TextCreateComponent implements OnInit {
 	ngOnInit() {
 		this.route.params
 			.subscribe((params: Params) => {
-				this.id = params['id'];
+				this.path = params['path'];
+				if (this.path !== '') {
+					this.model.path = this.path;
+				}
 			});
 	}
 
@@ -39,7 +42,7 @@ export class TextCreateComponent implements OnInit {
 		this.olmService.apiCreate('text', this.model)
 			.subscribe(
 				result => {
-					this.router.navigate(['/texts/view', this.id]);
+					this.router.navigate(['/texts/view', result.id]);
 					this.alertService.success("Daten gespeichert.");
 				},
 				error => {

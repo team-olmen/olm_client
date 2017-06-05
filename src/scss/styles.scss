@@ -173,6 +173,7 @@ textarea {
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
+
 	&:disabled{
 		@extend .btn-disabled;
 	}

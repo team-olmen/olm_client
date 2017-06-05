@@ -1,4 +1,3 @@
-<text-view></text-view>
 <ng-container *ngIf="auth.name">
 	<a routerLink="/dashboard">Start</a>
 	<a [routerLink]="['/user/edit/', auth.id]">{{auth.name}} Accnt</a>

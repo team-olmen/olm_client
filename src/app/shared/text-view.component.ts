@@ -1,10 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, Params, UrlSegment } from '@angular/router';
-import { Location } from '@angular/common';
+import { Component, OnInit, OnChanges, Input } from '@angular/core';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { OlmService } from '../services/olm.service';
-
-import 'rxjs/add/operator/switchMap';
 
 @Component({
 	selector: 'text-view',
@@ -12,31 +9,36 @@ import 'rxjs/add/operator/switchMap';
 })
 
 export class TextViewComponent {
+	auth: any = {};
 	model: any = {};
 	help: boolean = false;
-	path: string = '';
+	@Input() path: string = '';
 
 	constructor(
-		private route: ActivatedRoute,
 		private olmService: OlmService,
-		private router: Router
+		private router: Router,
 	) { }
 
 	ngOnInit() {
-		this.route.url
-			.switchMap((url: UrlSegment[], index: number) => {
-				//console.log(url);
-				//console.log(index);
-				this.path = '';
-				for (let i in url) {
-					this.path = this.path.concat(':', url[i].toString());
-				}
-				console.log(this.path);
-				return this.olmService.apiReadText(this.path);
-			})
+		this.olmService.getAuth().subscribe(auth => this.auth = auth);
+	};
+
+	ngOnChanges() {
+		if (this.path === '') {
+			return
+		}
+		this.getText();
+	};
+
+	getText() {
+		this.olmService.apiReadText(this.path)			
 			.subscribe(result => {
 				this.model = result;
 			});
+	};
+
+	gotoTextCreate() {
+		this.router.navigate(['/text/create', { path: this.path }]);
 	};
 
 	toggleHelp() {
