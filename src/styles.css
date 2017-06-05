@@ -564,7 +564,8 @@ textarea {
     -webkit-border-radius: 0 0.3em 0.3em 0;
     -moz-border-radius: 0 0.3em 0.3em 0;
     border-radius: 0 0.3em 0.3em 0;
-    position: relative; }
+    position: relative;
+    margin-left: 0.8em; }
     .btn.btn-back:after {
       content: '';
       display: block;
@@ -573,7 +574,7 @@ textarea {
       right: 100%;
       width: 0;
       height: 100%;
-      border-width: 0.9em -0.2em 0.9em 0;
+      border-width: 1.15em 0.8em 1.15em 0;
       border-style: solid;
       border-color: transparent #0275d8 transparent transparent; }
 

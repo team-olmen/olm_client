@@ -217,6 +217,7 @@ textarea {
 		background-color: $color-primary;
 		@include round-corners($tl: false, $bl: false);
 		position: relative;
+		margin-left: $padding-horz;
 		&:after {
 			content: '';
 			display: block;
@@ -225,7 +226,7 @@ textarea {
 			right: 100%;
 			width: 0;
 			height: 100%;
-			border-width: ($padding-vert + 0.5em) ($padding-horz - 1em) ($padding-vert + 0.5em) 0;
+			border-width: ($padding-vert + 0.5em * 1.5) ($padding-horz) ($padding-vert + 0.5em * 1.5) 0;
 			border-style: solid;
 			border-color: transparent $color-primary transparent transparent;
 		}
