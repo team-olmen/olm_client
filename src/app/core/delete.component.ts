@@ -41,7 +41,7 @@ export class DeleteComponent implements OnInit {
 				} else if (result.question) {
 					this.item = result.question;
 				} else {
-					this.item = {name: "GELÖSCHT", question: "GELÖSCHT"};
+					this.item = "GELÖSCHTES ETWAS";
 				}
 			});
 	};

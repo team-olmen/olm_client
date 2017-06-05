@@ -35,10 +35,10 @@ export class TextEditComponent implements OnInit {
 		this.olmService.getAuth().subscribe(auth => this.auth = auth);
 		this.route.params
 			.switchMap((params: Params) => {
-				this.id = params['id'];
 				return this.olmService.apiRead('text', params['id'], params['version']);
 			})
 			.subscribe(result => {
+				this.id = result.id;
 				this.model = result;
 			});
 	}

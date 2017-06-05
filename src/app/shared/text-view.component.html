@@ -1,7 +1,9 @@
-<div class="txt" *ngIf="model.text">
-	<menu class="help"><button class="btn btn-help" (click)="toggleHelp()">?!</button></menu>
-	{{model.text}}
-	<div class="dtls" *ngIf="help">
-		{{model.help}}
-	</div>
+<div class="txt">
+	<menu *ngIf="auth" class="help">
+		<button *ngIf="model?.help" class="btn btn-help" (click)="toggleHelp()">?!</button>
+		<button *ngIf="auth.admin && !model.id" class="btn btn-create" (click)="gotoTextCreate()">Txt / Hlf anlegen</button>
+		<a *ngIf="auth.admin && model.id" class="btn btn-primary" [routerLink]="['/text/edit/', model.id, 'current']">Txt / Hlf bearbeiten</a>
+	</menu>
+	<pre class="" *ngIf="model.text">{{model.text}}</pre>
+	<pre class="dtls" *ngIf="help">{{model.help}}</pre>
 </div>

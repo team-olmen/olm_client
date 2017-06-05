@@ -32,7 +32,7 @@
 
 	<menu class="bottom">
 		<a *ngIf="!model.id" class="btn btn-back" routerLink="/dashboard">zurück</a>	
-		<button *ngIf="model.id" (click)="back()">zurück</button>
+		<button *ngIf="model.id" class="btn btn-back" (click)="back()">zurück</button>
 		<button class="btn btn-submit" type="submit" [disabled]="!form.form.valid">{{submitLabel}}</button>
 		<a *ngIf="model.id" class="btn btn-delete" [routerLink]="['/module/delete/', model.id]">Modul löschen</a>
 	</menu>
