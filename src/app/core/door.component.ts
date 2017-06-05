@@ -41,6 +41,8 @@ export class DoorComponent extends AbstractTemplateForm implements OnInit {
 		},
 		'password': {
 			'pattern': '...',
+			'required': 'Bitte gib dein Passwort ein.',
+			'bad-name-or-pw': 'Nutzername und / oder Passwort sind falsch.',
 		},
 	};
 
@@ -48,7 +50,7 @@ export class DoorComponent extends AbstractTemplateForm implements OnInit {
 		this.olmService.login(this.model.username, this.model.password)
 			.subscribe(
 				auth => {
-					if (!auth.enabled) {
+					if (auth.enabled === 0) {
 						this.router.navigate(['/user/edit', auth.id]);
 						this.alertService.success("Herzlich Willkommen! Bitte ändere dein Passwort!");
 					} else {

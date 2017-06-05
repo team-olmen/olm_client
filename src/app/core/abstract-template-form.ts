@@ -60,5 +60,6 @@ export abstract class AbstractTemplateForm {
 			this.form.form.get(field).setErrors(error)
 			this.onValueChanged();
 		}
+		return true;
 	};
 }
