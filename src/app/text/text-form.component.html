@@ -40,7 +40,7 @@
 
 	<menu class="bottom">
 		<a *ngIf="!model.id" class="btn btn-back" routerLink="/texts/view">zurück</a>	
-		<button *ngIf="model.id" class="btn btn-back" (click)="back()">zurück</button>
+		<button type="button" *ngIf="model.id" class="btn btn-back" (click)="back()">zurück</button>
 		<button type="submit" class="btn btn-submit" [disabled]="!form.form.valid">{{submitLabel}}</button>
 		<a *ngIf="model.id" class="btn btn-delete" [routerLink]="['/text/delete/', model.id]">Text / Hilfe löschen</a>
 	</menu>
