@@ -3,6 +3,10 @@
 /tmp
 /out-tsc
 /aot
+/src/*.js
+/src/*.js.map
+/src/**/*.js
+/src/**/*.js.map
 
 # dependencies
 /node_modules
