@@ -41,7 +41,8 @@
 			<div class="dtls" *ngIf="formErrors.password">{{formErrors.password}}</div>
 		</li>
 		<li>
-			<label for="check">Passwort wiederholen</label>
+			<label *ngIf="model.id" for="check">Dein derzeitiges Passwort</label>
+			<label *ngIf="!model.id" for="check">Passwort wiederholen</label>
 			<input
 					type="password"
 		 			id="check"
