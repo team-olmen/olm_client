@@ -25,8 +25,8 @@ export class TextViewComponent {
 	ngOnInit() {
 		this.route.url
 			.switchMap((url: UrlSegment[], index: number) => {
-				console.log(url);
-				console.log(index);
+				//console.log(url);
+				//console.log(index);
 				this.path = '';
 				for (let i in url) {
 					this.path = this.path.concat(':', url[i].toString());
