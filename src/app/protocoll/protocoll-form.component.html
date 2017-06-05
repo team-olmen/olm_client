@@ -30,7 +30,7 @@
 
 	<menu class="bottom">
 		<a *ngIf="!model.id" class="btn btn-back" routerLink="/dashboard">zurück</a>	
-		<button *ngIf="model.id" class="btn btn-back" (click)="back()">zurück</button>
+		<button type="button" *ngIf="model.id" class="btn btn-back" (click)="back()">zurück</button>
 		<button class="btn btn-submit" type="submit" [disabled]="!form.form.valid">{{submitLabel}}</button>
 		<a *ngIf="model.id" class="btn btn-delete" [routerLink]="['/protocoll/delete/', model.id]">Protokoll löschen</a>
 	</menu>
