@@ -8,7 +8,7 @@
 					name="name"
 		 			[(ngModel)]="model.name"
 		 			#name="ngModel"
-		 			pattern="^[A-Za-z0-9 ÄÖÜäöüß_\-:]+$"
+		 			pattern="^[A-Za-z0-9 ÄÖÜäöüß_\-:,]+$"
 					maxlength="100"
 		 			minlength="1"
 					required />
@@ -22,9 +22,9 @@
 					name="code"
 		 			[(ngModel)]="model.code"
 		 			#code="ngModel"
-		 			pattern="^M[0-9]{2,9}$"
+		 			pattern="^(M|S)[0-9]{1,9}$"
 					maxlength="10"
-		 			minlength="3"
+		 			minlength="2"
 					required />
 			<div class="dtls" *ngIf="formErrors.code">{{formErrors.code}}</div>
 		</li>
