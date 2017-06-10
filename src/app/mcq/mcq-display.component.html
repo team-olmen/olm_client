@@ -15,7 +15,6 @@
 				>
 		{{answer}}</li>
 	</ol>
-	<p>Die richtige Lösung lautet: <strong>{{item.solution + 1}}</strong></p>
 	<ng-container *ngIf=discussion>
 		<h2>Diskussion</h2>
 		<form (ngSubmit)="onSubmit()" #form="ngForm">
