@@ -623,12 +623,6 @@ menu {
   border-color: #5bc0de;
   color: #004967; }
 
-ol {
-  list-style-type: decimal; }
-  ol li {
-    margin-left: 2em;
-    padding: 0.4em 0.8em; }
-
 menu strong {
   border-style: solid;
   border-width: 0.1em;
@@ -661,13 +655,37 @@ dashboard .stats > li {
   dashboard .stats > li:last-child:after {
     content: ''; }
 
-session-view ol li a {
-  display: block; }
+session-view ol {
+  list-style-type: decimal; }
+  session-view ol li {
+    margin-left: 2em;
+    padding: 0.4em 0.8em; }
+  session-view ol a {
+    display: block; }
 session-view .answr-solution {
   background-color: #a0fca0;
   border-color: #5cb85c;
   color: #004100; }
 session-view .answr-error {
+  background-color: #ff9793;
+  border-color: #d9534f;
+  color: #620000; }
+session-view li:hover {
+  background-color: #CCCCCC;
+  cursor: pointer; }
+
+mcq-display ol {
+  list-style-type: decimal; }
+  mcq-display ol li {
+    margin-left: 2em;
+    padding: 0.4em 0.8em; }
+  mcq-display ol a {
+    display: block; }
+mcq-display .answr-solution {
+  background-color: #a0fca0;
+  border-color: #5cb85c;
+  color: #004100; }
+mcq-display .answr-error {
   background-color: #ff9793;
   border-color: #d9534f;
   color: #620000; }
