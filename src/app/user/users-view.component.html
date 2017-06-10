@@ -2,8 +2,21 @@
 
 <text-view [path]="'users-view'"></text-view>
 
+<ul>
+	<li>
+		<label for="searchbox">Nutzer finden (&gt; 3 Buchstaben):</label>
+		<input
+				type="text"
+	 			id="searchbox"
+				name="searchbox"
+				#searchbox
+				(keyup)="search(searchbox.value)"
+				/>
+	</li>
+</ul>
+
 <ul class="items">
-	<li *ngFor="let item of items">
+	<li *ngFor="let item of items | async">
 		{{item.username}}
 		<menu>
 		<ng-container *ngIf="auth.admin">
