@@ -8,6 +8,7 @@
 					name="username"
 		 			[(ngModel)]="model.username"
 		 			#username="ngModel"
+		 			pattern="^[A-Za-z0-9ÄÖÜäöüß_\-:,\.]+$"
 		 			maxlength="100"
 					minlength="5"
 					required />

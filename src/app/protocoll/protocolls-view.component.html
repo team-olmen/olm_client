@@ -6,7 +6,7 @@
 	<li *ngFor="let item of items">
 		{{item.name}}
 		<menu class="assoc">
-			<a class="btn btn-primary" [routerLink]="['/protocoll/view', item.id]">{{item.name}}</a>
+			<a class="btn btn-primary" [routerLink]="['/protocoll/view', item.id]">ansehen</a>
 			<a class="btn btn-edit" [routerLink]="['/protocoll/edit', item.id, 'current']">bearbeiten</a>
 			<ng-container *ngIf="auth.admin">
 				<a class="btn btn-delete" [routerLink]="['/protocoll/delete', item.id]">löschen</a>

@@ -30,7 +30,7 @@ export class TextFormComponent extends AbstractTemplateForm {
 	validationMessages = {
 		'path': {
 			'required': 'Bitte gib einen Pfad ein.',
-			'pattern': 'Der Name darf nur aus Buchstaben, Zahlen und folgenden Sonderzeichen bestehen: -_',
+			'pattern': 'Der Name darf nur aus Buchstaben, Zahlen, Leerzeichen und folgenden Sonderzeichen bestehen: "_", "-", ".", ":", ","',
 		},
 		'text': {
 		},
