@@ -59,6 +59,6 @@
 		<a *ngIf="!model.id" class="btn btn-back" routerLink="/dashboard">zurück</a>	
 		<button type="button" *ngIf="model.id" (click)="back()">zurück</button>
 		<button class="btn btn-submit" type="submit" [disabled]="!form.form.valid">{{submitLabel}}</button>
-		<a *ngIf="model.id" class="btn btn-delete" [routerLink]="['/mcq/delete/', model.id]">Frage löschen</a>
+		<a *ngIf="parent.version != 'new'" class="btn btn-delete" [routerLink]="['/mcq/delete/', model.id, parent.version]">Frage löschen</a>
 	</menu>
 </form>

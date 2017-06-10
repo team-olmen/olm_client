@@ -20,6 +20,7 @@ export class McqCreateComponent implements OnInit {
 	model: Mcq = new Mcq();
 	submitLabel: string = 'Frage erschaffen';
 	auth: any = {};
+	version: string = 'new';
 	@ViewChild(McqFormComponent) form: McqFormComponent;
 
 	constructor(

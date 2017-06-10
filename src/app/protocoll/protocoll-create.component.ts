@@ -19,6 +19,7 @@ export class ProtocollCreateComponent implements OnInit {
 	id: number = -1;
 	model: Protocoll = new Protocoll();
 	submitLabel: string = 'Protokoll erschaffen';
+	version: string = 'new';
 	@ViewChild(ProtocollFormComponent) form: ProtocollFormComponent;
 
 	constructor(

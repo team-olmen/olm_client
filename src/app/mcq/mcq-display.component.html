@@ -6,7 +6,7 @@
 		<a *ngIf="!discussion" class="btn btn-primary" [routerLink]="['/mcq/view', item.id]">ansehen / diskutieren</a>
 		<a class="btn btn-edit" [routerLink]="['/mcq/edit', item.id, 'current']">bearbeiten</a>
 		<a *ngIf="auth.admin" class="btn btn-primary"[routerLink]="['/mcq/history', item.id]">History</a>
-		<a class="btn btn-delete" [routerLink]="['/mcq/delete', item.id]">löschen</a>
+		<a class="btn btn-delete" [routerLink]="['/mcq/delete', item.id, 'current']">löschen</a>
 	</menu>
 	<div>{{item.question}}</div>
 	<ol>

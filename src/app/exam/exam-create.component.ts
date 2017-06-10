@@ -16,6 +16,7 @@ import { OlmService } from '../services/olm.service';
 export class ExamCreateComponent {
 	model: Exam = new Exam();
 	submitLabel: string = 'Prüfungsart erschaffen';
+	version: string = 'new';
 	@ViewChild(ExamFormComponent) form: ExamFormComponent;
 
 	constructor(

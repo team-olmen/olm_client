@@ -18,7 +18,7 @@ import { HistoryComponent } from './history.component';
 		//{ path: 'delete/:type/:id', component: DeleteComponent, canActivate: [OlmService] },
 		//{ path: 'deleted/:type', component: DeletedComponent, canActivate: [OlmService] },
 		//{ path: 'history/:type/:id', component: HistoryComponent, canActivate: [OlmService] },
-		{ path: ':type/delete/:id', component: DeleteComponent, canActivate: [OlmService] },
+		{ path: ':type/delete/:id/:version', component: DeleteComponent, canActivate: [OlmService] },
 		{ path: ':type/deleted', component: DeletedComponent, canActivate: [OlmService] },
 		{ path: ':type/history/:id', component: HistoryComponent, canActivate: [OlmService] },
 	])],

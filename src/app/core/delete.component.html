@@ -4,14 +4,18 @@
 
 <ng-container *ngIf="item">
 
-<p *ngIf="type == 'module'">..., dass du das Modul "{{item}}" wirklich löschen möchtest?</p>
-<p *ngIf="type == 'exam'">..., dass du dieses Prüfungsart "{{item}}" wirklich löschen möchtest?</p>
-<p *ngIf="type == 'protocoll'">..., dass du das Prüfungsprotokoll "{{item}}" wirklich löschen möchtest?</p>
-<p *ngIf="type == 'session'">..., dass du deine Session "{{item}}" wirklich löschen möchtest?</p>
-<p *ngIf="type == 'mcq'">..., dass du die MC-Frage "{{item | cut:26}} ..." wirklich löschen möchtest?</p>
+<p *ngIf="type == 'user'">..., dass Du den Account "{{item}}" wirklich löschen möchtest?</p>
+<p *ngIf="type == 'module'">..., dass Du das Modul "{{item}}" wirklich löschen möchtest?</p>
+<p *ngIf="type == 'exam'">..., dass Du dieses Prüfungsart "{{item}}" wirklich löschen möchtest?</p>
+<p *ngIf="type == 'protocoll'">..., dass Du das Prüfungsprotokoll "{{item}}" wirklich löschen möchtest?</p>
+<p *ngIf="type == 'session'">..., dass Du deine Session "{{item}}" wirklich löschen möchtest?</p>
+<p *ngIf="type == 'mcq'">..., dass Du die MC-Frage "{{item | cut:26}} ..." wirklich löschen möchtest?</p>
+<p *ngIf="type == 'inactiveusers'">..., dass Du {{item}} inaktive Nutzer wirklich löschen möchtest?</p>
+
+<p class="msg msg-warning" *ngIf="version != 'current' || type == 'user' || type == 'session'">Das kann nicht rückgängig gemacht werden!</p>
 
 <menu class="bottom">
-	<button class="btn btn-delete" (click)="delete()">JA! Nun mach schon!</button>
 	<button class="btn btn-back" (click)="back()">Hm... Eher nicht...</button>
+	<button class="btn btn-delete" (click)="delete()">JA! Nun mach schon!</button>
 </menu>
 </ng-container>
