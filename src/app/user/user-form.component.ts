@@ -31,7 +31,7 @@ export class UserFormComponent extends AbstractTemplateForm {
 	validationMessages = {
 		'username': {
 			'required': 'Bitte gib einen Benutzernamen ein.',
-			'pattern': 'Der Name darf nur aus Buchstaben, Zahlen und folgenden Sonderzeichen bestehen: ',
+			'pattern': 'Der Name darf nur aus Buchstaben, Zahlen und folgenden Sonderzeichen bestehen: "_", "-", ".", ":", ","',
 			'minlength': 'Der Name muss mindestend 5 Zeichen lang sein.',
 			'maxlength': 'Der Name darf maximal 100 Zeichen lang sein.',
 			'exists': 'Es gibt schon einen Benutzer mit diesem Namen.',

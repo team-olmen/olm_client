@@ -8,7 +8,7 @@
 					name="name"
 		 			[(ngModel)]="model.name"
 		 			#name="ngModel"
-		 			pattern="^[A-Za-z0-9 ÄÖÜäöüß_\-:,]+$"
+		 			pattern="^[A-Za-z0-9 ÄÖÜäöüß_\-:,\.]+$"
 					maxlength="100"
 		 			minlength="1"
 					required />
@@ -22,7 +22,7 @@
 					name="code"
 		 			[(ngModel)]="model.code"
 		 			#code="ngModel"
-		 			pattern="^(M|S)[0-9]{1,9}$"
+		 			pattern="^[A-Z][0-9]{1,9}$"
 					maxlength="10"
 		 			minlength="2"
 					required />

@@ -29,17 +29,17 @@ export class ModuleFormComponent extends AbstractTemplateForm {
 	validationMessages = {
 		'name': {
 			'required': 'Bitte gib einen Namen ein.',
-			'pattern': 'Der Name darf nur aus Buchstaben, Zahlen und folgenden Sonderzeichen bestehen: -_',
+			'pattern': 'Der Name darf nur aus Buchstaben, Zahlen, Leerzeichen und folgenden Sonderzeichen bestehen: "_", "-", ".", ":", ","',
 			'minlength': 'Der Name muss mindestend 1 Zeichen lang sein.',
 			'maxlength': 'Der Name darf maximal 100 Zeichen lang sein.',
 			'exists': 'Ein Modul mit diesem Name gibt es schon.',
 		},
 		'code': {
-			'required': 'Bitte den Modulcode ein.',
-			'pattern': 'Module werden M.... benannt ;).',
-			'minlength': 'Der Name muss mindestend 3 Zeichen lang sein.',
-			'maxlength': 'Der Name darf maximal 10 Zeichen lang sein.',
-			'exists': 'Ein Modul mit diesem Code gibt es schon.',
+			'required': 'Bitte gib den Modul- / Semester- / Abschnittscode ein.',
+			'pattern': 'Modul- / Semester- /Abschnittscodes beginnen mit einem Buchstaben und werden gefolgt von Zahlen, z.B. M01, S02, ... .',
+			'minlength': 'Der Code muss mindestend 2 Zeichen lang sein.',
+			'maxlength': 'Der Code darf maximal 10 Zeichen lang sein.',
+			'exists': 'Ein Modul / Semester / Abschnitt mit diesem Code gibt es schon.',
 		},
 	};
 
