@@ -211,4 +211,21 @@ export class OlmService implements CanActivate {
 		.map(response => response.json())
 		.catch(this.handleError);	
 	};
+
+	apiReadUsersByName(name: string): Observable<any[]> {
+		return this.http.get(this.urlOlm.concat(this.getEndpoint('user'), '/name/', name), this.jwt())
+		.map(response => response.json())
+		.catch(this.handleError);	
+	};
+
+	apiReadUsersInactive(): Observable<any[]> {
+		return this.http.get(this.urlOlm.concat(this.getEndpoint('user'), '/inactive'), this.jwt())
+		.map(response => response.json())
+		.catch(this.handleError);	
+	};
+	apiDeleteUsersInactive(): Observable<any[]> {
+		return this.http.delete(this.urlOlm.concat(this.getEndpoint('user'), '/inactive'), this.jwt())
+		.map(response => response.json())
+		.catch(this.handleError);	
+	};
 }

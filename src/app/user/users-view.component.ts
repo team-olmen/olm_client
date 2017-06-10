@@ -7,6 +7,12 @@ import { User } from './user';
 import { AlertService } from '../services/alert.service';
 import { OlmService } from '../services/olm.service';
 
+import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
+import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/switchMap';
 
 @Component({
@@ -15,8 +21,9 @@ import 'rxjs/add/operator/switchMap';
 })
 
 export class UsersViewComponent implements OnInit {
-	items: User[] = [];
+	items: Observable<User[]>;
 	auth: any = {};
+	searchTerm = new Subject<string>();
 
 	constructor(
 		private route: ActivatedRoute,
@@ -28,16 +35,28 @@ export class UsersViewComponent implements OnInit {
 
 	ngOnInit() {
 		this.olmService.getAuth().subscribe(auth => this.auth = auth);
-		this.route.params
-			.switchMap((params: Params) => {
-				return this.olmService.apiReadAll('user');
-			})
-			.subscribe(result => {
-				this.items = result;
+		this.items = this.searchTerm
+			.debounceTime(300)
+			.distinctUntilChanged()
+			.switchMap(term => {
+				return term
+					? this.getResults(term)
+					: Observable.of<User[]>([]);
 			});
 	}
 
 	back() {
 		this.location.back();
+	};
+
+	search(term: string) {
+		this.searchTerm.next(term);
+	};
+
+	getResults(term: string): Observable<User[]> {
+		if (term.length <= 3) {
+			return Observable.of<User[]>([]);
+		};
+		return this.olmService.apiReadUsersByName(term);
 	};
 }
