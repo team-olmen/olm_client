@@ -293,15 +293,17 @@ menu strong {
 }
 
 .items {
+	@include invisible-list;
 	&>li {
 		padding: $padding-vert $padding-horz;
 	}
 }
 
+.stats {
+	@include invisible-list;
+}
+
 dashboard {
-	ul {
-		@include invisible-list;
-	}
 	h1 {
 		padding: 2.5em 0 1em 0;
 	}
