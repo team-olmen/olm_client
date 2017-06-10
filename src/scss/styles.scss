@@ -10,9 +10,12 @@ $color-info: #5bc0de;
 $color-warning: #f0ad4e;
 $color-danger: #d9534f;
 $color-border: $color-muted;
-$color-font-bright: #AAAAAA;
+$color-text-bright: #AAAAAA;
+$color-text: #000000;
+$color-link: $color-text-bright;
 
 body {
+	color: $color-text;
 	font-size: 14px;
 	line-height: 1.5em;
 }
@@ -85,14 +88,6 @@ body {
 	}
 }
 
-@mixin link {
-	text-decoration: none;
-	color: $color-font-bright;
-	&:hover {
-		color: $color-font-bright - #555555;
-	}
-}
-
 body {
 	&>header {
 		background-color: #000000;
@@ -103,12 +98,26 @@ body {
 	}
 }
 
+@mixin nav-link {
+}
+
+@mixin invisible-list {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;	
+	&>li {
+		margin: 0;
+		padding: 0;
+	}
+}
+
+
 nav {
 	@include display-area;
 	text-transform: uppercase;
-	color: $color-font-bright;
+	color: $color-text-bright;
 	a {
-		@include link;
+		@include nav-link;
 		&:after {
 			content: ' |';
 		}
@@ -116,15 +125,6 @@ nav {
 			content: '';
 		}
 	}
-}
-
-h1 {
-	font-size: 1.5em;
-	font-weight: bold;
-}
-
-h2 {
-	font-size: 1.2em;
 }
 
 main {
@@ -135,17 +135,14 @@ main {
 footer {
 	@include display-area;
 	text-align: right;
-	color: $color-font-bright - #555555;
+	color: $color-text-bright - #555555;
 	a {
-		@include link;
+		@include nav-link;
 	}
 }
 
-form {
-	ul, li {
-		margin: 0;
-		padding: 0;
-	}
+form ul {
+	@include invisible-list;
 }
 
 label {
@@ -302,17 +299,19 @@ menu strong {
 }
 
 dashboard {
+	ul {
+		@include invisible-list;
+	}
 	h1 {
 		padding: 2.5em 0 1em 0;
 	}
 	h2 {
 		padding: ($padding-vert * 1.5) $padding-horz;
 		margin: ($padding-vert * -1 / 1.2) ($padding-horz * - 1 / 1.2) 0 ($padding-horz * - 1 / 1.2);
-		//font-weight: bold;
 		background-color: #333;
+		font-weight: normal;
 		color: #FFF;
 		text-align: right;
-		//text-transform: uppercase;
 	}
 	.items > li {
 		background-color: #CCCCCC;
@@ -339,7 +338,7 @@ dashboard {
 			padding: $padding-vert $padding-horz;
 		}
 		a {
-		display: block;
+			display: block;
 		}
 	}
 	.answr-solution {
@@ -362,9 +361,86 @@ session-view {
 			cursor: pointer;
 		}
 	}
+	a {
+		color: $color-text;
+	}
 }
 
 mcq-display {
 	@include mcq;
 }
 
+mcqs-view ul {
+	@include invisible-list;
+}
+
+markdown-view {
+	font-family: monospace;
+}
+
+
+h1 {
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+h2 {
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+h3 {
+	font-size: 1em;
+	font-weight: bold;
+}
+
+h3 {
+	font-size: 1em;
+	font-weight: bold;
+	color: $color-text-bright;
+}
+
+a {
+	text-decoration: none;
+	color: $color-link;
+	&:hover {
+		color: $color-link - #555555;
+	}
+}
+
+ul {
+	list-style-type: circle;
+	margin-bottom: 1em;
+}
+
+ol {
+	list-style-type: decimal;
+	margin-bottom: 1em;
+}
+
+li {
+	margin-left: 2em
+}
+
+strong {
+	font-weight: bold;
+}
+
+em {
+	font-style: italic;
+}
+
+p {
+	margin-bottom: 1em;
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+protocoll-view {
+	markdown-view div {
+		padding: $padding-horz $padding-vert;
+		@include border;
+		@include round-corners;
+	} 
+}

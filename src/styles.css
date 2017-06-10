@@ -389,6 +389,7 @@ textarea {
   display: none !important; }
 
 body {
+  color: #000000;
   font-size: 14px;
   line-height: 1.5em; }
 
@@ -408,22 +409,10 @@ nav {
     nav {
       width: 80%;
       max-width: 40em; } }
-  nav a {
-    text-decoration: none;
-    color: #AAAAAA; }
-    nav a:hover {
-      color: #555555; }
-    nav a:after {
-      content: ' |'; }
-    nav a:last-child:after {
-      content: ''; }
-
-h1 {
-  font-size: 1.5em;
-  font-weight: bold; }
-
-h2 {
-  font-size: 1.2em; }
+  nav a:after {
+    content: ' |'; }
+  nav a:last-child:after {
+    content: ''; }
 
 main {
   width: 96%;
@@ -445,15 +434,14 @@ footer {
     footer {
       width: 80%;
       max-width: 40em; } }
-  footer a {
-    text-decoration: none;
-    color: #AAAAAA; }
-    footer a:hover {
-      color: #555555; }
 
-form ul, form li {
+form ul {
+  list-style-type: none;
   margin: 0;
   padding: 0; }
+  form ul > li {
+    margin: 0;
+    padding: 0; }
 
 label {
   border-style: solid;
@@ -636,12 +624,20 @@ menu strong {
 .items > li {
   padding: 0.4em 0.8em; }
 
+dashboard ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0; }
+  dashboard ul > li {
+    margin: 0;
+    padding: 0; }
 dashboard h1 {
   padding: 2.5em 0 1em 0; }
 dashboard h2 {
   padding: 0.6em 0.8em;
   margin: -0.33333em -0.66667em 0 -0.66667em;
   background-color: #333;
+  font-weight: normal;
   color: #FFF;
   text-align: right; }
 dashboard .items > li {
@@ -673,6 +669,8 @@ session-view .answr-error {
 session-view li:hover {
   background-color: #CCCCCC;
   cursor: pointer; }
+session-view a {
+  color: #000000; }
 
 mcq-display ol {
   list-style-type: decimal; }
@@ -689,5 +687,70 @@ mcq-display .answr-error {
   background-color: #ff9793;
   border-color: #d9534f;
   color: #620000; }
+
+mcqs-view ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0; }
+  mcqs-view ul > li {
+    margin: 0;
+    padding: 0; }
+
+markdown-view {
+  font-family: monospace; }
+
+h1 {
+  font-size: 1.5em;
+  font-weight: bold; }
+
+h2 {
+  font-size: 1.2em;
+  font-weight: bold; }
+
+h3 {
+  font-size: 1em;
+  font-weight: bold; }
+
+h3 {
+  font-size: 1em;
+  font-weight: bold;
+  color: #AAAAAA; }
+
+a {
+  text-decoration: none;
+  color: #AAAAAA; }
+  a:hover {
+    color: #555555; }
+
+ul {
+  list-style-type: circle;
+  margin-bottom: 1em; }
+
+ol {
+  list-style-type: decimal;
+  margin-bottom: 1em; }
+
+li {
+  margin-left: 2em; }
+
+strong {
+  font-weight: bold; }
+
+em {
+  font-style: italic; }
+
+p {
+  margin-bottom: 1em; }
+  p:last-child {
+    margin-bottom: 0; }
+
+protocoll-view markdown-view div {
+  padding: 0.8em 0.4em;
+  border-style: solid;
+  border-width: 0.1em;
+  border-color: #636c72;
+  -webkit-border-radius: 0.3em 0.3em 0.3em 0.3em;
+  -moz-border-radius: 0.3em 0.3em 0.3em 0.3em;
+  border-radius: 0.3em 0.3em 0.3em 0.3em; }
 
 /*# sourceMappingURL=styles.css.map */
