@@ -288,14 +288,6 @@ menu {
 	color: $color-info - #777777;
 }
 
-ol {
-	list-style-type: decimal;
-	li {
-		margin-left: 2em;
-		padding: $padding-vert $padding-horz;
-	}
-}
-
 menu strong {
 	@include border;
 	@include round-corners;
@@ -339,9 +331,16 @@ dashboard {
 	}
 }
 
-session-view {
-	ol li a {
+@mixin mcq {
+	ol {
+		list-style-type: decimal;
+		li {
+			margin-left: 2em;
+			padding: $padding-vert $padding-horz;
+		}
+		a {
 		display: block;
+		}
 	}
 	.answr-solution {
 		background-color: $color-success + #444444;
@@ -354,3 +353,18 @@ session-view {
 		color: $color-danger - #777777;
 	}
 }
+
+session-view {
+	@include mcq;
+	li {
+		&:hover {
+			background-color: #CCCCCC;
+			cursor: pointer;
+		}
+	}
+}
+
+mcq-display {
+	@include mcq;
+}
+

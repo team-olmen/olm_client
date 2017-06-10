@@ -10,7 +10,10 @@
 	</menu>
 	<div>{{item.question}}</div>
 	<ol>
-		<li *ngFor="let answer of item.answers">{{answer}}</li>
+		<li *ngFor="let answer of item.answers; index as i"
+				[ngClass]="{ 'answr-solution': i === item.solution }"
+				>
+		{{answer}}</li>
 	</ol>
 	<p>Die richtige Lösung lautet: <strong>{{item.solution + 1}}</strong></p>
 	<ng-container *ngIf=discussion>
