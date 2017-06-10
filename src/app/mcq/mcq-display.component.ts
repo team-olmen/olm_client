@@ -1,4 +1,5 @@
 import { Component, Input, AfterViewChecked, OnInit, ViewChild, OnChanges } from '@angular/core';
+import { Location } from '@angular/common';
 import { NgForm } from '@angular/forms';
 
 import { Mcq } from './mcq';
@@ -22,6 +23,7 @@ export class McqDisplayComponent implements OnInit {
 	constructor(
 		private olmService: OlmService,
 		private alertService: AlertService,
+		private location: Location,
 	) { }
 
 	ngOnInit() {
@@ -113,5 +115,9 @@ export class McqDisplayComponent implements OnInit {
 			.subscribe(result => {
 				this.item.rating = result.rating;
 			});
+	};
+
+	back() {
+		this.location.back();
 	};
 }
