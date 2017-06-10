@@ -16,7 +16,7 @@ export class MarkdownViewComponent {
 	) {
 		this.converter = new showdown.Converter({
 			headerLevelStart: 2,
-			strikethrough: true;
+			strikethrough: true,
 		});
 	}
 

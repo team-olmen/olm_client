@@ -62,6 +62,6 @@
 		<a *ngIf="!model.id" class="btn btn-back" routerLink="/dashboard">zurück</a>	
 		<button type="button" *ngIf="model.id" class="btn btn-back" (click)="back()">zurück</button>
 		<button type="submit" class="btn btn-submit" [disabled]="!form.form.valid">{{submitLabel}}</button>
-		<a *ngIf="model.id" class="btn btn-delete" [routerLink]="['/user/delete/', model.id]">Account löschen</a>
+		<a *ngIf="model.id" class="btn btn-delete" [routerLink]="['/user/delete/', model.id, 'current']">Account löschen</a>
 	</menu>
 </form>

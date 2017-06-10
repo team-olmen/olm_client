@@ -15,7 +15,7 @@
 				<li>insgesamt: {{session.total}} ({{session.correct / session.total * 100}} %)</li>
 			</ul>
 			<menu class="assoc">
-				<a class="btn btn-delete" [routerLink]="['/session/delete', session.id]">löschen</a>
+				<a class="btn btn-delete" [routerLink]="['/session/delete', session.id, 'current']">löschen</a>
 				<a class="btn btn-primary" [routerLink]="['/session/view', session.id]">los!</a>
 			</menu>
 		</li>
@@ -44,7 +44,7 @@
 			<a class="btn btn-create" [routerLink]="['/mcq/create', module.id]">erstellen</a>
 			<ng-container *ngIf="auth.admin">
 				<a class="btn btn-edit" [routerLink]="['/module/edit', module.id, 'current']">bearbeiten</a>
-				<a class="btn btn-delete" [routerLink]="['/module/delete', module.id]">löschen</a>
+				<a class="btn btn-delete" [routerLink]="['/module/delete', module.id, 'current']">löschen</a>
 				<a class="btn btn-primary" [routerLink]="['/module/history', module.id]">History</a>
 			</ng-container>
 			</menu>
@@ -71,7 +71,7 @@
 				<a class="btn btn-primary" [routerLink]="['/protocolls/view', exam.id]">ansehen</a>
 				<ng-container *ngIf="auth.admin">
 					<a class="btn btn-edit" [routerLink]="['/exam/edit', exam.id, 'current']">bearbeiten</a>
-					<a class="btn btn-delete" [routerLink]="['/exam/delete', exam.id]">löschen</a>
+					<a class="btn btn-delete" [routerLink]="['/exam/delete', exam.id, 'current']">löschen</a>
 					<a class="btn btn-primary" [routerLink]="['/exam/history', exam.id]">History ansehen</a>
 				</ng-container>
 			</menu>

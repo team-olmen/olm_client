@@ -21,7 +21,7 @@
 		<menu>
 		<ng-container *ngIf="auth.admin">
 			<a class="btn btn-edit" [routerLink]="['/user/edit', item.id]">bearbeiten</a>
-			<a class="btn btn-delete" [routerLink]="['/user/delete', item.id]">löschen</a>
+			<a class="btn btn-delete" [routerLink]="['/user/delete', item.id, 'current']">löschen</a>
 		</ng-container>
 		</menu>
 	</li>
@@ -29,4 +29,5 @@
 
 <menu class="bottom">
 	<a class="btn btn-back" routerLink="/dashboard">zurück</a>
+	<a class="btn btn-delete" routerLink="/inactiveusers/delete/0/0">!Inaktive Benutzer löschen!</a>
 </menu>

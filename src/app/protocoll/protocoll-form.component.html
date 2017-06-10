@@ -32,6 +32,6 @@
 		<a *ngIf="!model.id" class="btn btn-back" routerLink="/dashboard">zurück</a>	
 		<button type="button" *ngIf="model.id" class="btn btn-back" (click)="back()">zurück</button>
 		<button class="btn btn-submit" type="submit" [disabled]="!form.form.valid">{{submitLabel}}</button>
-		<a *ngIf="model.id" class="btn btn-delete" [routerLink]="['/protocoll/delete/', model.id]">Protokoll löschen</a>
+		<a *ngIf="parent.version != 'new'" class="btn btn-delete" [routerLink]="['/protocoll/delete/', model.id, parent.version]">Protokoll löschen</a>
 	</menu>
 </form>

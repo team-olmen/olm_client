@@ -8,7 +8,7 @@
 			{{item.path}}
 			<menu class="assoc">
 			<a class="btn btn-edit" [routerLink]="['/text/edit', item.id, 'current']">bearbeiten</a>
-			<a class="btn btn-delete" [routerLink]="['/text/delete', item.id]">löschen</a>
+			<a class="btn btn-delete" [routerLink]="['/text/delete', item.id, 'current']">löschen</a>
 			</menu>
 		</ng-container>
 	</li>

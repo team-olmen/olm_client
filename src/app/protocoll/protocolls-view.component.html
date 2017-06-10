@@ -9,7 +9,7 @@
 			<a class="btn btn-primary" [routerLink]="['/protocoll/view', item.id]">ansehen</a>
 			<a class="btn btn-edit" [routerLink]="['/protocoll/edit', item.id, 'current']">bearbeiten</a>
 			<ng-container *ngIf="auth.admin">
-				<a class="btn btn-delete" [routerLink]="['/protocoll/delete', item.id]">löschen</a>
+				<a class="btn btn-delete" [routerLink]="['/protocoll/delete', item.id, 'current']">löschen</a>
 				<a class="btn btn-primary" [routerLink]="['/protocoll/history', item.id]">History</a>
 			</ng-container>
 		</menu>
