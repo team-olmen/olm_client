@@ -2,8 +2,9 @@
 
 <text-view [path]="'protocoll-view'"></text-view>
 
-<pre>{{item.text}}</pre>
+<markdown-view [text]="item.text"></markdown-view>
 
 <menu class="bottom">
 	<a class="btn btn-back" [routerLink]="['/protocolls/view', exam]">zurück</a>
+	<a class="btn btn-edit" [routerLink]="['/protocoll/edit', item.id, 'current']">bearbeiten</a>
 </menu>

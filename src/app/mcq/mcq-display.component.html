@@ -19,7 +19,7 @@
 		<h2>Diskussion</h2>
 		<form (ngSubmit)="onSubmit()" #form="ngForm">
 			<ng-container *ngIf="!auth.admin">
-				<pre>{{item.discussion}}</pre>
+				<markdown-view [text]="item.discussion"></markdown-view>
 			</ng-container>
 			<ul>
 				<li>

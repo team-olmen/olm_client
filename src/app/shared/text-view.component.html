@@ -4,6 +4,8 @@
 		<button *ngIf="auth.admin && !model.id" class="btn btn-create" (click)="gotoTextCreate()">Txt / Hlf anlegen</button>
 		<a *ngIf="auth.admin && model.id" class="btn btn-primary" [routerLink]="['/text/edit/', model.id, 'current']">Txt / Hlf bearbeiten</a>
 	</menu>
-	<pre class="" *ngIf="model.text">{{model.text}}</pre>
-	<pre class="dtls" *ngIf="help">{{model.help}}</pre>
+	<markdown-view class="" *ngIf="model.text" [text]="model.text"></markdown-view>
+	<div *ngIf="help" class="dtls">
+		<markdown-view [text]="model.help"></markdown-view>
+	</div>
 </div>
