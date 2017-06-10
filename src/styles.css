@@ -621,16 +621,24 @@ menu strong {
   background-color: #FFF;
   padding: 0.4em 0.8em; }
 
-.items > li {
-  padding: 0.4em 0.8em; }
-
-dashboard ul {
+.items {
   list-style-type: none;
   margin: 0;
   padding: 0; }
-  dashboard ul > li {
+  .items > li {
     margin: 0;
     padding: 0; }
+  .items > li {
+    padding: 0.4em 0.8em; }
+
+.stats {
+  list-style-type: none;
+  margin: 0;
+  padding: 0; }
+  .stats > li {
+    margin: 0;
+    padding: 0; }
+
 dashboard h1 {
   padding: 2.5em 0 1em 0; }
 dashboard h2 {
