@@ -36,7 +36,7 @@
 				</li>
 			</ul>
 			<menu class="bottom">
-				<button *ngIf="discussion" class="btn btn-back" (click)="back()">zurück</button>
+				<button *ngIf="discussion" class="btn btn-back" type="button" (click)="back()">zurück</button>
 				<button class="btn btn-submit" type="submit" [disabled]="!form.form.valid">abschicken</button>
 			</menu>
 		</form>
