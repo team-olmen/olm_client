@@ -12,6 +12,7 @@
 /src/**/*.js.map
 /src/app/**/*.js
 /src/app/**/*.js.map
+*.css.map
 
 # dependencies
 /node_modules
