@@ -81,11 +81,15 @@ export class McqDisplayComponent implements OnInit {
 	};
 
 	onSubmit() {
+		if (this.model.discussion == '') {
+			return;
+		}
+
 		let discussion: string = '';
 		if (this.auth.admin) {
 			discussion = this.model.discussion;
 		} else {
-			discussion = this.item.discussion.concat("\n\n**", this.auth.name, "**:\n", this.model.discussion);
+			discussion = this.item.discussion.concat("\n\n**", this.auth.name, "**:  \n", this.model.discussion);
 		}
 		this.olmService.apiUpdate(
 			'mcq',
