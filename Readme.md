@@ -114,3 +114,26 @@ If you happen to be on a system with a BASH (if you're stuck on Win10 <https://w
 export $path_olm_client="/PATH/TO/THE/CODE"
 alias olm_client_scss="sass --watch $path_olm_client/src/scss/styles.scss:$path_olm_client/src/styles.css $path_olm_client/src/scss/styles.scss:$path_olm_client/dist/styles.css"
 ```
+
+## Improving the code
+
+### Versioning
+
+olm_api uses semantic versioning (<http://semver.org/>).
+
+`TL;DR`:
+
+```
+MAJOR.MINOR.PATCH
+
+MAJOR version when you make incompatible API changes,
+MINOR version when you add functionality in a backwards-compatible manner, and
+PATCH version when you make backwards-compatible bug fixes.
+```
+
+To mark pre-releases you may add:
+
+* `-rc[0-9]*` for release-candidates
+* `-beta[0-9]*` for beta-releases
+* `-alpha[0-9]*` for alpha-releases
+
