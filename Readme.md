@@ -136,7 +136,7 @@ PATCH version when you make backwards-compatible bug fixes.
 
 To mark pre-releases you may add:
 
-* `-rc[0-9]*` for release-candidates
-* `-beta[0-9]*` for beta-releases
-* `-alpha[0-9]*` for alpha-releases
+* `-rc.[0-9]*` for release-candidates
+* `-beta.[0-9]*` for beta-releases
+* `-alpha.[0-9]*` for alpha-releases
 
