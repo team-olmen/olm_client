@@ -2,6 +2,17 @@
 
 Client for students to create multiple choice questions to test their knowledge of the stuff they've learned.
 
+## Features
+
+An Angular4-based client for olm_api (<https://github.com/randomchars42/olm_api>) which allows:
+
+* creating and maintaining of an arbitray number of collections of  multiple-choice questions
+* filtering of collections
+* creating and maintnaining individual test sessions for each user
+* markdown / flatfile based note collections to share experiences / tips between users
+* creating and maintaing of users (incl. password reset)
+* ...
+
 ## First Steps
 
 ### 0a. Install dependencies
