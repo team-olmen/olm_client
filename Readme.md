@@ -97,7 +97,7 @@ sass --watch src/scss/styles.scss:src/styles.css src/scss/styles.scss:dist/style
 
 This will update the `styles.css` in both `/dist` and `/src` as soon as you save any changes.
 
-If you happen to be on a system with BASHA (if you're stuck on Win10 <https://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/>) you may add something like the following to your `~/.bash_aliases` / `~/.bash_rc` or whatever is your system's bash config:
+If you happen to be on a system with a BASH (if you're stuck on Win10 <https://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/>) you may add something like the following to your `~/.bash_aliases` / `~/.bash_rc` or whatever is your system's bash config:
 
 ```bash
 export $path_olm_client="/PATH/TO/THE/CODE"
