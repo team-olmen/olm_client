@@ -1,16 +1,15 @@
-# Olm Api
+# Olm Client 
 
-Client for students to create multiple choice questions to test their knowledge of the stuff they learned.
+Client for students to create multiple choice questions to test their knowledge of the stuff they've learned.
 
-## Firs Steps
+## First Steps
 
-### 0. Install dependencies
+### 0a. Install dependencies
 
 You'll need:
 
-* Node > 7.0.0
-* NPM > 4.0.0
-* SASS compiler (if you want to put some paint onto it)
+* Node > 7.0.0 & NPM > 4.0.0 (e.g. from <https://nodejs.org/en/> or <https://github.com/creationix/nvm> if you want to have several different node version installed side-by-side)
+* a SASS compiler (if you want to change the paint, read about it over at <http://sass-lang.com/install>)
 
 ### 0b. Get going on Angular 4
 
@@ -19,7 +18,7 @@ Check out the great tutorial at <https://angular.io/>.
 ### 1. Check out the code
 
 ```bash
-# create a directory for your great project
+# create a directory for your great edits
 mkdir olm_client
 # get the source code
 git clone https://github.com/randomchars42/olm_client
@@ -28,9 +27,21 @@ cd olm_client
 npm install
 ```
 
+There might be some warnings about unmet peer dependencies. **Ignore them**. They won't stop you ;) 
+
 ### 4. Go and get 'em
 
-You should be all set up now. If you ran into errors, go ahead and fix them (or report them to me ;) ). Same applies to this documentation which will - with your help - improve over time.
+You should be all set up now. And ready to work on the code. If you run into errors, go ahead and fix them (or report them to me ;) ). Same applies to this documentation which will - with your help - improve over time.
+
+There are two options how you can see your code in action:
+
+1.  Compile ("transpile") **J**ust-**I**n-**T**ime:
+
+    This will reload the page as soon as a change in code is detected. Those reloads take a bit longer since the code is compiled during loading. This lets you test small changes faster and may be your preferred method for development.
+
+2.  Compile **A**head-**O**f-**T**ime:
+
+    This will take a while and leave you with a project ready to deploy. Sometimes the aot-compiler finds some errors in your code which were missed by the jit-compiler. So before you commit any changes compile aot and see if you've missed something.
 
 #### Compile Just-In-Time
 
@@ -40,34 +51,38 @@ Simply run:
 npm start
 ```
 
+Your browser will be fired up and the project is served to you.
+
+**Note**: This uses `src/index.html`.
+
 #### Compile Ahea-Of-Time
 
-Compile:
+After you compiled the project ahead-of-time the `/dist` folder will be populated. If you want to deploy the compiled project you'll need to transfer the contents of this folder to your server. Make sure the index.html will be found at the domain's / subdomain's root.
 
-```bash
-npm run build:aot
-```
-
-Compile & Uglify:
-
-```bash
-npm run buildnserve:aot
-```
-
-Server compiled:
-
-```bash
-npm run serve:aot
-```
-
-The compiled project can be found in `/dist`.
-
-If dependencies like `zone.js` or `shim.js` were updated by you run:
+If you update dependencies like `zone.js` or `shim.js` **or compile the code for the first time**, you'll need to run the following first:
 
 ```bash
 node copy-dist-files.js
 ```
 
-to copy the files to `/dist`.
+This will copy the necessary files to `/dist`.
 
-**Note**: JIT and AOT have different `index.html` files. If you need to change those, you will have to change both files (in `/src` for JIT and in `/dist` for AOT).
+##### Compile & Uglify:
+
+```bash
+npm run build:aot
+```
+
+##### Compile & Uglify & Serve:
+
+```bash
+npm run buildnserve:aot
+```
+
+##### Serve compiled:
+
+```bash
+npm run serve:aot
+```
+
+**Remember**: JIT and AOT have different `index.html` files. If you need to change those, you will have to change both files (in `/src` for JIT and in `/dist` for AOT).
