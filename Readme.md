@@ -6,12 +6,15 @@ Client for students to create multiple choice questions to test their knowledge 
 
 An Angular4-based client for olm_api (<https://github.com/randomchars42/olm_api>) which allows:
 
-* creating and maintaining of an arbitray number of collections of  multiple-choice questions
-* filtering of collections
-* creating and maintnaining individual test sessions for each user
-* markdown / flatfile based note collections to share experiences / tips between users
-* creating and maintaing of users (incl. password reset)
-* ...
+* add / modify / delete / undelete / reset `modules` - a collection of multiple-choice questions
+* add / modify / delete / undelete / reset `mcqs` - the multiple-choice questions
+* add / modify / delete `sessions` - test your knowledge against an individual collection of `mcqs`
+* invite / modify / manage / delete `users`
+* supports a simple hierarchy consisting of admins and users
+* add / modify / delete `exams` - arbitrary collection of notes
+* add / modify / delete `protocolls` - arbitrary flatfile / markdown-based notes for `exams` to share impressions, tips and help
+
+*reset* means that old revisions of those items are kept by the server so one can go back and restore an arbitray version
 
 ## First Steps
 
