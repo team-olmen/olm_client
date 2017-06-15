@@ -56,6 +56,7 @@ export class UserFormComponent extends AbstractTemplateForm {
 			'minlength': 'Das Passwort muss mindestend 5 Zeichen lang sein.',
 			'maxlength': 'Das Passwort darf maximal 100 Zeichen lang sein.',
 			'does-not-match': 'Die Passwörter stimmen nicht überein.',
+			'wrong': 'Bitte gib hier dein derzeitiges(!) Passwort ein',
 		},
 	};
 
@@ -71,6 +72,8 @@ export class UserFormComponent extends AbstractTemplateForm {
 			(this.setError('username', 'exists'));
 		(error === 'Email exists') &&
 			(this.setError('email', 'exists'));
+		(error === 'Wrong password') &&
+			(this.setError('check', 'wrong'));
 	};
 
 	back() {
