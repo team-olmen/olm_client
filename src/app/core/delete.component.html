@@ -5,10 +5,10 @@
 <ng-container *ngIf="item">
 
 <p *ngIf="type == 'user'">..., dass Du den Account "{{item}}" wirklich löschen möchtest?</p>
-<p *ngIf="type == 'module'">..., dass Du das Modul "{{item}}" wirklich löschen möchtest?</p>
-<p *ngIf="type == 'exam'">..., dass Du dieses Prüfungsart "{{item}}" wirklich löschen möchtest?</p>
-<p *ngIf="type == 'protocoll'">..., dass Du das Prüfungsprotokoll "{{item}}" wirklich löschen möchtest?</p>
-<p *ngIf="type == 'session'">..., dass Du deine Session "{{item}}" wirklich löschen möchtest?</p>
+<p *ngIf="type == 'module'">..., dass Du die MC-Sammlung "{{item}}" wirklich löschen möchtest?</p>
+<p *ngIf="type == 'exam'">..., dass Du die Protokollsammlung "{{item}}" wirklich löschen möchtest?</p>
+<p *ngIf="type == 'protocoll'">..., dass Du das Protokoll "{{item}}" wirklich löschen möchtest?</p>
+<p *ngIf="type == 'session'">..., dass Du deinen Test "{{item}}" wirklich löschen möchtest?</p>
 <p *ngIf="type == 'mcq'">..., dass Du die MC-Frage "{{item | cut:26}} ..." wirklich löschen möchtest?</p>
 <p *ngIf="type == 'inactiveusers'">..., dass Du {{item}} inaktive Nutzer wirklich löschen möchtest?</p>
 

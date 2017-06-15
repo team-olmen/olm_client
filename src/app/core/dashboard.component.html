@@ -3,7 +3,7 @@
 <section>
 
 	<header>
-		<h1>Deine Lernsitzungen</h1>
+		<h1>Deine Tests</h1>
 	</header>
 
 	<ul class="items">
@@ -22,7 +22,7 @@
 	</ul>
 
 	<menu class="bottom">
-		<a class="btn btn-create" routerLink="/session/create">Neue Session</a>
+		<a class="btn btn-create" routerLink="/session/create">Test zusammenstellen</a>
 	</menu>
 
 </section>
@@ -30,7 +30,7 @@
 <section>
 
 	<header>
-		<h1>MC-Fragen</h1>
+		<h1>MC-Sammlungen</h1>
 	</header>
 
 	<ul class="items">
@@ -52,8 +52,8 @@
 	</ul>
 
 	<menu class="bottom">
-		<a *ngIf="auth.admin" class="btn btn-create" routerLink="/module/create">Neues Modul anlegen</a>
-		<a *ngIf="auth.admin" class="btn btn-primary" routerLink="/module/deleted">Gelöschte Module ansehen</a>
+		<a *ngIf="auth.admin" class="btn btn-create" routerLink="/module/create">Neue MC-Sammlung anlegen</a>
+		<a *ngIf="auth.admin" class="btn btn-primary" routerLink="/module/deleted">Gelöschte MC-Sammlungen ansehen</a>
 	</menu>
 
 </section>
@@ -61,7 +61,7 @@
 <section>
 
 	<header>
-		<h1>Andere Prüfungen</h1>
+		<h1>Protokoll-Sammlungen</h1>
 	</header>
 
 	<ul class="items">
@@ -79,8 +79,8 @@
 	</ul>
 
 	<menu class="bottom">
-		<a *ngIf="auth.admin" class="btn btn-create" routerLink="/exam/create">Neues Prüfungsformat anlegen</a>
-		<a *ngIf="auth.admin" class="btn btn-primary" routerLink="/exam/deleted">Gelöschte Prüfungsformate ansehen</a>
+		<a *ngIf="auth.admin" class="btn btn-create" routerLink="/exam/create">Neue Protokollsammlung anlegen</a>
+		<a *ngIf="auth.admin" class="btn btn-primary" routerLink="/exam/deleted">Gelöschte Protokollsammlungen ansehen</a>
 	</menu>
 
 </section>
