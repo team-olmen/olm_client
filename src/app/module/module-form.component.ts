@@ -32,14 +32,14 @@ export class ModuleFormComponent extends AbstractTemplateForm {
 			'pattern': 'Der Name darf nur aus Buchstaben, Zahlen, Leerzeichen und folgenden Sonderzeichen bestehen: "_", "-", ".", ":", ","',
 			'minlength': 'Der Name muss mindestend 1 Zeichen lang sein.',
 			'maxlength': 'Der Name darf maximal 100 Zeichen lang sein.',
-			'exists': 'Ein Modul mit diesem Name gibt es schon.',
+			'exists': 'Eine MC-Sammlung mit diesem Name gibt es schon.',
 		},
 		'code': {
-			'required': 'Bitte gib den Modul- / Semester- / Abschnittscode ein.',
-			'pattern': 'Modul- / Semester- /Abschnittscodes beginnen mit einem Buchstaben und werden gefolgt von Zahlen, z.B. M01, S02, ... .',
+			'required': 'Bitte gib eine Kurzform für die MC-Sammlung ein, z.B. "M02".',
+			'pattern': 'MC-Sammlungscodes beginnen mit einem Buchstaben und werden gefolgt von Zahlen, z.B. M01, S02, ... .',
 			'minlength': 'Der Code muss mindestend 2 Zeichen lang sein.',
 			'maxlength': 'Der Code darf maximal 10 Zeichen lang sein.',
-			'exists': 'Ein Modul / Semester / Abschnitt mit diesem Code gibt es schon.',
+			'exists': 'Eine MC-Sammlung mit diesem Code gibt es schon.',
 		},
 	};
 

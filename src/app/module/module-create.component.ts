@@ -17,7 +17,7 @@ import 'rxjs/add/operator/switchMap';
 
 export class ModuleCreateComponent {
 	model: Module = new Module();
-	submitLabel: string = 'Modul erschaffen';
+	submitLabel: string = 'MC-Sammlung erschaffen';
 	version: string = 'new';
 	@ViewChild(ModuleFormComponent) form: ModuleFormComponent;
 
