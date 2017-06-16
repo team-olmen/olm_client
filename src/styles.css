@@ -396,44 +396,53 @@ body {
 body > header {
   background-color: #000000;
   color: #FFFFFF; }
+  @media print {
+    body > header {
+      display: none; } }
   body > header h1 {
     padding: 0.4em 0.8em; }
 
 nav {
-  width: 96%;
-  margin: auto;
+  margin: 1em;
   margin-top: 2em;
   text-transform: uppercase;
   color: #AAAAAA; }
   @media screen and (min-width: 500px) {
     nav {
+      margin: auto;
       width: 80%;
       max-width: 40em; } }
+  @media print {
+    nav {
+      display: none; } }
   nav a:after {
-    content: ' |'; }
+    content: ' \007c'; }
   nav a:last-child:after {
     content: ''; }
 
 main {
-  width: 96%;
-  margin: auto;
+  margin: 1em;
   margin-top: 2em;
   background-color: #FFFFFF; }
   @media screen and (min-width: 500px) {
     main {
+      margin: auto;
       width: 80%;
       max-width: 40em; } }
 
 footer {
-  width: 96%;
-  margin: auto;
+  margin: 1em;
   margin-top: 2em;
   text-align: right;
   color: #555555; }
   @media screen and (min-width: 500px) {
     footer {
+      margin: auto;
       width: 80%;
       max-width: 40em; } }
+  @media print {
+    footer {
+      display: none; } }
 
 form ul {
   list-style-type: none;
@@ -568,6 +577,9 @@ textarea {
 
 menu {
   padding: 0.4em 0.8em; }
+  @media print {
+    menu {
+      display: none; } }
   menu.top {
     background-color: #333;
     margin: 1em 0; }
@@ -659,13 +671,26 @@ dashboard .stats > li {
   dashboard .stats > li:last-child:after {
     content: ''; }
 
+session-view > div {
+  margin-left: 1.5em; }
 session-view ol {
+  margin-left: 1.5em;
+  margin-bottom: 2em;
   list-style-type: decimal; }
   session-view ol li {
+    position: relative;
     margin-left: 2em;
     padding: 0.4em 0.8em; }
   session-view ol a {
     display: block; }
+session-view .answr-solution:before {
+  content: '\003e';
+  position: absolute;
+  left: -3.5em; }
+session-view .answr-error:before {
+  content: 'x';
+  position: absolute;
+  left: -3.5em; }
 session-view .answr-solution {
   background-color: #a0fca0;
   border-color: #5cb85c;
@@ -677,24 +702,33 @@ session-view .answr-error {
 session-view li:hover {
   background-color: #CCCCCC;
   cursor: pointer; }
+  session-view li:hover:before {
+    content: '?';
+    position: absolute;
+    left: -3.5em; }
 session-view a {
   color: #000000; }
 
+mcq-display > div {
+  margin-left: 1.5em; }
 mcq-display ol {
+  margin-left: 1.5em;
+  margin-bottom: 2em;
   list-style-type: decimal; }
   mcq-display ol li {
+    position: relative;
     margin-left: 2em;
     padding: 0.4em 0.8em; }
   mcq-display ol a {
     display: block; }
-mcq-display .answr-solution {
-  background-color: #a0fca0;
-  border-color: #5cb85c;
-  color: #004100; }
-mcq-display .answr-error {
-  background-color: #ff9793;
-  border-color: #d9534f;
-  color: #620000; }
+mcq-display .answr-solution:before {
+  content: '\003e';
+  position: absolute;
+  left: -3.5em; }
+mcq-display .answr-error:before {
+  content: 'x';
+  position: absolute;
+  left: -3.5em; }
 
 mcqs-view ul {
   list-style-type: none;
