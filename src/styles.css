@@ -744,6 +744,9 @@ markdown-view {
 h1 {
   font-size: 1.5em;
   font-weight: bold; }
+  @media print {
+    h1 {
+      margin-bottom: 2em; } }
 
 h2 {
   font-size: 1.2em;
