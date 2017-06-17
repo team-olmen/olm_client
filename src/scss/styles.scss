@@ -177,6 +177,7 @@ textarea {
 	border: none;
 	color: #FFFFFF;
 	padding: $padding-vert $padding-horz; 
+	margin: 0.1em;
 	//padding: 0 $padding-horz;
 	text-align: center;
 	text-decoration: none;
@@ -450,7 +451,19 @@ h3 {
 	font-weight: bold;
 }
 
-h3 {
+h4 {
+	font-size: 1em;
+	font-weight: bold;
+	color: $color-text-bright - #333333;
+}
+
+h5 {
+	font-size: 1em;
+	font-weight: bold;
+	color: $color-text-bright - #111111;
+}
+
+h6 {
 	font-size: 1em;
 	font-weight: bold;
 	color: $color-text-bright;
