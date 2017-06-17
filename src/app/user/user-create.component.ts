@@ -29,7 +29,7 @@ export class UserCreateComponent {
 		this.olmService.apiCreate('user', this.model)
 			.subscribe(
 				result => {
-					this.router.navigate(['/user/edit', this.model.id]);
+					this.router.navigate(['/dashboard']);
 					this.alertService.success("Daten gespeichert.");
 				},
 				error => {
