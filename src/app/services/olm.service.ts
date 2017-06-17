@@ -216,8 +216,8 @@ export class OlmService implements CanActivate {
 		.catch(this.handleError);	
 	};
 
-	apiReadUsersByName(name: string): Observable<any[]> {
-		return this.http.get(this.urlOlm.concat(this.getEndpoint('user'), '/name/', name), this.jwt())
+	apiReadUsersBySearchTerm(term: string): Observable<any[]> {
+		return this.http.get(this.urlOlm.concat(this.getEndpoint('user'), '/search/', term), this.jwt())
 		.map(response => response.json())
 		.catch(this.handleError);	
 	};
