@@ -30,6 +30,7 @@
 		<ng-container *ngIf="auth.admin">
 			{{item.title}}
 			<menu class="assoc">
+				<a class="btn btn-primary" [routerLink]="['/doc/view', item.id, 'current']">ansehen</a>
 				<a class="btn btn-edit" [routerLink]="['/doc/edit', item.id, 'current']">bearbeiten</a>
 				<a class="btn btn-delete" [routerLink]="['/doc/delete', item.id, 'current']">löschen</a>
 			</menu>

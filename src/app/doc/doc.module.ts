@@ -6,6 +6,7 @@ import { DocRoutingModule } from './doc-routing.module';
 import { DocCreateComponent } from './doc-create.component';
 import { DocFormComponent } from './doc-form.component';
 import { DocEditComponent } from './doc-edit.component';
+import { DocViewComponent } from './doc-view.component';
 
 @NgModule({
 	imports: [
@@ -16,6 +17,7 @@ import { DocEditComponent } from './doc-edit.component';
 		DocCreateComponent,
 		DocFormComponent,
 		DocEditComponent,
+		DocViewComponent,
 	],
 })
 

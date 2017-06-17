@@ -1,0 +1,11 @@
+<h1>{{item.title}}</h1>
+
+<text-view [path]="'doc-view'"></text-view>
+
+<markdown-view [text]="item.text"></markdown-view>
+
+<menu class="bottom">
+	<a class="btn btn-back" [routerLink]="['/admin']">zurück</a>
+	<a class="btn btn-edit" [routerLink]="['/doc/edit', item.id, 'current']">bearbeiten</a>
+	<a class="btn btn-delete" [routerLink]="['/doc/delete', item.id, 'current', 'current']">löschen</a>
+</menu>
