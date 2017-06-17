@@ -410,6 +410,7 @@ nav {
   @media screen and (min-width: 500px) {
     nav {
       margin: auto;
+      margin-top: 2em;
       width: 80%;
       max-width: 40em; } }
   @media print {
@@ -427,6 +428,7 @@ main {
   @media screen and (min-width: 500px) {
     main {
       margin: auto;
+      margin-top: 2em;
       width: 80%;
       max-width: 40em; } }
 
@@ -438,6 +440,7 @@ footer {
   @media screen and (min-width: 500px) {
     footer {
       margin: auto;
+      margin-top: 2em;
       width: 80%;
       max-width: 40em; } }
   @media print {
