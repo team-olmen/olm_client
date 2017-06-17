@@ -45,8 +45,12 @@ export class UserEditComponent implements OnInit {
 		this.olmService.apiUpdate('user', this.model.id, this.model)
 			.subscribe(
 				result => {
-					this.router.navigate(['/door']);
-					this.alertService.success("Daten gespeichert. Bitte logge Dich mit Deinen neuen Daten ein.");
+					if (this.form.auth.admin) {
+						this.alertService.success("Daten gespeichert.");
+					} else
+						this.router.navigate(['/door']);
+						this.alertService.success("Daten gespeichert. Bitte logge Dich mit Deinen neuen Daten ein.");
+					}
 				},
 				error => {
 					this.form.handleServerError(error);
