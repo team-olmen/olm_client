@@ -403,14 +403,15 @@ session-view {
 		color: $color-danger - #777777;
 	}
 	li {
+		cursor: pointer;
+		// detect iOS devices for https://css-tricks.com/annoying-mobile-double-tap-link-issue/
 		&:hover {
 			background-color: #CCCCCC;
-			cursor: pointer;
-			&:before {
-				content: '?';
-				position: absolute;
-				left: -3.5em;
-			}
+			//&:before {
+			//	content: '?';
+			//	position: absolute;
+			//	left: -3.5em;
+			//}
 		}
 	}
 	a {

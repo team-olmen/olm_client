@@ -704,13 +704,10 @@ session-view .answr-error {
   background-color: #ff9793;
   border-color: #d9534f;
   color: #620000; }
-session-view li:hover {
-  background-color: #CCCCCC;
+session-view li {
   cursor: pointer; }
-  session-view li:hover:before {
-    content: '?';
-    position: absolute;
-    left: -3.5em; }
+  session-view li:hover {
+    background-color: #CCCCCC; }
 session-view a {
   color: #000000; }
 
