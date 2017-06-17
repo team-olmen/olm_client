@@ -1,10 +1,11 @@
-import { Component, Input, Output } from '@angular/core';
+import { Component, Input, Output, OnInit, OnChanges } from '@angular/core';
 import { Location } from '@angular/common';
 
 import { User } from './user';
 
 import { AbstractTemplateForm } from '../core/abstract-template-form';
 import { AlertService } from '../services/alert.service';
+import { OlmService } from '../services/olm.service';
 
 @Component({
 	selector: 'user-form',
@@ -13,17 +14,28 @@ import { AlertService } from '../services/alert.service';
 
 export class UserFormComponent extends AbstractTemplateForm {
 	@Input() model: User;
+	public auth: any;
 
 	constructor(
 		protected alertService: AlertService,
+		protected olmService: OlmService,
 		private location: Location,
 	) {
 		super(alertService);
 	};
 
+	ngOnInit() {
+		this.olmService.getAuth().subscribe(auth => this.auth = auth);
+	};
+
+	ngOnChanges() {
+		console.log(this.model);
+	};
+
 	formErrors = {
 		'username': '',
 		'email': '',
+		'roles': '',
 		'password': '',
 		'check': '',
 	};
@@ -42,6 +54,9 @@ export class UserFormComponent extends AbstractTemplateForm {
 			'minlength': 'Die Emailadresse muss mindestend 5 Zeichen lang sein.',
 			'maxlength': 'Die Emailadresse darf maximal 100 Zeichen lang sein.',
 			'exists': 'Es gibt schon einen Benutzer mit dieser Emailadresse. Hast Du Dein Passwort vergessen? Du kannst es zurücksetzen!',
+		},
+		'roles': {
+			'required': 'Bitte ordne dem Nutzer eine Rolle zu.',
 		},
 		'password': {
 			'required': 'Bitte gib ein Passwort ein.',
