@@ -47,7 +47,7 @@ export class UserEditComponent implements OnInit {
 				result => {
 					if (this.form.auth.admin) {
 						this.alertService.success("Daten gespeichert.");
-					} else
+					} else {
 						this.router.navigate(['/door']);
 						this.alertService.success("Daten gespeichert. Bitte logge Dich mit Deinen neuen Daten ein.");
 					}
