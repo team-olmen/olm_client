@@ -29,12 +29,13 @@ body {
 @mixin display-area {
 	//width: 96%;
 	margin: 1em;
+	margin-top: 2em;
 	@media screen and (min-width: 500px) {
 		margin: auto;
+		margin-top: 2em;
 		width: 80%;
 		max-width: 40em;
 	}
-	margin-top: 2em;
 }
 
 @mixin round-corners($tl: true, $tr: true, $br: true, $bl:true, $radius: 0.3em) {
