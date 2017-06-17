@@ -57,6 +57,6 @@ export class UsersViewComponent implements OnInit {
 		if (term.length <= 3) {
 			return Observable.of<User[]>([]);
 		};
-		return this.olmService.apiReadUsersByName(term);
+		return this.olmService.apiReadUsersBySearchTerm(term);
 	};
 }

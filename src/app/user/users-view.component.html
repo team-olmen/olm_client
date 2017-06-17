@@ -2,9 +2,10 @@
 
 <text-view [path]="'users-view'"></text-view>
 
+<form>
 <ul>
 	<li>
-		<label for="searchbox">Nutzer finden (&gt; 3 Buchstaben):</label>
+		<label for="searchbox">Nutzer finden aka "Magisches Finde-Feld":</label>
 		<input
 				type="text"
 	 			id="searchbox"
@@ -14,6 +15,7 @@
 				/>
 	</li>
 </ul>
+</form>
 
 <ul class="items">
 	<li *ngFor="let item of items | async">
