@@ -28,6 +28,21 @@
 					required />
 			<div class="dtls" *ngIf="formErrors.email">{{formErrors.email}}</div>
 		</li>
+		<li *ngIf="auth?.admin && model?.roles">
+			<label for="roles">Rolle</label>
+			<select
+					type="roles"
+		 			id="roles"
+					name="roles"
+		 			[(ngModel)]="model.roles"
+		 			#role="ngModel"
+		 			multiple
+					required>
+				<option [ngValue]="'ROLE_USER'">Benutzer</option>
+				<option [ngValue]="'ROLE_ADMIN'">Admin</option>
+			</select>
+			<div class="dtls" *ngIf="formErrors.roles">{{formErrors.roles}}</div>
+		</li>
 		<li>
 			<label for="password">Passwort</label>
 			<input
