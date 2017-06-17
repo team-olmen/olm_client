@@ -12,6 +12,7 @@ import { McqModule } from './mcq/mcq.module';
 import { SessionModule } from './session/session.module';
 import { ProtocollModule } from './protocoll/protocoll.module';
 import { TextModule } from './text/text.module';
+import { DocModule } from './doc/doc.module';
 
 import { OlmService } from './services/olm.service';
 import { AlertService } from './services/alert.service';
@@ -27,6 +28,7 @@ import { AlertService } from './services/alert.service';
 		SessionModule,
 		ProtocollModule,
 		TextModule,
+		DocModule,
 		AppRoutingModule,
 	],
 	declarations: [

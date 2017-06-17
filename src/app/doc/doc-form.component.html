@@ -1,0 +1,36 @@
+<form (ngSubmit)="parent.onSubmit()" #form="ngForm">
+	<ul>
+		<li>
+			<label for="title">Titel</label>
+			<input
+					type="text"
+		 			id="title"
+					name="title"
+		 			[(ngModel)]="model.title"
+		 			#title="ngModel"
+		 			pattern="^[A-Za-z0-9 ÄÖÜäöüß_\-:,\.]+$"
+					maxlength="100"
+		 			minlength="1"
+					required />
+			<div class="dtls" *ngIf="formErrors.title">{{formErrors.title}}</div>
+		</li>
+		<li>
+			<label for="text">Text</label>
+			<textarea
+					type="text"
+					id="text"
+					name="text"
+		 			[(ngModel)]="model.text"
+		 			#text="ngModel"
+					required>
+			</textarea>
+			<div class="dtls" *ngIf="formErrors.text">{{formErrors.text}}</div>
+		</li>
+	</ul>
+	<menu class="bottom">
+		<a *ngIf="!model.id" class="btn btn-back" routerLink="/dashboard">zurück</a>	
+		<button type="button" *ngIf="model.id" class="btn btn-back" (click)="back()">zurück</button>
+		<button type="submit" class="btn btn-submit" [disabled]="!form.form.valid">{{submitLabel}}</button>
+		<a *ngIf="parent.version != 'new'" class="btn btn-delete" [routerLink]="['/doc/delete/', model.id, parent.version]">Doku löschen</a>
+	</menu>
+</form>

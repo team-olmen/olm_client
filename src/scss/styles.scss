@@ -265,6 +265,12 @@ menu {
 	&.help {
 		text-align: right;
 	}
+	
+	&.list {
+		a {
+			display: block;
+		}
+	}
 }
 
 .msg {

@@ -52,6 +52,10 @@ export class OlmService implements CanActivate {
 				fragment = '/api/texts';
 				break;
 			}
+			case 'doc': {
+				fragment = '/api/docs';
+				break;
+			}
 		}
 		return fragment;
 	}

@@ -1,0 +1,42 @@
+<h1>Administration</h1>
+
+<text-view [path]="'admin'"></text-view>
+
+<h2>MC-Sammlungen</h2>
+
+<menu class="list">
+	<a *ngIf="auth.admin" class="btn btn-create" routerLink="/module/create">Neue MC-Sammlung anlegen</a>
+	<a *ngIf="auth.admin" class="btn btn-primary" routerLink="/module/deleted">Gelöschte MC-Sammlungen ansehen</a>
+</menu>
+
+<h2>Protokoll-Sammlungen</h2>
+<menu class="list">
+	<a *ngIf="auth.admin" class="btn btn-create" routerLink="/exam/create">Neue Protokollsammlung anlegen</a>
+	<a *ngIf="auth.admin" class="btn btn-primary" routerLink="/exam/deleted">Gelöschte Protokollsammlungen ansehen</a>
+</menu>
+
+<h2>Sonstiges</h2>
+
+<menu class="list">
+	<a class="btn btn-create" routerLink="/doc/create">Doku anlegen</a>
+	<a routerLink="/users/view" class="btn btn-primary">Benutzer suchen</a>
+	<a routerLink="/texts/view" class="btn btn-primary">Hilfe-Texte verwalten</a>
+</menu>
+
+<h2>Dokus</h2>
+
+<ul class="items">
+	<li *ngFor="let item of items">
+		<ng-container *ngIf="auth.admin">
+			{{item.title}}
+			<menu class="assoc">
+				<a class="btn btn-edit" [routerLink]="['/doc/edit', item.id, 'current']">bearbeiten</a>
+				<a class="btn btn-delete" [routerLink]="['/doc/delete', item.id, 'current']">löschen</a>
+			</menu>
+		</ng-container>
+	</li>
+</ul>
+
+<menu class="bottom">
+	<a class="btn btn-back" routerLink="/dashboard">zurück</a>
+</menu>

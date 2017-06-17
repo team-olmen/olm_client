@@ -5,6 +5,7 @@ import { CoreRoutingModule } from './core-routing.module';
 
 import { AlertComponent } from './alert.component';
 import { DashboardComponent } from './dashboard.component';
+import { AdminComponent } from './admin.component';
 import { DoorComponent } from './door.component';
 import { DoorStatusComponent } from './door-status.component';
 import { DoorResetComponent } from './door-reset.component';
@@ -21,6 +22,7 @@ import { HistoryComponent } from './history.component';
 	declarations: [
 		AlertComponent,
 		DashboardComponent,
+		AdminComponent,
 		DoorComponent,
 		DoorStatusComponent,
 		DoorResetComponent,
