@@ -367,12 +367,12 @@ dashboard {
 		}
 		a {
 			display: block;
+			&:hover {
+				color: inherit;
+			}
 		}
 	}
 	.answr-solution {
-		//background-color: $color-success + #444444;
-		//border-color: $color-success;
-		//color: $color-success - #777777;
 		&:before {
 			content: '\003e';
 			position: absolute;
@@ -380,9 +380,6 @@ dashboard {
 		}
 	}
 	.answr-error {
-		//background-color: $color-danger + #444444;
-		//border-color: $color-danger;
-		//color: $color-danger - #777777;
 		&:before {
 			content: 'x';
 			position: absolute;
@@ -393,26 +390,24 @@ dashboard {
 
 session-view {
 	@include mcq;
-	.answr-solution {
-		background-color: $color-success + #444444;
-		border-color: $color-success;
-		color: $color-success - #777777;
-	}
-	.answr-error {
-		background-color: $color-danger + #444444;
-		border-color: $color-danger;
-		color: $color-danger - #777777;
-	}
 	li {
 		cursor: pointer;
+		&.answr-solution {
+			background-color: $color-success + #444444;
+			border-color: $color-success;
+		}
+		&.answr-error {
+			background-color: $color-danger + #444444;
+			border-color: $color-danger;
+		}
 		// detect iOS devices for https://css-tricks.com/annoying-mobile-double-tap-link-issue/
-		&:hover {
+		&.answr-choice:hover {
 			background-color: #CCCCCC;
-			//&:before {
-			//	content: '?';
-			//	position: absolute;
-			//	left: -3.5em;
-			//}
+			&:before {
+				content: '?';
+				position: absolute;
+				left: -3.5em;
+			}
 		}
 	}
 	a {
