@@ -8,7 +8,7 @@
 					name="path"
 		 			[(ngModel)]="model.path"
 		 			#path="ngModel"
-		 			pattern="^[A-Za-z0-9 ÄÖÜäöüß_\-:.,]+$"
+		 			pattern="^[A-Za-z0-9 ÄÖÜäöüß_\-:\.,']+$"
 					required />
 			<div class="dtls" *ngIf="formErrors.path">{{formErrors.path}}</div>
 		</li>
