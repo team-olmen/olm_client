@@ -689,6 +689,8 @@ session-view ol {
     padding: 0.4em 0.8em; }
   session-view ol a {
     display: block; }
+    session-view ol a:hover {
+      color: inherit; }
 session-view .answr-solution:before {
   content: '\003e';
   position: absolute;
@@ -697,18 +699,20 @@ session-view .answr-error:before {
   content: 'x';
   position: absolute;
   left: -3.5em; }
-session-view .answr-solution {
-  background-color: #a0fca0;
-  border-color: #5cb85c;
-  color: #004100; }
-session-view .answr-error {
-  background-color: #ff9793;
-  border-color: #d9534f;
-  color: #620000; }
 session-view li {
   cursor: pointer; }
-  session-view li:hover {
+  session-view li.answr-solution {
+    background-color: #a0fca0;
+    border-color: #5cb85c; }
+  session-view li.answr-error {
+    background-color: #ff9793;
+    border-color: #d9534f; }
+  session-view li.answr-choice:hover {
     background-color: #CCCCCC; }
+    session-view li.answr-choice:hover:before {
+      content: '?';
+      position: absolute;
+      left: -3.5em; }
 session-view a {
   color: #000000; }
 
@@ -724,6 +728,8 @@ mcq-display ol {
     padding: 0.4em 0.8em; }
   mcq-display ol a {
     display: block; }
+    mcq-display ol a:hover {
+      color: inherit; }
 mcq-display .answr-solution:before {
   content: '\003e';
   position: absolute;

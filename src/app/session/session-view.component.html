@@ -12,7 +12,7 @@
 		<p>{{mcq.question}}</p>
 		<ol>
 			<li *ngFor="let answer of mcq.answers; index as i"
-				[ngClass]="{ 'answr-solution': session.status[session.current] < 2 && i === mcq.solution, 'answr-error': session.status[session.current] < 2 && i === session.getAnswer() && mcq.solution !== i}"
+				[ngClass]="{ 'answr-choice': session.status[session.current] == 2, 'answr-solution': session.status[session.current] < 2 && i === mcq.solution, 'answr-error': session.status[session.current] < 2 && i === session.getAnswer() && mcq.solution !== i}"
 				>
 				<a (click)="select(i)">{{answer}}</a>
 			</li>
