@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { OlmService } from '../services/olm.service';
 
 import { DashboardComponent } from './dashboard.component';
+import { AdminComponent } from './admin.component';
 import { DoorComponent } from './door.component';
 import { DoorResetComponent } from './door-reset.component';
 import { DeleteComponent } from './delete.component';
@@ -12,6 +13,7 @@ import { HistoryComponent } from './history.component';
 
 @NgModule({
 	imports: [RouterModule.forChild([
+		{ path: 'admin', component: AdminComponent },
 		{ path: 'door', component: DoorComponent },
 		{ path: 'dashboard', component: DashboardComponent, canActivate: [OlmService] },
 		{ path: 'door/reset', component: DoorResetComponent },
