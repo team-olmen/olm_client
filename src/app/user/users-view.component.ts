@@ -59,4 +59,8 @@ export class UsersViewComponent implements OnInit {
 		};
 		return this.olmService.apiReadUsersBySearchTerm(term);
 	};
+
+	getRoles(item: User) {
+		return item.roles.join(', ');
+	};
 }

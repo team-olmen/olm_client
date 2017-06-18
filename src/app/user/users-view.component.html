@@ -5,7 +5,7 @@
 <form>
 <ul>
 	<li>
-		<label for="searchbox">Nutzer finden aka "Magisches Finde-Feld":</label>
+		<label for="searchbox">"Magisches Finde-Feld":</label>
 		<input
 				type="text"
 	 			id="searchbox"
@@ -19,7 +19,7 @@
 
 <ul class="items">
 	<li *ngFor="let item of items | async">
-		{{item.username}}
+		<strong>{{item.username}}</strong> (<em>{{item.email}}</em>, {{getRoles(item)}})
 		<menu>
 		<ng-container *ngIf="auth.admin">
 			<a class="btn btn-edit" [routerLink]="['/user/edit', item.id]">bearbeiten</a>
