@@ -90,6 +90,8 @@ export class OlmService implements CanActivate {
 		if (error instanceof Response) {
 			if (error.status == 500) {
 				console.error(error);
+			} else if (error.status == 401) {
+				this.router.navigate(['/door']);
 			}
 			errMsg = error.statusText;
 		} else {
