@@ -12,7 +12,7 @@
 			<ul class="stats">
 				<li>richtig: {{session.correct}}</li>
 				<li>beantwortet: {{session.answered}}</li>
-				<li>insgesamt: {{session.total}} ({{session.correct / session.total * 100}} %)</li>
+				<li>insgesamt: {{session.total}} ({{session.correct / session.total * 100 }} %)</li>
 			</ul>
 			<menu class="assoc">
 				<a class="btn btn-delete" [routerLink]="['/session/delete', session.id, 'current']">löschen</a>

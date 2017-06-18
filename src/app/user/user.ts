@@ -9,5 +9,5 @@ export class User {
 	account_non_expired: number;
 	credentials_non_expired: number;
 	account_non_locked: number;
-	roles: string;
+	roles: string[];
 }
