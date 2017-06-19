@@ -84,14 +84,16 @@ export class OlmService implements CanActivate {
 		return false;
 	};
 
-	private handleError(error: any): Observable<any> {
+	private handleError(service: OlmService, error: any): Observable<any> {
 		let errMsg: string;
 		console.log(error);
 		if (error instanceof Response) {
 			if (error.status == 500) {
 				console.error(error);
 			} else if (error.status == 401) {
-				this.router.navigate(['/door']);
+				//service.logout();
+				console.log("Invalid token, I will log you out");
+				service.router.navigate(['/door']);
 			}
 			errMsg = error.statusText;
 		} else {
@@ -130,7 +132,8 @@ export class OlmService implements CanActivate {
 			this.authObservable.next(auth);
 			return auth;
 		})
-		.catch(this.handleError);
+		//.catch(this.handleError);
+		.catch(error => this.handleError(this, error));
 	};
 
 	logout() {
@@ -141,7 +144,8 @@ export class OlmService implements CanActivate {
 
 	resetPassword(email: string): Observable<Authorisation> {
 		return this.http.post(this.urlOlm.concat('/api/password/reset'), JSON.stringify({ email: email }))
-		.catch(this.handleError);
+		//.catch(this.handleError);
+		.catch(error => this.handleError(this, error));
 	};
 
 	/*
@@ -151,7 +155,8 @@ export class OlmService implements CanActivate {
 	apiCreate(endpoint: string, data: any): Observable<any> {
 		return this.http.post(this.urlOlm.concat(this.getEndpoint(endpoint)), data, this.jwt())
 		.map(response => response.json())
-		.catch(this.handleError);	
+		//.catch(this.handleError);	
+		.catch(error => this.handleError(this, error));
 	};
 
 	apiRead(endpoint: string, id: number, version: string): Observable<any> {
@@ -161,43 +166,50 @@ export class OlmService implements CanActivate {
 			this.urlOlm.concat(this.getEndpoint(endpoint), '/', String(id), '/version/', version);
 		return this.http.get(url, this.jwt())
 			.map(response => response.json())
-			.catch(this.handleError);
+			//.catch(this.handleError);
+			.catch(error => this.handleError(this, error));
 	};
 
 	apiReadAll(endpoint: string): Observable<any[]> {
 		return this.http.get(this.urlOlm.concat(this.getEndpoint(endpoint)), this.jwt())
 		.map(response => response.json())
-		.catch(this.handleError);	
+		//.catch(this.handleError);	
+		.catch(error => this.handleError(this, error));
 	};
 
 	apiUpdate(endpoint: string, id: number, data: any): Observable<any> {
 		return this.http.patch(this.urlOlm.concat(this.getEndpoint(endpoint), '/', String(id)), data, this.jwt())
 		.map(response => response.json())
-		.catch(this.handleError);	
+		//.catch(this.handleError);	
+		.catch(error => this.handleError(this, error));
 	};
 
 	apiDelete(endpoint: string, id: number): Observable<any> {
 		return this.http.delete(this.urlOlm.concat(this.getEndpoint(endpoint), '/', String(id)), this.jwt())
 		.map(response => response.json())
-		.catch(this.handleError);	
+		//.catch(this.handleError);	
+		.catch(error => this.handleError(this, error));
 	};
 
 	apiReadDeleted(endpoint: string): Observable<any[]> {
 		return this.http.get(this.urlOlm.concat(this.getEndpoint(endpoint), '/deleted'), this.jwt())
 		.map(response => response.json())
-		.catch(this.handleError);	
+		//.catch(this.handleError);	
+		.catch(error => this.handleError(this, error));
 	};
 
 	apiReadHistory(endpoint: string, id: number): Observable<any[]> {
 		return this.http.get(this.urlOlm.concat(this.getEndpoint(endpoint), '/history/', String(id)), this.jwt())
 		.map(response => response.json())
-		.catch(this.handleError);	
+		//.catch(this.handleError);	
+		.catch(error => this.handleError(this, error));
 	};
 
 	apiReadProtocolls(id: number): Observable<any[]> {
 		return this.http.get(this.urlOlm.concat(this.getEndpoint('protocoll'), '/exam/', String(id)), this.jwt())
 		.map(response => response.json())
-		.catch(this.handleError);
+		//.catch(this.handleError);
+		.catch(error => this.handleError(this, error));
 	};
 
 	apiReadMcqs(module: number, rating: number, generation: string, original: number, number: number): Observable<any[]> {
@@ -209,29 +221,34 @@ export class OlmService implements CanActivate {
 			'/number/', String(number)),
 			this.jwt())
 		.map(response => response.json())
-		.catch(this.handleError);
+		//.catch(this.handleError);
+		.catch(error => this.handleError(this, error));
 	};
 
 	apiReadText(path: string): Observable<any> {
 		return this.http.get(this.urlOlm.concat(this.getEndpoint('text'), '/path/', path), this.jwt())
 		.map(response => response.json())
-		.catch(this.handleError);	
+		//.catch(this.handleError);	
+		.catch(error => this.handleError(this, error));
 	};
 
 	apiReadUsersBySearchTerm(term: string): Observable<any[]> {
 		return this.http.get(this.urlOlm.concat(this.getEndpoint('user'), '/search/', term), this.jwt())
 		.map(response => response.json())
-		.catch(this.handleError);	
+		//.catch(this.handleError);	
+		.catch(error => this.handleError(this, error));
 	};
 
 	apiReadUsersInactive(): Observable<any[]> {
 		return this.http.get(this.urlOlm.concat(this.getEndpoint('user'), '/inactive'), this.jwt())
 		.map(response => response.json())
-		.catch(this.handleError);	
+		//.catch(this.handleError);	
+		.catch(error => this.handleError(this, error));
 	};
 	apiDeleteUsersInactive(): Observable<any[]> {
 		return this.http.delete(this.urlOlm.concat(this.getEndpoint('user'), '/inactive'), this.jwt())
 		.map(response => response.json())
-		.catch(this.handleError);	
+		//.catch(this.handleError);	
+		.catch(error => this.handleError(this, error));
 	};
 }
