@@ -750,6 +750,16 @@ mcqs-view ul {
 markdown-view {
   font-family: monospace; }
 
+protocoll-view > markdown-view {
+  font-family: inherit; }
+  protocoll-view > markdown-view div {
+    margin-top: 2em;
+    padding-top: 2em;
+    border-style: solid;
+    border-width: 0.1em;
+    border-color: #636c72;
+    border-style: solid none none none; }
+
 h1 {
   font-size: 1.5em;
   font-weight: bold; }
@@ -807,14 +817,5 @@ p {
   margin-bottom: 1em; }
   p:last-child {
     margin-bottom: 0; }
-
-protocoll-view markdown-view div {
-  padding: 0.8em 0.4em;
-  border-style: solid;
-  border-width: 0.1em;
-  border-color: #636c72;
-  -webkit-border-radius: 0.3em 0.3em 0.3em 0.3em;
-  -moz-border-radius: 0.3em 0.3em 0.3em 0.3em;
-  border-radius: 0.3em 0.3em 0.3em 0.3em; }
 
 /*# sourceMappingURL=styles.css.map */

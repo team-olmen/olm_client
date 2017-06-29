@@ -427,6 +427,19 @@ markdown-view {
 	font-family: monospace;
 }
 
+protocoll-view {
+	&>markdown-view {
+		font-family: inherit;
+		div {
+			margin-top: 2em;
+			padding-top: 2em;
+			@include border;
+			border-style: solid none none none;
+		//	padding: $padding-horz $padding-vert;
+		//	@include round-corners;
+		}
+	}	
+}
 
 h1 {
 	font-size: 1.5em;
@@ -499,12 +512,4 @@ p {
 	&:last-child {
 		margin-bottom: 0;
 	}
-}
-
-protocoll-view {
-	markdown-view div {
-		padding: $padding-horz $padding-vert;
-		@include border;
-		@include round-corners;
-	} 
 }
