@@ -37,6 +37,9 @@ export class ProtocollFormComponent extends AbstractTemplateForm {
 		'text': {
 			'required': 'Das wäre ein sinnloses Protokoll.',
 		},
+		'order_num': {
+			'required': 'Gib an, wo das Item in der Reihenfolge stehen soll',
+		},
 	};
 
 	handleServerError(error: string) {

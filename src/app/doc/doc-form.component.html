@@ -26,6 +26,17 @@
 			</textarea>
 			<div class="dtls" *ngIf="formErrors.text">{{formErrors.text}}</div>
 		</li>
+		<li *ngIf="model.id">
+			<label for="order_num">Position in der Liste (vor)</label>
+			<input
+					type="number"
+		 			id="order_num"
+					name="order_num"
+		 			[(ngModel)]="model.order_num"
+		 			#order_num="ngModel"
+					required />
+			<div class="dtls" *ngIf="formErrors.order_num">{{formErrors.order_num}}</div>
+		</li>
 	</ul>
 	<menu class="bottom">
 		<a *ngIf="!model.id" class="btn btn-back" routerLink="/dashboard">zurück</a>	

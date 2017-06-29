@@ -33,6 +33,9 @@ export class ExamFormComponent extends AbstractTemplateForm {
 			'maxlength': 'Der Name darf maximal 100 Zeichen lang sein.',
 			'exists': 'Eine Protokollsammlung mit diesem Namen gibt es schon.'
 		},
+		'order_num': {
+			'required': 'Gib an, wo das Item in der Reihenfolge stehen soll',
+		},
 	};
 
 	handleServerError(error: string) {

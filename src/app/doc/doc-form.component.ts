@@ -36,6 +36,9 @@ export class DocFormComponent extends AbstractTemplateForm {
 		},
 		'text': {
 			'required': 'Das wäre sinnlos ;)',
+		},
+		'order_num': {
+			'required': 'Gib an, wo das Item in der Reihenfolge stehen soll',
 		}
 	};
 
