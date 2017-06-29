@@ -41,6 +41,9 @@ export class ModuleFormComponent extends AbstractTemplateForm {
 			'maxlength': 'Der Code darf maximal 10 Zeichen lang sein.',
 			'exists': 'Eine MC-Sammlung mit diesem Code gibt es schon.',
 		},
+		'order_num': {
+			'required': 'Gib an, wo das Item in der Reihenfolge stehen soll',
+		},
 	};
 
 	handleServerError(error: string) {

@@ -28,7 +28,7 @@
 <ul class="items">
 	<li *ngFor="let item of items">
 		<ng-container *ngIf="auth.admin">
-			{{item.title}}
+			{{item.title}} ({{item.order_num}})
 			<menu class="assoc">
 				<a class="btn btn-primary" [routerLink]="['/doc/view', item.id, 'current']">ansehen</a>
 				<a class="btn btn-edit" [routerLink]="['/doc/edit', item.id, 'current']">bearbeiten</a>

@@ -35,7 +35,10 @@
 
 	<ul class="items">
 		<li *ngFor="let module of modules">
-			<h2>{{module.code}}: {{module.name}}</h2>
+			<h2>
+				{{module.code}}: {{module.name}}
+				<ng-container *ngIf="auth.admin">({{module.order_num}})</ng-container>
+			</h2>
 			<menu class="assoc">
 			<a class="btn btn-primary" [routerLink]="['/mcqs', 'view', module.id, '3', 'all', '2', '0']">alle</a>
 			<a class="btn btn-primary" [routerLink]="['/mcqs', 'view', module.id, '1', 'all', '2', '0']">gute</a>
@@ -66,7 +69,10 @@
 
 	<ul class="items">
 		<li *ngFor="let exam of exams">
-			<h2>{{exam.name}}</h2>
+			<h2>
+				{{exam.name}}
+				<ng-container *ngIf="auth.admin">({{exam.order_num}})</ng-container>
+			</h2>
 			<menu class="assoc">
 				<a class="btn btn-primary" [routerLink]="['/protocolls/view', exam.id]">ansehen</a>
 				<ng-container *ngIf="auth.admin">
