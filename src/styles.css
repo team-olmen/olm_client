@@ -455,6 +455,19 @@ form ul {
     margin: 0;
     padding: 0; }
 
+.dtls {
+  -webkit-border-radius: 0 0 0.3em 0.3em;
+  -moz-border-radius: 0 0 0.3em 0.3em;
+  border-radius: 0 0 0.3em 0.3em;
+  border-style: solid;
+  border-width: 0.1em;
+  border-color: #636c72;
+  padding: 0.4em 0.8em;
+  border-top-style: none;
+  border-left-color: #d9534f;
+  border-left-width: 0.4em;
+  background-color: #ffdbd7; }
+
 label {
   border-style: solid;
   border-width: 0.1em;
@@ -473,12 +486,16 @@ label {
     box-shadow: 0 0 0.8em 0.1em rgba(255, 92, 0, 0.8); }
   label.ng-invalid {
     border-left-color: #d9534f;
-    border-left-width: 0.4em; }
+    border-left-width: 0.4em;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0; }
   label.ng-valid {
     border-left-color: #5cb85c;
     border-left-width: 0.4em; }
   label:disabled {
     background-color: #636c72; }
+    label:disabled:hover {
+      cursor: not-allowed; }
 
 input {
   border-style: solid;
@@ -497,12 +514,16 @@ input {
     box-shadow: 0 0 0.8em 0.1em rgba(255, 92, 0, 0.8); }
   input.ng-invalid {
     border-left-color: #d9534f;
-    border-left-width: 0.4em; }
+    border-left-width: 0.4em;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0; }
   input.ng-valid {
     border-left-color: #5cb85c;
     border-left-width: 0.4em; }
   input:disabled {
     background-color: #636c72; }
+    input:disabled:hover {
+      cursor: not-allowed; }
 
 textarea {
   border-style: solid;
@@ -523,12 +544,16 @@ textarea {
     box-shadow: 0 0 0.8em 0.1em rgba(255, 92, 0, 0.8); }
   textarea.ng-invalid {
     border-left-color: #d9534f;
-    border-left-width: 0.4em; }
+    border-left-width: 0.4em;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0; }
   textarea.ng-valid {
     border-left-color: #5cb85c;
     border-left-width: 0.4em; }
   textarea:disabled {
     background-color: #636c72; }
+    textarea:disabled:hover {
+      cursor: not-allowed; }
 
 .btn {
   -webkit-border-radius: 0.3em 0.3em 0.3em 0.3em;
@@ -552,6 +577,8 @@ textarea {
     background-color: #5cb85c; }
   .btn.btn-disabled, .btn:disabled {
     background-color: #636c72; }
+    .btn.btn-disabled:hover, .btn:hover:disabled {
+      cursor: not-allowed; }
   .btn.btn-help {
     background-color: #5bc0de; }
   .btn.btn-edit {
@@ -616,16 +643,16 @@ menu {
     border-color: #5cb85c;
     color: #004100; }
 
-.dtls {
+.help-more {
   margin-top: 2em;
-  -webkit-border-radius: 0.3em 0.3em 0.3em 0.3em;
-  -moz-border-radius: 0.3em 0.3em 0.3em 0.3em;
-  border-radius: 0.3em 0.3em 0.3em 0.3em;
+  -webkit-border-radius: 0 0 0.3em 0.3em;
+  -moz-border-radius: 0 0 0.3em 0.3em;
+  border-radius: 0 0 0.3em 0.3em;
   border-style: solid;
   border-width: 0.1em;
   border-color: #636c72;
   padding: 0.4em 0.8em;
-  background-color: #9fffff;
+  background-color: #e3ffff;
   border-color: #5bc0de;
   color: #004967; }
 
