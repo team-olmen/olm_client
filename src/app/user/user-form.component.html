@@ -44,7 +44,7 @@
 			<div class="dtls" *ngIf="formErrors.roles">{{formErrors.roles}}</div>
 		</li>
 		<li>
-			<label for="password">Passwort</label>
+			<label for="password">Neues Passwort</label>
 			<input
 					type="password"
 		 			id="password"
@@ -57,8 +57,20 @@
 			<div class="dtls" *ngIf="formErrors.password">{{formErrors.password}}</div>
 		</li>
 		<li>
+			<label for="repeat">Passwort wiederholen</label>
+			<input
+					type="password"
+		 			id="repeat"
+					name="repeat"
+		 			[(ngModel)]="model.repeat"
+		 			#repeat="ngModel"
+		 			maxlength="100"
+					minlength="5"
+					required />
+			<div class="dtls" *ngIf="formErrors.repeat">{{ formErrors.repeat }}</div>
+		</li>
+		<li>
 			<label *ngIf="model.id" for="check">Dein derzeitiges Passwort</label>
-			<label *ngIf="!model.id" for="check">Passwort wiederholen</label>
 			<input
 					type="password"
 		 			id="check"
@@ -70,7 +82,6 @@
 					required />
 			<div class="dtls" *ngIf="formErrors.check">{{ formErrors.check }}</div>
 		</li>
-		<li>
 	</ul>
 
 	<menu class="bottom">

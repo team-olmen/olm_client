@@ -41,6 +41,7 @@ export class UserFormComponent extends AbstractTemplateForm {
 		'roles': '',
 		'password': '',
 		'check': '',
+		'repeat': '',
 	};
 
 	validationMessages = {
@@ -68,12 +69,18 @@ export class UserFormComponent extends AbstractTemplateForm {
 			'maxlength': 'Das Passwort darf maximal 100 Zeichen lang sein.',
 			'does-not-match': 'Die Passwörter stimmen nicht überein.',
 		},
-		'check': {
+		'repeat': {
 			'required': 'Bitte wiederhole das Passwort.',
 			'pattern': '...',
 			'minlength': 'Das Passwort muss mindestend 5 Zeichen lang sein.',
 			'maxlength': 'Das Passwort darf maximal 100 Zeichen lang sein.',
 			'does-not-match': 'Die Passwörter stimmen nicht überein.',
+		},
+		'check': {
+			'required': 'Bitte gib dein derzeitiges Passwort ein.',
+			'pattern': '...',
+			'minlength': 'Das Passwort muss mindestend 5 Zeichen lang sein.',
+			'maxlength': 'Das Passwort darf maximal 100 Zeichen lang sein.',
 			'wrong': 'Bitte gib hier dein derzeitiges(!) Passwort ein',
 		},
 	};
@@ -85,7 +92,6 @@ export class UserFormComponent extends AbstractTemplateForm {
 			(this.setError('global', 'Der Server sagt, dass irgend etwas mit den Daten nicht stimmt.'));
 		(error === 'Passwords do not match') && 
 			(this.setError('password', 'does-not-match')) &&
-			(this.setError('check', 'does-not-match'));
 		(error === 'Username exists') &&
 			(this.setError('username', 'exists'));
 		(error === 'Email exists') &&
