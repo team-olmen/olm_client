@@ -5,7 +5,7 @@
 		<a *ngIf="auth.admin && model.id" class="btn btn-primary" [routerLink]="['/text/edit/', model.id, 'current']">Txt / Hlf bearbeiten</a>
 	</menu>
 	<markdown-view class="" *ngIf="model.text" [text]="model.text"></markdown-view>
-	<div *ngIf="help" class="dtls">
+	<div *ngIf="help" class="help-more">
 		<markdown-view [text]="model.help"></markdown-view>
 	</div>
 </div>

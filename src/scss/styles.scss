@@ -82,6 +82,8 @@ body {
 	&.ng-invalid {
 		border-left-color: $color-danger;
 		border-left-width: 0.4em;
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
 	}
 	&.ng-valid {
 		border-left-color: $color-success;
@@ -93,6 +95,9 @@ body {
 	}
 	&:disabled {
 		background-color: $color-muted;
+		&:hover {
+			cursor: not-allowed;
+		}
 	}
 }
 
@@ -156,6 +161,22 @@ form ul {
 	@include invisible-list;
 }
 
+.dtls {
+	//margin-top: 2em;
+	@include round-corners(false, false, true, true);
+	@include border;
+	padding: $padding-vert $padding-horz;
+	border-top-style: none;
+	border-left-color: $color-danger;
+	border-left-width: 0.4em;
+	//background-color: $color-info + #444444;
+	background-color: $color-danger + #888888;
+	//border-color: $color-info;
+	//color: $color-info - #777777;
+	//border-color: $color-danger;
+	//color: $color-danger - #777777;
+}
+
 label {
 	@include form-element;
 	border-style: none;
@@ -200,6 +221,9 @@ textarea {
 	&.btn-disabled {
 		background-color: $color-muted;
 		//color: $color-muted - #777777;
+		&:hover {
+			cursor: not-allowed;
+		}
 	}
 
 	&.btn-help {
@@ -294,12 +318,12 @@ menu {
 	}
 }
 
-.dtls {
+.help-more {
 	margin-top: 2em;
-	@include round-corners;
+	@include round-corners(false, false, true, true);
 	@include border;
 	padding: $padding-vert $padding-horz;
-	background-color: $color-info + #444444;
+	background-color: $color-info + #888888;
 	border-color: $color-info;
 	color: $color-info - #777777;
 }

@@ -15,7 +15,7 @@ export abstract class AbstractTemplateForm {
 	constructor(
 		protected alertService: AlertService,
 	) { };
-	
+
 	ngAfterViewChecked() {
   	this.formChanged();
 	};
@@ -38,7 +38,7 @@ export abstract class AbstractTemplateForm {
 			this.formErrors[field] = '';
 			const control = form.get(field);
 
-			if (control && control.dirty && !control.valid) {
+			if (control && !control.valid) {
 				const messages = this.validationMessages[field];
 				for (const key in control.errors) {
 					this.formErrors[field] += messages[key] + ' ';
