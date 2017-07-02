@@ -30,6 +30,9 @@ export class UserFormComponent extends AbstractTemplateForm {
 
 	ngOnChanges() {
 		console.log(this.model);
+		if (this.model.id) {
+			this.validationMessages.check.required = this.validationMessages.check.wrong;
+		}
 	};
 
 	formErrors = {
