@@ -91,7 +91,7 @@ export class UserFormComponent extends AbstractTemplateForm {
 		(error === 'Invalid request') && 
 			(this.setError('global', 'Der Server sagt, dass irgend etwas mit den Daten nicht stimmt.'));
 		(error === 'Passwords do not match') && 
-			(this.setError('password', 'does-not-match')) &&
+			(this.setError('password', 'does-not-match'));
 		(error === 'Username exists') &&
 			(this.setError('username', 'exists'));
 		(error === 'Email exists') &&
