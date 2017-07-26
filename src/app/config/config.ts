@@ -1,5 +1,5 @@
 export const CONFIG: any = {
-	urlOlmApi: 'http://api-olmen.de',
+	urlOlmApi: 'http://api.olmen.de',
 };
 
 export const CONFIG_TEST: any = {
