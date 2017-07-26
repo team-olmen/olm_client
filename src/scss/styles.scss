@@ -244,6 +244,14 @@ textarea {
 	&.btn-nav, &.btn-rate {
 		background-color: $color-border;
 		//color: $color-border - #777777;
+
+		&.btn-rated-positive {
+			background-color: green;
+		}
+
+		&.btn-rated-negative {
+			background-color: red;
+		}
 	}
 
 	&.btn-back {

@@ -117,6 +117,7 @@ export class McqDisplayComponent implements OnInit {
 				rated: rating,
 			})
 			.subscribe(result => {
+				this.item.rated = result.rated;
 				this.item.rating = result.rating;
 			});
 	};

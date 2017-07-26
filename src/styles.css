@@ -587,6 +587,10 @@ textarea {
     background-color: #d9534f; }
   .btn.btn-nav, .btn.btn-rate {
     background-color: #636c72; }
+    .btn.btn-nav.btn-rated-positive, .btn.btn-rate.btn-rated-positive {
+      background-color: green; }
+    .btn.btn-nav.btn-rated-negative, .btn.btn-rate.btn-rated-negative {
+      background-color: red; }
   .btn.btn-back {
     background-color: #0275d8;
     -webkit-border-radius: 0 0.3em 0.3em 0;

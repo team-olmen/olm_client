@@ -1,8 +1,8 @@
 <ng-container *ngIf="item">
 	<menu class="top">
-		<button *ngIf="item.rated != 0" class="btn btn-rate"(click)="rate(0)">-</button>
+		<button [ngClass]="{'btn-rated-negative':item.rated<0}" class="btn btn-rate"(click)="rate(item.rated === -1 ? 0 : -1)">-</button>
 		<strong>{{item.rating}}</strong>
-		<button *ngIf="item.rated != 1" class="btn btn-rate" (click)="rate(1)">+</button>
+		<button [ngClass]="{'btn-rated-positive':item.rated>0}" class="btn btn-rate" (click)="rate(item.rated === 1 ? 0 : 1)">+</button>
 		<a *ngIf="!discussion" class="btn btn-primary" [routerLink]="['/mcq/view', item.id]">ansehen / diskutieren</a>
 		<a class="btn btn-edit" [routerLink]="['/mcq/edit', item.id, 'current']">bearbeiten</a>
 		<a *ngIf="auth.admin" class="btn btn-primary"[routerLink]="['/mcq/history', item.id]">History</a>
