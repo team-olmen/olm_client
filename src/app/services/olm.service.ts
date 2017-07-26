@@ -89,11 +89,8 @@ export class OlmService implements CanActivate {
 
 	private handleError(service: OlmService, error: any): Observable<any> {
 		let errMsg: string;
-		console.log(error);
 		if (error instanceof Response) {
-			if (error.status == 500) {
-				console.error(error);
-			} else if (error.status == 401) {
+			if (error.status == 401) {
 				//service.logout();
 				console.log("Invalid token, I will log you out");
 				service.router.navigate(['/door']);

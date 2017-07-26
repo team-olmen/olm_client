@@ -50,7 +50,6 @@ export class DoorComponent extends AbstractTemplateForm implements OnInit {
 		this.olmService.login(this.model.username, this.model.password)
 			.subscribe(
 				auth => {
-					console.log(auth);
 					if (auth.enabled === 0) {
 						this.router.navigate(['/user/edit', auth.id]);
 						this.alertService.success("Herzlich Willkommen! Bitte ändere dein Passwort!");

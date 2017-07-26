@@ -82,7 +82,6 @@ export class SessionViewComponent implements OnInit {
 				this.session = this.prepareSession(result);
 			},
 			error => {
-				console.log(error);
 			}
 		);
 	}
