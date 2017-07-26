@@ -189,7 +189,6 @@ input {
 textarea {
 	@include form-element;
 	resize: none;
-	height: 15em;
 }
 
 .btn {

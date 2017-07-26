@@ -3,7 +3,7 @@
 		<button [ngClass]="{'btn-rated-negative':item.rated<0}" class="btn btn-rate"(click)="rate(item.rated === -1 ? 0 : -1)">-</button>
 		<strong>{{item.rating}}</strong>
 		<button [ngClass]="{'btn-rated-positive':item.rated>0}" class="btn btn-rate" (click)="rate(item.rated === 1 ? 0 : 1)">+</button>
-		<a *ngIf="!discussion" class="btn btn-primary" [routerLink]="['/mcq/view', item.id]">ansehen / diskutieren</a>
+		<a class="btn btn-primary" (click)="discussion=!discussion">kommentieren</a>
 		<a class="btn btn-edit" [routerLink]="['/mcq/edit', item.id, 'current']">bearbeiten</a>
 		<a *ngIf="auth.admin" class="btn btn-primary"[routerLink]="['/mcq/history', item.id]">History</a>
 		<a class="btn btn-delete" [routerLink]="['/mcq/delete', item.id, 'current']">löschen</a>
@@ -27,6 +27,7 @@
 					<label *ngIf="auth.admin" for="discussion">Verlauf</label>
 					<label *ngIf="!auth.admin" for="discussion">Dein Beitrag</label>
 					<textarea
+							rows="3"
 							type="text"
 							id="discussion"
 							name="discussion"
@@ -37,7 +38,7 @@
 				</li>
 			</ul>
 			<menu class="bottom">
-				<button *ngIf="discussion" class="btn btn-back" type="button" (click)="back()">zurück</button>
+				<!-- <button *ngIf="discussion" class="btn btn-back" type="button" (click)="back()">zurück</button> -->
 				<button class="btn btn-submit" type="submit" [disabled]="!form.form.valid">abschicken</button>
 			</menu>
 		</form>

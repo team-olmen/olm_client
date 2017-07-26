@@ -536,8 +536,7 @@ textarea {
   padding: 0.4em 0.4em;
   display: block;
   width: 100%;
-  resize: none;
-  height: 15em; }
+  resize: none; }
   textarea:focus {
     -webkit-box-shadow: 0 0 0.8em 0.1em rgba(255, 92, 0, 0.8);
     -moz-box-shadow: 0 0 0.8em 0.1em rgba(255, 92, 0, 0.8);
