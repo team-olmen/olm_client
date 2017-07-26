@@ -4,6 +4,7 @@ export class User {
 	email: string;
 	password: string;
 	check: string;
+	repeat: string;
 	salt: string;
 	enabled: number;
 	account_non_expired: number;
