@@ -396,6 +396,24 @@ dashboard {
 			position: relative;
 			margin-left: 2em;
 			padding: $padding-vert $padding-horz;
+			cursor: pointer;
+			&.answr-solution {
+				background-color: $color-success + #444444;
+				border-color: $color-success;
+			}
+			&.answr-error {
+				background-color: $color-danger + #444444;
+				border-color: $color-danger;
+			}
+			// detect iOS devices for https://css-tricks.com/annoying-mobile-double-tap-link-issue/
+			&.answr-choice:hover {
+				background-color: #CCCCCC;
+				&:before {
+					content: '?';
+					position: absolute;
+					left: -3.5em;
+				}
+			}
 		}
 		a {
 			display: block;
@@ -423,24 +441,6 @@ dashboard {
 session-view {
 	@include mcq;
 	li {
-		cursor: pointer;
-		&.answr-solution {
-			background-color: $color-success + #444444;
-			border-color: $color-success;
-		}
-		&.answr-error {
-			background-color: $color-danger + #444444;
-			border-color: $color-danger;
-		}
-		// detect iOS devices for https://css-tricks.com/annoying-mobile-double-tap-link-issue/
-		&.answr-choice:hover {
-			background-color: #CCCCCC;
-			&:before {
-				content: '?';
-				position: absolute;
-				left: -3.5em;
-			}
-		}
 	}
 	a {
 		color: $color-text;

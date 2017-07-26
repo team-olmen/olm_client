@@ -11,9 +11,10 @@
 	<div>{{item.question}}</div>
 	<ol>
 		<li *ngFor="let answer of item.answers; index as i"
-				[ngClass]="{ 'answr-solution': i === item.solution }"
-				>
-		{{answer}}</li>
+				[ngClass]="{ 'answr-choice': !(choice>=0), 'answr-solution': choice >= 0 && i === item.solution, 'answr-error': choice === i && item.solution !== i}"
+				(click)="choice=i">
+				{{answer}}
+			</li>
 	</ol>
 	<ng-container *ngIf=discussion>
 		<h2>Diskussion</h2>

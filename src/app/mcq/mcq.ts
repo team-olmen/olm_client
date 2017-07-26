@@ -9,4 +9,5 @@ export class Mcq {
 	question: string;
 	answers: string[];
 	solution: number;
+	rated: number;
 }
