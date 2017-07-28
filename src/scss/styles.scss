@@ -202,6 +202,7 @@ textarea {
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
+	cursor: pointer;
 
 	&:disabled{
 		@extend .btn-disabled;
@@ -542,5 +543,23 @@ p {
 	margin-bottom: 1em;
 	&:last-child {
 		margin-bottom: 0;
+	}
+}
+
+div.input-group {
+	margin-bottom: 6px;
+	display: flex;
+	width: 100%;
+
+	.input-group-addon {
+		padding: 8px;
+		input {
+			width: auto;
+		}
+	}
+
+	input {
+		width: 100%;
+		display: inline-block;
 	}
 }

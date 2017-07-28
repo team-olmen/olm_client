@@ -567,7 +567,8 @@ textarea {
   margin: 0.1em;
   text-align: center;
   text-decoration: none;
-  display: inline-block; }
+  display: inline-block;
+  cursor: pointer; }
   .btn:hover {
     opacity: 0.6; }
   .btn.btn-primary {
@@ -859,5 +860,17 @@ p {
   margin-bottom: 1em; }
   p:last-child {
     margin-bottom: 0; }
+
+div.input-group {
+  margin-bottom: 6px;
+  display: flex;
+  width: 100%; }
+  div.input-group .input-group-addon {
+    padding: 8px; }
+    div.input-group .input-group-addon input {
+      width: auto; }
+  div.input-group input {
+    width: 100%;
+    display: inline-block; }
 
 /*# sourceMappingURL=styles.css.map */

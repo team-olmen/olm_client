@@ -39,6 +39,8 @@ export class McqFormComponent extends AbstractTemplateForm {
 
 	formErrors = {
 		'raw': '',
+		'question': '',
+		'answers': '',
 		'discussion': '',
 		'original': '',
 		'generation': '',
@@ -46,10 +48,13 @@ export class McqFormComponent extends AbstractTemplateForm {
 
 	validationMessages = {
 		'raw': {
+		},
+		'question': {
 			'required': 'Bitte gib eine Frage ein.',
-			'question-missing': 'Ich kann keine Frage entdecken. Stimmt die Formatierung?',
-			'answers-missing': 'Ich kann keine Antworten entdecken. Stimmt die Formatierung?',
-			'solution-missing': 'Ich kann keine Lösung entdecken. Stimmt die Formatierung?',
+		},
+		'answers': {
+			'required': 'Ich kann keine Antworten entdecken.',
+			'solution-missing': 'Ich kann keine Lösung entdecken. Ist eine ausgewählt?',
 		},
 		'discussion': {
 		},
@@ -63,14 +68,34 @@ export class McqFormComponent extends AbstractTemplateForm {
 		(error === 'Item not changed') && 
 			(this.setError('global', 'Die Daten waren nicht anders als zuvor. Hast Du etwas geändert? Dann ist ein Fehler aufgetreten.'));
 		(error === 'Question missing') && 
-			(this.setError('raw', 'question-missing'));
+			(this.setError('question', 'required'));
 		(error === 'Answers missing') && 
-			(this.setError('raw', 'answers-missing'));
+			(this.setError('answers', 'required'));
 		(error === 'Solution missing') && 
-			(this.setError('raw', 'solution-missing'));
+			(this.setError('answers', 'solution-missing'));
 	};
 
 	back() {
 		this.location.back();
+	};
+
+	onSubmit() {
+		this.model.raw = this.model.question + '\n';
+		for(let i=0;i<this.model.answers.length;i++) {
+			this.model.raw += (this.model.solution === i ? '* ' : '- ') + this.model.answers[i] + '\n';
+		}
+		this.parent.onSubmit();
+	}
+
+	addAnswer() {
+		this.model.answers.push('');
+	};
+
+	removeAnswer(i: number) {
+		this.model.answers.splice(i,1);
+	};
+
+	trackByIndex(index: any, item: any) {
+		return index;
 	};
 }

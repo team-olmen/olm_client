@@ -1,16 +1,43 @@
-<form (ngSubmit)="parent.onSubmit()" #form="ngForm">
+<form (ngSubmit)="onSubmit()" #form="ngForm">
 	<ul>
 		<li>
-			<label for="raw">Frage samt Antworten</label>
+			<label for="question">Frage</label>
 			<textarea
 					type="text"
-		 			id="raw"
-					name="raw"
-		 			[(ngModel)]="model.raw"
-		 			#raw="ngModel"
+		 			id="question"
+					name="question"
+		 			[(ngModel)]="model.question"
+		 			#question="ngModel"
 					required>
 			</textarea>
-			<div class="dtls" *ngIf="formErrors.raw">{{formErrors.raw}}</div>
+			<div class="dtls" *ngIf="formErrors.question">{{formErrors.question}}</div>
+		</li>
+		<li>
+			<input type="hidden" name="answers" [(ngModel)]="model.answers" #answers="ngModel" />
+			<label for="answers">Antworten</label>
+			<div *ngFor="let answer of model.answers; index as i; trackBy: trackByIndex" class="input-group">
+				<span class="input-group-addon">
+					<input 
+						type="radio"
+						[(ngModel)]="model.solution"
+						name="solution"
+						[value]="i"
+					/>
+				</span>
+				<input
+					type="text"
+		 			id="answer_{{i}}"
+					name="answer_{{i}}"
+		 			[(ngModel)]="model.answers[i]"
+					minlength="1"
+					placeholder="Antwort eingeben.."
+					class="form-control"
+					required
+					/>
+				<span class="btn btn-delete" (click)="removeAnswer(i)">x</span>
+			</div>
+			<span class="btn btn-primary" (click)="addAnswer()">Antwort hinzufügen</span>
+			<div class="dtls" *ngIf="formErrors.answers">{{formErrors.answers}}</div>
 		</li>
 		<li>
 			<label for="generation">Generation</label>
@@ -57,7 +84,7 @@
 
 	<menu class="bottom">
 		<a *ngIf="!model.id" class="btn btn-back" routerLink="/dashboard">zurück</a>	
-		<button type="button" *ngIf="model.id" (click)="back()">zurück</button>
+		<button type="button" class="btn btn-back" *ngIf="model.id" (click)="back()">zurück</button>
 		<button class="btn btn-submit" type="submit" [disabled]="!form.form.valid">{{submitLabel}}</button>
 		<a *ngIf="parent.version != 'new'" class="btn btn-delete" [routerLink]="['/mcq/delete/', model.id, parent.version]">Frage löschen</a>
 	</menu>
