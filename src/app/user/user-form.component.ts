@@ -15,6 +15,9 @@ import { OlmService } from '../services/olm.service';
 export class UserFormComponent extends AbstractTemplateForm {
 	@Input() model: User;
 	public auth: any;
+	public suggestedname: string = '';
+	public suggestedpassword: string = '';
+	public initialised: boolean = false;
 
 	constructor(
 		protected alertService: AlertService,
@@ -29,9 +32,13 @@ export class UserFormComponent extends AbstractTemplateForm {
 	};
 
 	ngOnChanges() {
-		console.log(this.model);
 		if (this.model.id) {
 			this.validationMessages.check.required = this.validationMessages.check.wrong;
+			if (!this.initialised) {
+				this.initialised = true;
+				this.prepareSuggestions();
+				this.model.check = '';
+			}
 		}
 	};
 
@@ -102,5 +109,23 @@ export class UserFormComponent extends AbstractTemplateForm {
 
 	back() {
 		this.location.back();
+	};
+
+	prepareSuggestions() {
+		//let s = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+		//this.suggestedpassword = Array(6).join().split(',').map(function() { return s.charAt(Math.floor(Math.random() * s.length)); }).join('');
+		this.suggestedname = this.model.username;
+		this.suggestedpassword = 'olmen_' + this.suggestedname.substr(0,2);
+
+		let index = this.model.username.indexOf('@charite.de');
+		if (index !== -1) {
+			this.suggestedname = this.model.username.substring(0, index);
+		}
+	}
+
+	setSuggested() {
+		this.model.username = this.suggestedname;
+		this.model.password = this.suggestedpassword;
+		this.model.repeat = this.suggestedpassword;
 	};
 }

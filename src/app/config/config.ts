@@ -3,7 +3,8 @@ export const CONFIG: any = {
 };
 
 export const CONFIG_TEST: any = {
-	urlOlmApi: 'http://api-test.olmen.de',/*'http://localhost/olmen_api',*/
+	/*urlOlmApi: 'http://api-test.olmen.de'*/
+	urlOlmApi: 'http://localhost/olmen_api',
 };
 
 export const API: string = 'develop';

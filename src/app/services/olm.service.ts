@@ -19,6 +19,7 @@ export class OlmService implements CanActivate {
 	private authState: Authorisation = new Authorisation();
 
 	private config = (API == 'prod') ? (CONFIG) : (CONFIG_TEST);
+	//private config = CONFIG;
 	private urlOlm = this.config.urlOlmApi;
 	private getEndpoint(endpoint: string): string {
 		let fragment: string = '';

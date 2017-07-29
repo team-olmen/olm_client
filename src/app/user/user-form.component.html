@@ -69,7 +69,28 @@
 					required />
 			<div class="dtls" *ngIf="formErrors.repeat">{{ formErrors.repeat }}</div>
 		</li>
-		<li>
+		<li *ngIf="auth?.admin">
+			<hr />
+			<p>
+				Vorgeschlagener Name: {{ suggestedname }}<br />
+				Vorgeschlagenes Passwort: {{ suggestedpassword }}
+			</p>
+			<p>
+				Für die Mail an den Benutzer:
+			</p>
+			<pre>
+Hallo .... ,
+
+Ich habe Deine Nutzernamen für Dich zurückgesetzt.
+
+Du kannst Dich nun mit {{ suggestedname }} / {{ suggestedpassword }} einloggen.
+
+Viel Spaß und liebe Grüße,
+
+			</pre>
+			<hr />
+		</li>
+		<li *ngIf="!auth?.admin">
 			<label *ngIf="model.id" for="check">Dein derzeitiges Passwort</label>
 			<input
 					type="password"
@@ -87,6 +108,7 @@
 	<menu class="bottom">
 		<a *ngIf="!model.id" class="btn btn-back" routerLink="/dashboard">zurück</a>	
 		<button type="button" *ngIf="model.id" class="btn btn-back" (click)="back()">zurück</button>
+		<button *ngIf="auth?.admin" type="button" class="btn btn-primary" (click)="setSuggested()">Vorgeschlagenen Namen / Passwort setzen</button>
 		<button type="submit" class="btn btn-submit" [disabled]="!form.form.valid">{{submitLabel}}</button>
 		<a *ngIf="model.id" class="btn btn-delete" [routerLink]="['/user/delete/', model.id, 'current']">Account löschen</a>
 	</menu>
