@@ -16,6 +16,7 @@
 				{{answer}}
 			</li>
 	</ol>
+	<p class="msg msg-error" *ngIf="item.solution<0">Die Antwort ist noch nicht bekannt.</p>
 	<ng-container *ngIf=discussion>
 		<h2>Diskussion</h2>
 		<form (ngSubmit)="onSubmit()" #form="ngForm">

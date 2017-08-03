@@ -13,7 +13,6 @@
 			<div class="dtls" *ngIf="formErrors.question">{{formErrors.question}}</div>
 		</li>
 		<li>
-			<input type="hidden" name="answers" [(ngModel)]="model.answers" #answers="ngModel" />
 			<label for="answers">Antworten</label>
 			<div *ngFor="let answer of model.answers; index as i; trackBy: trackByIndex" class="input-group">
 				<span class="input-group-addon">
@@ -36,8 +35,19 @@
 					/>
 				<span class="btn btn-delete" (click)="removeAnswer(i)">x</span>
 			</div>
+			<div class="input-group">
+				<span class="input-group-addon">
+					<input 
+						type="radio"
+						[(ngModel)]="model.solution"
+						name="solution_radio"
+						[value]="-1"
+						id="unknown-answer"
+					/>
+					<label for="unknown-answer">Ich kenne die Antwort nicht</label>
+				</span>
+			</div>
 			<span class="btn btn-primary" (click)="addAnswer()">Antwort hinzufügen</span>
-			<div class="dtls" *ngIf="formErrors.answers">{{formErrors.answers}}</div>
 		</li>
 		<li>
 			<label for="generation">Generation</label>

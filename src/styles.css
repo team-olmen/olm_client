@@ -872,5 +872,8 @@ div.input-group {
   div.input-group input {
     width: 100%;
     display: inline-block; }
+  div.input-group label {
+    display: inline-block;
+    width: auto; }
 
 /*# sourceMappingURL=styles.css.map */

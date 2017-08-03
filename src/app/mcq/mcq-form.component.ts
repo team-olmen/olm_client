@@ -38,29 +38,12 @@ export class McqFormComponent extends AbstractTemplateForm {
 	];
 
 	formErrors = {
-		'raw': '',
 		'question': '',
-		'answers': '',
-		'discussion': '',
-		'original': '',
-		'generation': '',
 	};
 
 	validationMessages = {
-		'raw': {
-		},
 		'question': {
 			'required': 'Bitte gib eine Frage ein.',
-		},
-		'answers': {
-			'required': 'Ich kann keine Antworten entdecken.',
-			'solution-missing': 'Ich kann keine Lösung entdecken. Ist eine ausgewählt?',
-		},
-		'discussion': {
-		},
-		'original': {
-		},
-		'generation': {
 		},
 	};
 
@@ -70,9 +53,7 @@ export class McqFormComponent extends AbstractTemplateForm {
 		(error === 'Question missing') && 
 			(this.setError('question', 'required'));
 		(error === 'Answers missing') && 
-			(this.setError('answers', 'required'));
-		(error === 'Solution missing') && 
-			(this.setError('answers', 'solution-missing'));
+			(this.setError('global', 'Ich kann keine Antworten entdecken.'));
 	};
 
 	back() {
