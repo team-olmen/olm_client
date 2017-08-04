@@ -39,11 +39,16 @@ export class McqFormComponent extends AbstractTemplateForm {
 
 	formErrors = {
 		'question': '',
+		'generation': '',
+		'original': '',
+		'discussion': '',
 	};
 
 	validationMessages = {
 		'question': {
 			'required': 'Bitte gib eine Frage ein.',
+		},
+		'original': {
 		},
 	};
 

@@ -29,15 +29,15 @@ export class McqDisplayComponent implements OnInit {
 	ngOnInit() {
 		this.olmService.getAuth().subscribe(auth => {
 			this.auth = auth;
+			if (this.auth.admin) {
+				this.model.discussion = this.item.discussion;
+			} else {
+				this.model.discussion = '';
+			}
 		});
 	};
 
 	ngOnChanges() {
-		if (this.auth.admin) {
-			this.model.discussion = this.item.discussion;
-		} else {
-			this.model.discussion = '';
-		}
 	};
 	
 	ngAfterViewChecked() {
