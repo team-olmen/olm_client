@@ -9,8 +9,6 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
 
 import { CONFIG } from '../config/config';
-import { CONFIG_TEST } from '../config/config';
-import { API } from '../config/config';
 
 @Injectable()
 export class OlmService implements CanActivate {
@@ -18,9 +16,7 @@ export class OlmService implements CanActivate {
 	private authObservable: ReplaySubject<Authorisation> = new ReplaySubject(1);
 	private authState: Authorisation = new Authorisation();
 
-	private config = (API == 'prod') ? (CONFIG) : (CONFIG_TEST);
-	//private config = CONFIG;
-	private urlOlm = this.config.urlOlmApi;
+	private urlOlm = CONFIG.urlOlmApi();
 	private getEndpoint(endpoint: string): string {
 		let fragment: string = '';
 		switch (endpoint) {

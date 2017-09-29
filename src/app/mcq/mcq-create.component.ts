@@ -43,7 +43,7 @@ export class McqCreateComponent implements OnInit {
 		this.olmService.apiCreate('mcq', this.model)
 			.subscribe(
 				result => {
-					this.router.navigate(['/mcq/view', result.id);
+					this.router.navigate(['/mcq/view', result.id]);
 					this.alertService.success("Daten gespeichert.");
 				},
 				error => {

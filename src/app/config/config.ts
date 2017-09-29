@@ -1,10 +1,11 @@
 export const CONFIG: any = {
-	urlOlmApi: 'http://api.olmen.de',
+	urlOlmApi: () => {
+		if (/localhost/.test(document.location.host)) {
+			return 'http://localhost/olmen_api';
+		} else if (/client-test/.test(document.location.host)) {
+			return 'http://api-test.olmen.de';
+		} else {
+			return 'http://api.olmen.de';
+		}
+	}
 };
-
-export const CONFIG_TEST: any = {
-	/*urlOlmApi: 'http://api-test.olmen.de'*/
-	urlOlmApi: 'http://localhost/olmen_api',
-};
-
-export const API: string = 'develop';
