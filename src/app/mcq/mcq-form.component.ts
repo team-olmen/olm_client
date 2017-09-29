@@ -49,6 +49,7 @@ export class McqFormComponent extends AbstractTemplateForm {
 			'required': 'Bitte gib eine Frage ein.',
 		},
 		'original': {
+			'required': 'Bitte auswählen',
 		},
 	};
 
