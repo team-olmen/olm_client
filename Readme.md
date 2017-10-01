@@ -4,7 +4,7 @@ Client for students to create multiple choice questions to test their knowledge 
 
 ## Features
 
-An Angular4-based client for olm_api (<https://github.com/randomchars42/olm_api>) which allows:
+An Angular4-based client for olm_api (<https://github.com/team-olmen/olm_api>) which allows:
 
 * add / modify / delete / undelete / reset `modules` - a collection of multiple-choice questions
 * add / modify / delete / undelete / reset `mcqs` - the multiple-choice questions
@@ -35,7 +35,7 @@ Check out the great tutorial at <https://angular.io/>.
 # create a directory for your great edits
 mkdir olm_client
 # get the source code
-git clone https://github.com/randomchars42/olm_client
+git clone https://github.com/team-olmen/olm_client
 cd olm_client
 # install dependencies
 npm install
@@ -140,3 +140,20 @@ To mark pre-releases you may add:
 * `-beta.[0-9]*` for beta-releases
 * `-alpha.[0-9]*` for alpha-releases
 
+### Deploying
+
+To deploy changes to the Olm-Client compile a new build with
+```bash
+npm run build:aot
+```
+.
+To deploy changes to *test environment* on *<http://client-test.olmen.de>* push the files in `dist` to the git repository on <https://github.com/team-olmen/olmen-client-build> *on branch `develop`*.
+To deploy changes to *production environment* on *<http://olmen.de> push the files in `dist`to the git repository on <https://github.com/team-olmen/olmen-client-build> *on branch `master`*.
+
+You have to initialize a git repository in your `/dist` folder when deploying the first time and set up a remote to <ssh://github.com:team-olmen/olmen-client-build.git>.
+To do so go to your `/dist` folder an run:
+```bash
+git init
+git remote add origin git@github.com:team-olmen/olmen-client-build.git
+git branch --set-upstream-to=origin/master master
+```
