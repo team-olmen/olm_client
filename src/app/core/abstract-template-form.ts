@@ -17,7 +17,7 @@ export abstract class AbstractTemplateForm {
 	) { };
 
 	ngAfterViewChecked() {
-  	this.formChanged();
+		this.formChanged();
 	};
 
 	private formChanged() {

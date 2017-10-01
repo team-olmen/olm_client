@@ -34,15 +34,16 @@ export class DoorComponent extends AbstractTemplateForm implements OnInit {
 	};
 
 	validationMessages = {
+		'global': {
+			'bad-name-or-pw': 'Nutzername und / oder Passwort sind falsch.',
+		},
 		'username': {
 			'required': 'Bitte gib deinen Benutzernamen ein.',
 			'pattern': 'Der Name darf nur aus Buchstaben, Zahlen und folgenden Sonderzeichen bestehen: ',
-			'bad-name-or-pw': 'Nutzername und / oder Passwort sind falsch.',
 		},
 		'password': {
 			'pattern': '...',
 			'required': 'Bitte gib dein Passwort ein.',
-			'bad-name-or-pw': 'Nutzername und / oder Passwort sind falsch.',
 		},
 	};
 
@@ -67,7 +68,6 @@ export class DoorComponent extends AbstractTemplateForm implements OnInit {
 
 	handleServerError(error: string) {
 		(error === 'Bad username or password') && 
-			(this.setError('username', 'bad-name-or-pw')) &&
-			(this.setError('password', 'bad-name-or-pw'));
+			(this.setError('global', this.validationMessages.global['bad-name-or-pw']));
 	};
 }
