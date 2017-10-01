@@ -47,7 +47,7 @@ export class TextEditComponent implements OnInit {
 		this.olmService.apiUpdate('text', this.model.id, this.model)
 			.subscribe(
 				result => {
-					this.router.navigate(['/texts/view', result.exam]);
+					this.router.navigate(['/texts/view']);
 					this.alertService.success("Daten gespeichert.");
 				},
 				error => {
