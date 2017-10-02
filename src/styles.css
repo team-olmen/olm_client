@@ -731,6 +731,11 @@ session-view ol {
         content: '?';
         position: absolute;
         left: -3.5em; }
+    @media print {
+      session-view ol li.answr-correct:before {
+        content: '\003e';
+        position: absolute;
+        left: -3.5em; } }
   session-view ol a {
     display: block; }
     session-view ol a:hover {
@@ -769,6 +774,11 @@ mcq-display ol {
         content: '?';
         position: absolute;
         left: -3.5em; }
+    @media print {
+      mcq-display ol li.answr-correct:before {
+        content: '\003e';
+        position: absolute;
+        left: -3.5em; } }
   mcq-display ol a {
     display: block; }
     mcq-display ol a:hover {
@@ -875,5 +885,8 @@ div.input-group {
   div.input-group label {
     display: inline-block;
     width: auto; }
+
+@media print {
+  display: none; }
 
 /*# sourceMappingURL=styles.css.map */

@@ -11,7 +11,7 @@
 	<div>{{item.question}}</div>
 	<ol>
 		<li *ngFor="let answer of item.answers; index as i"
-				[ngClass]="{ 'answr-choice': !(choice>=0), 'answr-solution': choice >= 0 && i === item.solution, 'answr-error': choice === i && item.solution !== i}"
+				[ngClass]="{ 'answr-choice': !(choice>=0), 'answr-solution': choice >= 0 && i === item.solution, 'answr-correct': i === item.solution, 'answr-error': choice === i && item.solution !== i}"
 				(click)="choice=i">
 				{{answer}}
 			</li>

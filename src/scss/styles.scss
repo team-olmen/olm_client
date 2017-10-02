@@ -414,6 +414,14 @@ dashboard {
 					left: -3.5em;
 				}
 			}
+
+			&.answr-correct:before {
+				@media print {
+					content: '\003e';
+					position: absolute;
+					left: -3.5em;
+				}
+			}
 		}
 		a {
 			display: block;
