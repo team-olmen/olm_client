@@ -4,9 +4,9 @@
 
 <ng-container *ngIf="session">
 	<menu class="top">
-		<button *ngIf="session.current > 0" class="btn btn-nav" (click)="previous()">&lt;-</button>
+		<button *ngIf="session.current > 0" class="btn btn-nav" (click)="previous()">←</button>
 		<strong>{{session.current + 1}} / {{session.total}}</strong>
-		<button *ngIf="session.current < session.total - 1" class="btn btn-nav" (click)="next()">-&gt;</button>
+		<button *ngIf="session.current < session.total - 1" class="btn btn-nav" (click)="next()">→</button>
 	</menu>
 	<ng-container *ngIf="mcq">
 		<p>{{mcq.question}}</p>
@@ -17,6 +17,7 @@
 				<a (click)="select(i)">{{answer}}</a>
 			</li>
 		</ol>
+		<p class="msg msg-error" *ngIf="mcq.solution<0">Die Antwort ist noch nicht bekannt.</p>
 	</ng-container>
 </ng-container>
 
