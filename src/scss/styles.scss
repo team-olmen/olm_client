@@ -13,6 +13,7 @@ $color-border: $color-muted;
 $color-text-bright: #AAAAAA;
 $color-text: #000000;
 $color-link: $color-text-bright;
+$responsive-break: 540px;
 
 body {
 	color: $color-text;
@@ -125,25 +126,50 @@ body {
 	}
 }
 
-
 nav {
-	@include display-area;
 	@include print-hide;
+
+	> span {
+		@media screen and (min-width: $responsive-break) {
+			display: none;
+		}
+		position: absolute;
+		top: -30px;
+		right: 18px;
+		font-size: 21px;
+	}
+
+	margin-top: 48px;
+	@media screen and (max-width: $responsive-break) {
+		background-color: black;
+		left: 0;
+		right: 0;
+		margin: 0;
+
+		.big-screen {
+			display: none;
+		}
+	}
+
+	z-index: 1;
 	text-transform: uppercase;
 	color: $color-text-bright;
+	position: absolute;
 	a {
 		@include nav-link;
-		&:after {
-			content: ' \007c';
-		}
-		&:last-child:after {
-			content: '';
+		margin: 3px 19px;
+		display: block;
+		&:last-child {
+			margin-bottom: 4px;
 		}
 	}
 }
 
 main {
-	@include display-area;
+	margin: 48px 20px 0 20px;
+	@media screen and (min-width: $responsive-break) {
+		margin-left: 200px;
+	}
 	background-color: #FFFFFF;
 }
 

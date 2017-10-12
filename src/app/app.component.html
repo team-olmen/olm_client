@@ -1,5 +1,9 @@
 <nav>
-	<door-status></door-status>
+	<span (click)="showNav=!showNav">
+		☰
+	</span>
+	<door-status class="small-screen" [hidden]="!showNav" (click)="showNav = false"></door-status>
+	<door-status class="big-screen" [hidden]="showNav"></door-status>
 </nav>
 <main>
 <alert></alert>
