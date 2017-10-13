@@ -1,0 +1,20 @@
+<h1>Deine Lernsessions</h1>
+
+<ul class="items">
+	<li *ngFor="let session of sessions">
+		<h2>{{session.name}}</h2>
+		<ul class="stats">
+			<li>richtig: {{session.correct}}</li>
+			<li>beantwortet: {{session.answered}}</li>
+			<li>insgesamt: {{session.total}} ({{session.correct / session.total * 100 }} %)</li>
+		</ul>
+		<menu class="assoc">
+			<a class="btn btn-delete" [routerLink]="['/session/delete', session.id, 'current']">löschen</a>
+			<a class="btn btn-primary" [routerLink]="['/session/view', session.id]">los!</a>
+		</menu>
+	</li>
+</ul>
+
+<menu class="bottom">
+	<a class="btn btn-create" routerLink="/session/create">Test zusammenstellen</a>
+</menu>

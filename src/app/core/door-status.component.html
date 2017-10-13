@@ -1,9 +1,12 @@
 <ng-container *ngIf="auth.name">
 	<a routerLink="/dashboard">Start</a>
-	<a [routerLink]="['/user/edit/', auth.id]">{{auth.name}} Accnt</a>
+	<a routerLink="/session">Lernsessions</a>
+	<a routerLink="/module">MC-Sammlungen</a>
+	<a routerLink="/exam">Protokolle</a>
+	<a [routerLink]="['/user/edit/', auth.id]">Account</a>
 	<ng-container *ngIf="auth.admin">
-		<a routerLink="/admin">Admn</a>
-		<a routerLink="/users/view">Bntzr</a>
+		<a routerLink="/admin">Admin</a>
+		<a routerLink="/users/view">Benutzer</a>
 		<a routerLink="/texts/view">Txt / Hlf</a>
 	</ng-container>
 	<a routerLink="/user/create">jmdn einladen</a>

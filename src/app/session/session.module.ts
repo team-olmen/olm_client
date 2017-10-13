@@ -5,6 +5,7 @@ import { SessionRoutingModule } from './session-routing.module';
 
 import { SessionCreateComponent } from './session-create.component';
 import { SessionViewComponent } from './session-view.component';
+import { SessionListComponent } from './session-list.component';
 
 @NgModule({
 	imports: [
@@ -14,6 +15,7 @@ import { SessionViewComponent } from './session-view.component';
 	declarations: [
 		SessionCreateComponent,
 		SessionViewComponent,
+		SessionListComponent,
 	],
 })
 

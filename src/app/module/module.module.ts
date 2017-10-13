@@ -6,6 +6,7 @@ import { ModuleRoutingModule } from './module-routing.module';
 import { ModuleFormComponent } from './module-form.component';
 import { ModuleCreateComponent } from './module-create.component';
 import { ModuleEditComponent } from './module-edit.component';
+import { ModuleListComponent } from './module-list.component';
 
 @NgModule({
 	imports: [
@@ -16,6 +17,7 @@ import { ModuleEditComponent } from './module-edit.component';
 		ModuleFormComponent,
 		ModuleCreateComponent,
 		ModuleEditComponent,
+		ModuleListComponent,
 	],
 })
 

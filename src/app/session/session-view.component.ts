@@ -66,8 +66,6 @@ export class SessionViewComponent implements OnInit {
 			},
 			error => {
 				if (error === 'Item not found') {
-					//this.session.removeCurrent();
-					alert(this.session.getMcqId());
 					this.next();
 					this.storeSession();
 				}

@@ -1,0 +1,23 @@
+<h1>Protokolle</h1>
+
+<ul class="items">
+	<li *ngFor="let exam of exams">
+		<h2>
+			{{exam.name}}
+			<ng-container *ngIf="auth.admin">({{exam.order_num}})</ng-container>
+		</h2>
+		<menu class="assoc">
+			<a class="btn btn-primary" [routerLink]="['/protocolls/view', exam.id]">ansehen</a>
+			<ng-container *ngIf="auth.admin">
+				<a class="btn btn-edit" [routerLink]="['/exam/edit', exam.id, 'current']">bearbeiten</a>
+				<a class="btn btn-delete" [routerLink]="['/exam/delete', exam.id, 'current']">löschen</a>
+				<a class="btn btn-primary" [routerLink]="['/exam/history', exam.id]">History ansehen</a>
+			</ng-container>
+		</menu>
+	</li>
+</ul>
+
+<menu class="bottom">
+	<a *ngIf="auth.admin" class="btn btn-create" routerLink="/exam/create">Neue Protokollsammlung anlegen</a>
+	<a *ngIf="auth.admin" class="btn btn-primary" routerLink="/exam/deleted">Gelöschte Protokollsammlungen ansehen</a>
+</menu>
