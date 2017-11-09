@@ -8,7 +8,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
 
-import { CONFIG } from '../config/config';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class OlmService implements CanActivate {
@@ -16,7 +16,7 @@ export class OlmService implements CanActivate {
 	private authObservable: ReplaySubject<Authorisation> = new ReplaySubject(1);
 	private authState: Authorisation = new Authorisation();
 
-	private urlOlm = CONFIG.urlOlmApi();
+	private urlOlm = environment.server_url;
 	private getEndpoint(endpoint: string): string {
 		let fragment: string = '';
 		switch (endpoint) {

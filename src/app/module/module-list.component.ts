@@ -23,7 +23,7 @@ export class ModuleListComponent implements OnInit {
 	getModules(): void {
 		this.olmService.apiReadAll('module').subscribe(response => {
 			this.modules.length = 0;
-			for(module of response) {
+			for(let module of response) {
 				this.modules.push(new Module(module));
 			}
 		});

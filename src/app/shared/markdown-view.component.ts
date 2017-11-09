@@ -1,6 +1,6 @@
 import { Component, OnInit, OnChanges, Input } from '@angular/core';
 
-declare var showdown:any;
+import { Converter } from 'showdown';
 
 @Component({
 	selector: 'markdown-view',
@@ -14,7 +14,7 @@ export class MarkdownViewComponent {
 
 	constructor(
 	) {
-		this.converter = new showdown.Converter({
+		this.converter = new Converter({
 			headerLevelStart: 2,
 			strikethrough: true,
 		});
