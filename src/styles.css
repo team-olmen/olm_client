@@ -393,17 +393,19 @@ body {
   font-size: 14px;
   line-height: 1.5em; }
 
-body > header {
-  background-color: #000000;
-  color: #FFFFFF; }
-  @media print {
-    body > header {
-      display: none; } }
-  body > header h1 {
-    padding: 0.4em 0.8em; }
+body {
+  background-color: #f6f6f6; }
+  body > header {
+    background-color: #000000;
+    color: #FFFFFF; }
+    @media print {
+      body > header {
+        display: none; } }
+    body > header h1 {
+      padding: 0.4em 0.8em; }
 
 nav {
-  margin-top: 48px;
+  margin-top: 20px;
   z-index: 1;
   text-transform: uppercase;
   color: #AAAAAA;
@@ -430,12 +432,13 @@ nav {
   nav a {
     margin: 3px 19px;
     display: block; }
+    nav a.active {
+      color: #7b7bff; }
     nav a:last-child {
       margin-bottom: 4px; }
 
 main {
-  margin: 48px 20px 0 20px;
-  background-color: #FFFFFF; }
+  margin: 20px 20px 0 20px; }
   @media screen and (min-width: 540px) {
     main {
       margin-left: 200px; } }
@@ -454,6 +457,8 @@ footer {
   @media print {
     footer {
       display: none; } }
+  footer a.active {
+    color: #7b7bff; }
 
 form ul {
   list-style-type: none;
@@ -894,7 +899,28 @@ div.input-group {
     display: inline-block;
     width: auto; }
 
-@media print {
-  display: none; }
+div.panel {
+  cursor: pointer;
+  border: 1px solid #ebe1e1;
+  padding: 9px;
+  background-color: #fff;
+  border-radius: 4px;
+  margin-bottom: 13px; }
+  div.panel:after {
+    content: "";
+    display: table;
+    clear: both; }
+  div.panel div.panel-header {
+    border-bottom: 1px solid #ebe1e1; }
+    div.panel div.panel-header h2 > span {
+      float: right;
+      color: #eee;
+      font-size: 20px; }
+      div.panel div.panel-header h2 > span.star {
+        color: yellow; }
+  div.panel div.panel-footer {
+    border-top: 1px solid #ebe1e1; }
+    div.panel div.panel-footer a {
+      float: right; }
 
 /*# sourceMappingURL=styles.css.map */

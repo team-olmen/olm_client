@@ -1,17 +1,17 @@
 <ng-container *ngIf="auth.name">
-	<a routerLink="/dashboard">Start</a>
-	<a routerLink="/session">Lernsessions</a>
-	<a routerLink="/module">MC-Sammlungen</a>
-	<a routerLink="/exam">Protokolle</a>
-	<a [routerLink]="['/user/edit/', auth.id]">Account</a>
+	<a routerLink="/dashboard" routerLinkActive="active">Start</a>
+	<a routerLink="/session" routerLinkActive="active">Lernsessions</a>
+	<a routerLink="/module" routerLinkActive="active">MC-Sammlungen</a>
+	<a routerLink="/exam" routerLinkActive="active">Protokolle</a>
+	<a [routerLink]="['/user/edit/', auth.id]" routerLinkActive="active">Account</a>
 	<ng-container *ngIf="auth.admin">
-		<a routerLink="/admin">Admin</a>
-		<a routerLink="/users/view">Benutzer</a>
-		<a routerLink="/texts/view">Txt / Hlf</a>
+		<a routerLink="/admin" routerLinkActive="active">Admin</a>
+		<a routerLink="/users/view" routerLinkActive="active">Benutzer</a>
+		<a routerLink="/texts/view" routerLinkActive="active">Txt / Hlf</a>
 	</ng-container>
-	<a routerLink="/user/create">jmdn einladen</a>
-	<a routerLink="/door">Logout</a>
+	<a routerLink="/user/create" routerLinkActive="active">jmdn einladen</a>
+	<a routerLink="/door" routerLinkActive="active">Logout</a>
 </ng-container>
 <ng-container *ngIf="! auth.name">
-	<a routerLink="/door">Login</a>
+	<a routerLink="/door" routerLinkActive="active">Login</a>
 </ng-container>

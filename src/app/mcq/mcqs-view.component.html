@@ -1,7 +1,12 @@
 <h1>MC-Fragen</h1>
 
 <text-view [path]="'mcqs-view'"></text-view>
-
+<menu class="assoc">
+	<a class="btn btn-primary" [routerLink]="['/mcqs', 'view', module, '3', 'all', '2', '0']">alle</a>
+	<a class="btn btn-primary" [routerLink]="['/mcqs', 'view', module, '1', 'all', '2', '0']">gute</a>
+	<a class="btn btn-primary" [routerLink]="['/mcqs', 'view', module, '0', 'all', '2', '0']">schlechte</a>
+	<a class="btn btn-primary" [routerLink]="['/mcqs', 'view', module, '2', 'all', '2', '0']">unbewertete</a>
+	</menu>
 <ul>
 	<li *ngFor="let item of items">
 		<mcq-display *ngIf="item" [item]="item" [discussion]="discussion"></mcq-display>
@@ -9,6 +14,6 @@
 </ul>
 
 <menu class="bottom">
-	<a class="btn btn-back" routerLink="/dashboard">zurück</a>
+	<a class="btn btn-back" routerLink="/module">zurück</a>
 	<a class="btn btn-create" [routerLink]="['/mcq/create/', module]">MC-Frage erschaffen</a>
 </menu>

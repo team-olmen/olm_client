@@ -103,6 +103,7 @@ body {
 }
 
 body {
+	background-color: rgb(246,246,246);
 	&>header {
 		@include print-hide;
 		background-color: #000000;
@@ -114,6 +115,9 @@ body {
 }
 
 @mixin nav-link {
+	&.active {
+		color: rgb(123, 123, 255);
+	}
 }
 
 @mixin invisible-list {
@@ -139,7 +143,7 @@ nav {
 		font-size: 21px;
 	}
 
-	margin-top: 48px;
+	margin-top: 20px;
 	@media screen and (max-width: $responsive-break) {
 		background-color: black;
 		left: 0;
@@ -166,11 +170,10 @@ nav {
 }
 
 main {
-	margin: 48px 20px 0 20px;
+	margin: 20px 20px 0 20px;
 	@media screen and (min-width: $responsive-break) {
 		margin-left: 200px;
 	}
-	background-color: #FFFFFF;
 }
 
 footer {
@@ -600,5 +603,44 @@ div.input-group {
 	label {
 		display: inline-block;
 		width: auto;
+	}
+}
+
+div.panel {
+	cursor: pointer;
+	border: 1px solid rgb(235,225,225);
+	padding: 9px;
+	background-color: #fff;
+	border-radius: 4px;
+	margin-bottom: 13px;
+
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+
+	div.panel-header {
+		border-bottom: 1px solid rgb(235,225,225);
+
+		h2 > span {
+			float:right;
+			color:#eee;
+			font-size: 20px;
+
+			&.star {
+				color:yellow;
+			}
+		}
+	}
+
+	div.panel-body {
+	}
+
+	div.panel-footer {
+		a {
+			float: right;
+		}
+		border-top: 1px solid rgb(235,225,225);
 	}
 }

@@ -1,25 +1,20 @@
-<h1>MC-Sammlungen</h1>
-
-<ul class="items">
-	<li *ngFor="let module of modules">
-		<h2>
+<div *ngFor="let module of sortedModules()" class="panel" [@starred]="module.starred">
+	<div class="panel-header">
+		<h2 [routerLink]="['/mcqs', 'view', module.id, '3', 'all', '2', '0']">
+			<span [ngClass]="{'star': module.starred}" (click)="module.starred = !module.starred; $event.stopPropagation()" style="z-index: 99">★</span>
 			{{module.code}}: {{module.name}}
 			<ng-container *ngIf="auth.admin">({{module.order_num}})</ng-container>
 		</h2>
-		<menu class="assoc">
-		<a class="btn btn-primary" [routerLink]="['/mcqs', 'view', module.id, '3', 'all', '2', '0']">alle</a>
-		<a class="btn btn-primary" [routerLink]="['/mcqs', 'view', module.id, '1', 'all', '2', '0']">gute</a>
-		<a class="btn btn-primary" [routerLink]="['/mcqs', 'view', module.id, '0', 'all', '2', '0']">schlechte</a>
-		<a class="btn btn-primary" [routerLink]="['/mcqs', 'view', module.id, '2', 'all', '2', '0']">unbewertete</a>
-		<a class="btn btn-create" [routerLink]="['/mcq/create', module.id]">erstellen</a>
-		<ng-container *ngIf="auth.admin">
-			<a class="btn btn-edit" [routerLink]="['/module/edit', module.id, 'current']">bearbeiten</a>
-			<a class="btn btn-delete" [routerLink]="['/module/delete', module.id, 'current']">löschen</a>
-			<a class="btn btn-primary" [routerLink]="['/module/history', module.id]">History</a>
-		</ng-container>
-		</menu>
-	</li>
-</ul>
+	</div>
+	<div class="panel-body">
+		Details
+	</div>
+	<div class="panel-footer" *ngIf="auth.admin">
+		<a class="btn btn-edit" [routerLink]="['/module/edit', module.id, 'current']">bearbeiten</a>
+		<a class="btn btn-delete" [routerLink]="['/module/delete', module.id, 'current']">löschen</a>
+		<a class="btn btn-primary" [routerLink]="['/module/history', module.id]">History</a>
+	</div>
+</div>
 
 <menu class="bottom">
 	<a *ngIf="auth.admin" class="btn btn-create" routerLink="/module/create">Neue MC-Sammlung anlegen</a>
