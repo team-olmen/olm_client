@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/team-olmen/olm_client.svg?branch=master)](https://travis-ci.org/team-olmen/olm_client)
+
 # Olm Client 
 
 Client for students to create multiple choice questions to test their knowledge of the stuff they've learned.
@@ -47,7 +49,7 @@ There might be some warnings about unmet peer dependencies. **Ignore them**. The
 
 You should be all set up now. And ready to work on the code. If you run into errors, go ahead and fix them (or report them to me ;) ). Same applies to this documentation which will - with your help - improve over time.
 
-There are two options how you can see your code in action:
+We use the **angular cli**, which gives you two options how you can see your code in action:
 
 1.  Compile ("transpile") **J**ust-**I**n-**T**ime:
 
@@ -62,60 +64,26 @@ There are two options how you can see your code in action:
 Simply run:
 
 ```bash
-npm start
+ng serve
 ```
 
 Your browser will be fired up and the project is served to you.
-
-**Note**: This uses `src/index.html`.
 
 #### Compile Ahea-Of-Time
 
 After you compiled the project ahead-of-time the `/dist` folder will be populated. If you want to deploy the compiled project you'll need to transfer the contents of this folder to your server. Make sure the index.html will be found at the domain's / subdomain's root.
 
-If you update dependencies like `zone.js` or `shim.js` **or compile the code for the first time**, you'll need to run the following first:
-
-```bash
-node copy-dist-files.js
-```
-
-This will copy the necessary files to `/dist`.
-
 ##### Compile & Uglify:
 
 ```bash
-npm run build:aot
+ng build --prod
 ```
 
-##### Compile & Uglify & Serve:
+Different environments (aka configurations) can be loaded with
+
 
 ```bash
-npm run buildnserve:aot
-```
-
-##### Serve compiled:
-
-```bash
-npm run serve:aot
-```
-
-**Remember**: JIT and AOT have different `index.html` files. If you need to change those, you will have to change both files (in `/src` for JIT and in `/dist` for AOT).
-
-#### Update styles
-
-Style information is written in `.scss` and can be found in `/src/scss`. To keep compiling `.scss` to `.css` run:
-
-```bash
-sass --watch src/scss/styles.scss:src/styles.css src/scss/styles.scss:dist/styles.css"
-```
-
-This will update the `styles.css` in both `/dist` and `/src` as soon as you save any changes.
-
-If you happen to be on a system with a BASH (if you're stuck on Win10 <https://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/>) you may add something like the following to your `~/.bash_aliases` / `~/.bash_rc` or whatever is your system's bash config:
-
-```bash
-export $path_olm_client="/PATH/TO/THE/CODE"
-alias olm_client_scss="sass --watch $path_olm_client/src/scss/styles.scss:$path_olm_client/src/styles.css $path_olm_client/src/scss/styles.scss:$path_olm_client/dist/styles.css"
+ng build --prod -e <your-environment>
 ```
 
 ## Improving the code
@@ -142,18 +110,6 @@ To mark pre-releases you may add:
 
 ### Deploying
 
-To deploy changes to the Olm-Client compile a new build with
-```bash
-npm run build:aot
-```
-.
-To deploy changes to *test environment* on *<http://client-test.olmen.de>* push the files in `dist` to the git repository on <https://github.com/team-olmen/olmen-client-build> *on branch `develop`*.
-To deploy changes to *production environment* on *<http://olmen.de> push the files in `dist`to the git repository on <https://github.com/team-olmen/olmen-client-build> *on branch `master`*.
-
-You have to initialize a git repository in your `/dist` folder when deploying the first time and set up a remote to <ssh://github.com:team-olmen/olmen-client-build.git>.
-To do so go to your `/dist` folder an run:
-```bash
-git init
-git remote add origin git@github.com:team-olmen/olmen-client-build.git
-git branch --set-upstream-to=origin/master master
-```
+We have a Travis CI setup on travis-ci.org which does the testing, building and deploying for us.
+Go ahead and read the docs to find more about it.
+In general changes pushed on branch master will be deployed to *<http://olmen.de>*. Changes pushed to branch develop will be deployed to *<http://client-test.olmen.de>*.

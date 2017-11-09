@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - "6.9"
+  - "7.10.0"
 
 branches:
   only:
@@ -13,4 +13,5 @@ before_script:
 script:
   - ng build --prod
 
-after_success:
+deploy:
+  
