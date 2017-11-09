@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+  - "6.9"
+
+branches:
+  only:
+    - master
+    - develop
+
+before_script:
+  - npm install -g @angular/cli
+
+script:
+  - ng build --prod
+
+after_success:
