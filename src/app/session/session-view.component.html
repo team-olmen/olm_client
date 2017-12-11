@@ -12,7 +12,7 @@
 		<menu class="top">
 			<button [ngClass]="{'btn-rated-negative':mcq.rated<0}" class="btn btn-rate"(click)="rate(mcq.rated === -1 ? 0 : -1)">👎</button>
 			<strong>{{mcq.rating}}</strong>
-			<button [ngClass]="{'btn-rated-positive':mcq.rated>0}" class="btn btn-rate" (click)="rate(mcq.rated === 1 ? 0 : 👍)">+</button>
+			<button [ngClass]="{'btn-rated-positive':mcq.rated>0}" class="btn btn-rate" (click)="rate(mcq.rated === 1 ? 0 : 1)">👍</button>
 			<a class="btn btn-primary" (click)="discussion=!discussion">kommentieren</a>
 		</menu>
 		<p>{{mcq.question}}</p>
