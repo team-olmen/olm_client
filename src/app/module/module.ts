@@ -3,8 +3,9 @@ export class Module {
 	public id: number
 	public code: string
 	public name: string
+	public category: string
 
-	constructor(init: any = {}) {this.id = init.id; this.code = init.code; this.name = init.name;}
+	constructor(init: any = {}) {this.id = init.id; this.code = init.code; this.name = init.name; this.category = init.category;}
 
 	get starred() {
 		return !!(window.localStorage.getItem('starred') || '').split(',').find(s => Number(s) == this.id);

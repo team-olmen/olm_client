@@ -4,9 +4,29 @@ import { Module } from './module';
 
 import { OlmService } from '../services/olm.service';
 
+import {
+	trigger,
+	state,
+	style,
+	animate,
+	transition,
+	keyframes
+} from '@angular/animations';
+
 @Component({
 	selector: 'module-list',
 	templateUrl: './module-list.component.html',
+	animations: [
+		trigger('starred', [
+			transition('1 => *', [
+				animate(300, keyframes([
+					style({transform: 'scale(1)', offset: 0}),
+					style({transform: 'scale(1.2)', offset: 0.5}),
+					style({transform: 'scale(1)', offset: 1.0})
+				]))
+			]),
+		])
+	]
 })
 
 export class ModuleListComponent implements OnInit {
