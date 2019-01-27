@@ -8,6 +8,7 @@ import { AlertService } from '../services/alert.service';
 import { OlmService } from '../services/olm.service';
 
 import 'rxjs/add/operator/switchMap';
+import { Module } from '../module/module';
 
 @Component({
 	selector: 'mcqs-view',
@@ -15,11 +16,7 @@ import 'rxjs/add/operator/switchMap';
 })
 
 export class McqsViewComponent implements OnInit {
-	module: number = -1;
-	rating: number = -1;
-	generation: string = 'all';
-	original: number = 0;
-	number: number = 0;
+	module: Module = new Module;
 	items: Mcq[] = [];
 	auth: any = {};
 	discussion: boolean = false;
@@ -35,18 +32,16 @@ export class McqsViewComponent implements OnInit {
 	ngOnInit() {
 		this.olmService.getAuth().subscribe(auth => this.auth = auth);
 		this.route.params
-			.switchMap((params: Params) => {
-				this.module = params['module'];
-				this.rating = params['rating'];
-				this.generation = params['generation'];
-				this.original = params['original'];
-				this.number = params['number'];
-				return this.olmService.apiReadMcqs(
-					this.module, this.rating, this.generation, this.original, this.number
-				);
-			})
-			.subscribe(result => {
+			.switchMap((params: Params) => this.olmService.apiReadMcqs(
+				params['module'], params['rating'], params['generation'], params['original'], params['number']
+			))
+			.subscribe((result: Mcq[]) => {
 				this.items = result;
+			});
+		this.route.params
+			.switchMap((params: Params) => this.olmService.apiRead('module', params['module'], 'current'))
+			.subscribe((result: Module) => {
+				this.module = result;
 			});
 	}
 }
